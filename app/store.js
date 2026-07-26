@@ -93,7 +93,7 @@ export const alleenLezen = () => Boolean(voortgang?._teNieuw);
 
 export function standVan(soortId) {
   return voortgang.soorten[soortId] ?? {
-    box: 0, gezien: 0, fout: 0, laatsteReview: null, volgendeReview: null,
+    box: 0, gezien: 0, fout: 0, extraGoed: 0, laatsteReview: null, volgendeReview: null,
   };
 }
 

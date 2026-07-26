@@ -97,13 +97,28 @@ store.wisAlles(); store.laad();
   const voor = store.standVan(daarna[0].soortId);
   leitner.verwerkAntwoord(daarna[0].soortId, true, { extra: true });
   const na = store.standVan(daarna[0].soortId);
-  ok('goed antwoord bij vrij oefenen verzet het schema niet',
+  ok('één goed antwoord bij vrij oefenen verzet het schema nog niet',
     na.box === voor.box && na.volgendeReview === voor.volgendeReview);
   leitner.verwerkAntwoord(daarna[0].soortId, false, { extra: true });
-  ok('fout antwoord telt wel, ook bij vrij oefenen', store.standVan(daarna[0].soortId).box === 1);
+  ok('fout antwoord telt wel meteen, ook bij vrij oefenen', store.standVan(daarna[0].soortId).box === 1);
 
   ok('voortgang beweegt meteen, niet pas bij boekje 4',
     leitner.voortgangPercentage(mod.map((s) => s.id)) > 0);
+
+  const soortId = daarna[0].soortId;
+  const boxVoorReeks = store.standVan(soortId).box;
+  for (let i = 0; i < leitner.EXTRA_DREMPEL - 1; i += 1) leitner.verwerkAntwoord(soortId, true, { extra: true });
+  ok(`nog geen promotie na ${leitner.EXTRA_DREMPEL - 1} goede antwoorden op rij`,
+    store.standVan(soortId).box === boxVoorReeks);
+  leitner.verwerkAntwoord(soortId, true, { extra: true });
+  ok(`wel promotie na ${leitner.EXTRA_DREMPEL} goede antwoorden op rij in vrij oefenen`,
+    store.standVan(soortId).box === Math.min(leitner.MAX_BOX, Math.max(1, boxVoorReeks) + 1)
+    && store.standVan(soortId).extraGoed === 0);
+
+  leitner.verwerkAntwoord(soortId, true, { extra: true });
+  leitner.verwerkAntwoord(soortId, false, { extra: true });
+  ok('een fout antwoord onderbreekt de reeks goede antwoorden in vrij oefenen',
+    store.standVan(soortId).extraGoed === 0);
 }
 
 console.log('== alleen goedgekeurde fotos in de quiz ==');

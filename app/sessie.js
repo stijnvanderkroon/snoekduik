@@ -319,7 +319,8 @@ export function bouwSessie(alleSoorten, { moduleFilter = null, nu = Date.now() }
   }
 
   // Niets te herhalen en niets nieuws? Dan een vrije oefenronde, zodat de app
-  // niet stilvalt. Deze vragen verzetten het schema niet, zie `extra`.
+  // niet stilvalt. Goede antwoorden tellen hier minder mee, zie `extra` in
+  // leitner.js: `verwerkAntwoord`.
   if (items.length === 0) {
     for (const soort of oefenKandidaten(inScope).slice(0, SESSIE_LENGTE)) {
       const vraag = maakVraag(soort, bruikbaar, kiesType(standVan(soort.id).box));
@@ -348,9 +349,10 @@ export function bouwSessie(alleSoorten, { moduleFilter = null, nu = Date.now() }
  * binnen de sessie. Elke speelbare soort komt precies één keer langs, zodat de
  * uitslag iets zegt over de hele module.
  *
- * Een toets verzet het herhaalschema niet bij een goed antwoord (`extra`): je
- * kunt hem zo vaak doen als je wilt zonder de spreiding te slopen. Fouten tellen
- * wel, want die zeggen echt iets.
+ * Een goed antwoord telt hier net als bij vrij oefenen (`extra`) maar een
+ * fractie van een promotie, zie `verwerkAntwoord` in leitner.js. Zo kun je een
+ * toets zo vaak doen als je wilt zonder in één keer alles te maxen. Fouten
+ * tellen altijd meteen, want die zeggen echt iets.
  */
 export function bouwToets(alleSoorten, module) {
   const bruikbaar = alleSoorten.filter(heeftQuizFoto);
