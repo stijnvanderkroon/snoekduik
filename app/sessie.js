@@ -343,6 +343,27 @@ export function bouwSessie(alleSoorten, { moduleFilter = null, nu = Date.now() }
   return kort;
 }
 
+/**
+ * Een toets: puur vragen over één module, geen leerkaarten en geen herhalingen
+ * binnen de sessie. Elke speelbare soort komt precies één keer langs, zodat de
+ * uitslag iets zegt over de hele module.
+ *
+ * Een toets verzet het herhaalschema niet bij een goed antwoord (`extra`): je
+ * kunt hem zo vaak doen als je wilt zonder de spreiding te slopen. Fouten tellen
+ * wel, want die zeggen echt iets.
+ */
+export function bouwToets(alleSoorten, module) {
+  const bruikbaar = alleSoorten.filter(heeftQuizFoto);
+  const inModule = schud(bruikbaar.filter((s) => s.module === module));
+
+  const items = [];
+  for (const soort of inModule) {
+    const vraag = maakVraag(soort, bruikbaar, kiesType(standVan(soort.id).box || 1));
+    if (vraag) items.push({ soort: 'vraag', toets: true, extra: true, ...vraag });
+  }
+  return items;
+}
+
 /** Telt wat er klaarstaat, voor de tekst op het startscherm. */
 export function watStaatKlaar(alleSoorten, nu = Date.now()) {
   const bruikbaar = alleSoorten.filter(heeftQuizFoto);

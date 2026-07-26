@@ -54,7 +54,9 @@ export function verwerkAntwoord(soortId, goed, { nu = Date.now(), extra = false 
     volgendeReview: nu + INTERVALLEN[box] * DAG,
   };
   zetStand(soortId, nieuw);
-  return { vorigeBox: vorige.box, nieuweBox: box, omhoog: box > vorige.box };
+  // Alleen een goed antwoord is vooruitgang. Bij een fout op een nog ongeziene
+  // soort gaat boekje 0 naar 1, en dat is geen promotie maar een start.
+  return { vorigeBox: vorige.box, nieuweBox: box, omhoog: goed && box > vorige.box };
 }
 
 /** Zet een soort op boekje 1 zodra de leerkaart is gezien, nog zonder toetsing. */

@@ -4,7 +4,7 @@ import { route, start, huidigPad } from './router.js';
 import { laadSoorten } from './data.js';
 import { laad as laadVoortgang, instellingen } from './store.js';
 import { $, toon } from './ui.js';
-import { toonStart, toonSessie } from './views-leren.js';
+import { toonStart, toonSessie, toonToetsKeuze, toonToets } from './views-leren.js';
 import { toonModules, toonSoorten, toonSoort } from './views-naslag.js';
 import { toonLevenslijst, toonIk, toonGemaakt } from './views-ik.js';
 import { toonFeedback } from './views-feedback.js';
@@ -44,6 +44,8 @@ async function begin() {
   route('/', metTabs(toonStart));
   route('/sessie', metTabs(() => toonSessie({})));
   route('/sessie/:module', metTabs(({ module }) => toonSessie({ module })));
+  route('/toets', metTabs(toonToetsKeuze));
+  route('/toets/:module', metTabs(toonToets));
   route('/modules', metTabs(toonModules));
   route('/soorten', metTabs(toonSoorten));
   route('/soort/:id', metTabs(toonSoort));

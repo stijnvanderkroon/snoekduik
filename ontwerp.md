@@ -101,6 +101,20 @@ Een korte, feitelijke afsluiting.
 Geen confetti, geen puntentelling, geen aanmoediging om door te gaan. Het scherm
 is een afsluiting, geen doorstart.
 
+### 2.3b Toets: test mijn kennis
+
+Kies een module en krijg uitsluitend vragen, geen leerkaarten. Elke speelbare
+soort uit die module komt precies één keer langs, dus de uitslag zegt iets over
+de hele module. Fout beantwoorde vragen komen niet terug binnen de toets: de
+lengte ligt vast.
+
+Aan het eind een score in het groot. Dat is geen puntensysteem dat oploopt en
+nergens wordt bewaard; het is de uitkomst van deze ene toets.
+
+Een goed antwoord in een toets verzet het herhaalschema niet, net als bij vrij
+oefenen. Anders zou je jezelf naar boekje 5 kunnen toetsen. Een fout antwoord
+telt wel mee.
+
 ### 2.4 Modules
 
 Acht modules als kaarten met een voortgangsring: eerste-duik (12), witvis (8),
@@ -117,7 +131,9 @@ verschijnen met lege of slechte platen.
 
 ### 2.5 Soorten (naslag)
 
-Zoekbare lijst, filterbaar op module, leefgebied, zone en inheems/exoot. Dit is
+Zoekbare lijst met een keuzelijst voor de module, plus chips voor groep,
+speelbaarheid en exoot. Zonder modulefilter staat bij elke soort welke module
+het is, zodat je ziet waar iets bij hoort. Dit is
 het scherm dat na een duik gebruikt wordt: "wat was dat nou". Werkt offline en
 staat los van de leervoortgang.
 

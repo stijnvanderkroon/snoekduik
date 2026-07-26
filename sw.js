@@ -6,7 +6,7 @@
  *    veranderen nooit en zijn het zwaarste onderdeel
  */
 
-const VERSIE = 'snoekduik-v3';
+const VERSIE = 'snoekduik-v4';
 const SCHIL = `${VERSIE}-schil`;
 const FOTOS = `${VERSIE}-fotos`;
 const MAX_FOTOS = 400;
