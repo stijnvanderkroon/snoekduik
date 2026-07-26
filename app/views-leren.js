@@ -240,8 +240,14 @@ function toonFeedback(vraag, gekozenId, goed, doel, gekozenSoort) {
   const bestaand = $('.fb');
   if (bestaand) bestaand.remove();
 
-  const doelFoto = quizFotos(doel)[0] ?? doel.fotos[0];
-  const foutFoto = gekozenSoort ? (quizFotos(gekozenSoort)[0] ?? gekozenSoort.fotos[0]) : null;
+  // De vergelijking moet de foto's tonen die je net gezien hebt, niet zomaar de
+  // eerste van die soort. Bij "welke foto is een ..." zaten beide in de opties;
+  // bij de andere types is de vraagfoto de juiste. Een andere foto naast het
+  // label "juist" zetten is precies het verwarrende dat dit scherm moet oplossen.
+  const optieFoto = (id) => vraag.opties?.find((o) => o.id === id)?.foto ?? null;
+  const doelFoto = optieFoto(vraag.goed) ?? vraag.foto ?? quizFotos(doel)[0] ?? doel.fotos[0];
+  const foutFoto = optieFoto(gekozenId)
+    ?? (gekozenSoort ? (quizFotos(gekozenSoort)[0] ?? gekozenSoort.fotos[0]) : null);
   const zelfdeFoto = foutFoto && doelFoto && foutFoto.bronUrl === doelFoto.bronUrl;
 
   // De ene regel die de twee soorten scheidt: de belangrijkste tekst in de app.
@@ -264,7 +270,7 @@ function toonFeedback(vraag, gekozenId, goed, doel, gekozenSoort) {
 
   document.body.classList.add('feedback-open');
   document.body.appendChild(el(`
-    <div class="fb ${goed ? '' : 'mis'}">
+    <div class="fb ${goed ? '' : 'mis'}" data-type="${esc(vraag.type)}">
       <h2>${esc(kop)}</h2>
       ${vergelijking}
       ${sleutel ? `<div class="sleutel"><strong>Het verschil:</strong> ${esc(sleutel)}</div>` : ''}
