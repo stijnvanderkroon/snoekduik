@@ -246,9 +246,23 @@ window.document.getElementById("beginnen").click();
 ok("beginnen onthoudt dat je het gezien hebt", store.instellingen().welkomGezien === true);
 
 console.log("== over mij ==");
+const overMijGevuld = /OVER_MIJ = `[^`]*[A-Za-z]/.test(readOverMij);
+for (const [naam, fn] of [["verantwoording", () => ik.toonGemaakt()], ["welkomsscherm", () => wk.toonWelkom()]]) {
+  fn();
+  ok(`over-mij op het ${naam}`, /Over mij/.test(tekst()) === overMijGevuld);
+}
 ik.toonGemaakt();
-const leeg = /Over mij/.test(tekst());
-ok("leeg over-mij blok wordt niet getoond", !leeg || /Over mij/.test(readOverMij));
+ok("over-mij tussen wat-er-niet-in-zit en de fotografen", (() => {
+  const k = [...window.document.querySelectorAll(".blokkop")].map((e) => e.textContent.trim());
+  const i = k.indexOf("Over mij");
+  return !overMijGevuld || (i > k.indexOf("Wat er niet in zit") && i < k.indexOf("Fotografen en licenties"));
+})());
+ok("regelafbrekingen worden geen woordplakkers", (() => {
+  // Alleen de over-mij alineas: elders plakt textContent losse blokken aan elkaar.
+  const kaart = [...window.document.querySelectorAll(".kaart")].find((k) => /Over mij/.test(k.textContent));
+  if (!kaart) return !overMijGevuld;
+  return [...kaart.querySelectorAll("p")].every((p) => !/\S{25,}/.test(p.textContent));
+})());
 
 console.log(`\nconsole-fouten: ${fouten.length}`);
 for (const f of fouten.slice(0, 10)) console.log(`  ${f}`);

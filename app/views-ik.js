@@ -1,6 +1,6 @@
 /** Levenslijst, instellingen en de verantwoordingspagina. */
 
-import { esc, $, toon, datumNL, bevestig } from './ui.js';
+import { esc, $, toon, datumNL, bevestig, alineas } from './ui.js';
 import { OVER_MIJ, OVER_MIJ_KOP } from './over-mij.js';
 import { ga } from './router.js';
 import { soorten, soortOpId, streefFotos, statistiek } from './data.js';
@@ -127,21 +127,13 @@ export function toonIk() {
 
 // ---- hoe dit gemaakt is -----------------------------------------------------
 
-/**
- * De tekst uit over-mij.js, als alinea's. Lege regels scheiden alinea's, en de
- * inhoud wordt ontsmet zodat een losse < of & niets sloopt.
- */
+/** Het over-mij blok, of niets als de tekst leeg is. */
 function overMijBlok() {
-  const tekst = (OVER_MIJ ?? '').trim();
-  if (!tekst) return '';
-  // Een lege regel scheidt alinea's. Losse regelafbrekingen binnen een alinea
-  // zijn opmaak van het bronbestand, geen bedoelde afbreking, dus die worden spaties.
-  const alineas = tekst.split(/\n\s*\n/)
-    .map((a) => `<p style="margin:.2rem 0">${esc(a.trim().replace(/\s*\n\s*/g, ' '))}</p>`)
-    .join('');
+  const inhoud = alineas(OVER_MIJ);
+  if (!inhoud) return '';
   return `<div class="kaart">
       <div class="blokkop">${esc(OVER_MIJ_KOP)}</div>
-      ${alineas}
+      ${inhoud}
     </div>`;
 }
 

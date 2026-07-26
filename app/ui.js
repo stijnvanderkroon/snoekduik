@@ -28,6 +28,19 @@ export function attributie(foto) {
 export const ongekeurdLabel = (foto) =>
   foto && !foto.gekeurd ? '<span class="chip let">nog niet gekeurd</span>' : '';
 
+/**
+ * Vrije tekst als alinea's. Een lege regel begint een nieuwe alinea; losse
+ * regelafbrekingen zijn opmaak van het bronbestand en worden spaties, anders
+ * breekt een zin af op een willekeurige plek. Inhoud wordt ontsmet.
+ */
+export function alineas(tekst, stijl = 'margin:.2rem 0') {
+  const schoon = (tekst ?? '').trim();
+  if (!schoon) return '';
+  return schoon.split(/\n\s*\n/)
+    .map((a) => `<p style="${stijl}">${esc(a.trim().replace(/\s*\n\s*/g, ' '))}</p>`)
+    .join('');
+}
+
 export function toon(html) {
   const scherm = $('#scherm');
   scherm.replaceChildren(typeof html === 'string' ? el(`<div>${html}</div>`) : html);
