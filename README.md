@@ -146,7 +146,6 @@ De app hoeft daarvoor niet aangepast te worden.
 | `tools/` | server, tests en fototriage, niet gepubliceerd |
 | `logos/` | merkbestanden |
 | `ontwerp.md` | schermen, leercyclus en de gemaakte keuzes |
-| `feedback-formulieren.md` | opzet van de drie Google Forms |
 | `brief.md` | achtergrond en afwegingen |
 | `CLAUDE.md` | randvoorwaarden voor wie eraan werkt |
 
