@@ -47,9 +47,10 @@ Zoek op soort, niet op land — een snoek in Tsjechië ziet er hetzelfde uit.
   waardeloos (snoek vs. zwanenmossel leert niemand iets).
 - **Spaced repetition, Leitner met 5 boxen.** Geen lineaire "les 1, les 2".
   Modules zijn ingangen, geen verplichte volgorde.
-- **Zichtsimulatie als moeilijkheidsgraad.** CSS-filter over de quizfoto:
-  helder → groenzweem/contrastverlies → nachtduik met lampbundel.
-  Dit is de moeilijkheidsknop, niet obscuurdere soorten.
+- **Moeilijkheid loopt via het vraagtype, niet via zeldzamere soorten.**
+  Boekje 1 is foto naar naam, hoger op komen uitsnede en A-of-B, want daar zit
+  de leerwinst bij verwarparen. Zichtsimulatie (een filter over de quizfoto) is
+  overwogen en bewust geschrapt: niet ondersteund.
 - **Geen verslavende patronen.** Geen levens/hartjes, maar ook geen streak, XP,
   badges of notificaties. Dit is een hulpmiddel, geen spel: het mag laten zien
   waar je staat, maar nooit iets doen om je terug te halen. Falen mag geen sessie

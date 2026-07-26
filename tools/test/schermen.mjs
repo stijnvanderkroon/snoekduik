@@ -61,12 +61,14 @@ const router = await import(`${ROOT}/app/router.js`);
 const leren = await import(`${ROOT}/app/views-leren.js`);
 const naslag = await import(`${ROOT}/app/views-naslag.js`);
 const ik = await import(`${ROOT}/app/views-ik.js`);
+const fb = await import(`${ROOT}/app/views-feedback.js`);
 
 store.laad();
 await data.laadSoorten();
 // Zonder deze schakelaar zijn eerste-duik en witvis leeg, dus de demo zou niks tonen.
 store.zetInstelling('ongekeurdToestaan', true);
 
+const readmeCss = readFileSync(`${ROOT}/app/app.css`, 'utf8');
 const scherm = () => window.document.getElementById('scherm');
 const tekst = () => scherm().textContent.replace(/\s+/g, ' ').trim();
 
@@ -80,6 +82,7 @@ const schermen = [
   ['levenslijst', () => ik.toonLevenslijst()],
   ['ik', () => ik.toonIk()],
   ['hoe gemaakt', () => ik.toonGemaakt()],
+  ['feedback', () => fb.toonFeedback()],
 ];
 for (const [naam, fn] of schermen) {
   try {
@@ -168,17 +171,60 @@ try {
   const oefen = window.document.getElementById("oefen");
   ok("oefenknop bestaat", Boolean(oefen));
   naslag.toonModules();
+  const perModule = new Map();
+  for (const s of data.soorten()) {
+    const v = perModule.get(s.module) ?? { speelbaar: 0 };
+    if (s.fotos.some((f) => f.gekeurd)) v.speelbaar += 1;
+    perModule.set(s.module, v);
+  }
+  const legeModules = [...perModule.entries()].filter(([, v]) => v.speelbaar === 0).map(([m]) => m);
   const uitKaarten = window.document.querySelectorAll(".mod.uit").length;
-  ok("modules zonder voorraad staan uit", uitKaarten > 0, `(${uitKaarten} van 8)`);
-  ok("modules toont in voorbereiding", /in voorbereiding/.test(tekst()));
-  leren.toonSessie({ module: "eerste-duik" });
-  ok("lege module valt netjes terug", /niets om te oefenen/i.test(tekst()), `-> "${tekst().slice(0,60)}"`);
-  ok("lege module verlaat quizmodus", !window.document.body.classList.contains("quiz"));
+  ok("aantal grijze modulekaarten klopt met de data", uitKaarten === legeModules.length,
+    `(${uitKaarten} kaarten, ${legeModules.length} lege modules)`);
+  if (legeModules.length) {
+    ok("modules toont in voorbereiding", /in voorbereiding/.test(tekst()));
+    leren.toonSessie({ module: legeModules[0] });
+    ok("lege module valt netjes terug", /niets om te oefenen/i.test(tekst()), `-> "${tekst().slice(0, 60)}"`);
+    ok("lege module verlaat quizmodus", !window.document.body.classList.contains("quiz"));
+  } else {
+    console.log("  (geen lege modules meer, die controles overgeslagen)");
+  }
   naslag.toonSoort({ id: "snoek" });
   ok("soortdetail werkt ook zonder gekeurde fotos", /Snoek/.test(tekst()));
 } catch (err) {
   ok("standaardsituatie", false, `wierp: ${err.message}`);
 }
+
+
+console.log("== zichtsimulatie is weg ==");
+ok("geen zichtinstelling meer", window.document.getElementById("zicht") === null);
+ok("geen zichtklassen in de quiz", !readmeCss.includes(".zicht-1"));
+ok("geen zichtlabel in de dom", window.document.querySelector(".zichtlabel") === null);
+
+console.log("== feedback ==");
+fb.toonFeedback();
+const ft = tekst();
+ok("noemt de drie formulieren", /mijn foto/i.test(ft) && /onderwaterfoto/i.test(ft) && /Verbetering/i.test(ft));
+ok("zegt dat niet alles beantwoord wordt", /niet op alles reageren/i.test(ft));
+ok("zegt dat het niet persoonlijk is", /niet persoonlijk/i.test(ft));
+ok("legt de rechten bij bijdragen uit", /geen vergoeding/i.test(ft));
+ok("noemt de fotocode", /F-[A-Z0-9]{6}/.test(ft));
+ok("heeft een uitklapper met gewilde soorten", window.document.querySelector("details.gewild, details.uitklap") !== null);
+ok("lege formulierlinks worden uitgeschakeld",
+  [...window.document.querySelectorAll(".kaart .knop")].every((k) => k.tagName === "BUTTON" ? k.disabled : true));
+
+console.log("== fotocodes ==");
+naslag.toonSoort({ id: "snoek" });
+ok("soortdetail toont een fotocode", /F-[A-Z0-9]{6}/.test(tekst()));
+const alleFotos = data.soorten().flatMap((s) => s.fotos);
+ok("elke foto heeft een unieke code",
+  new Set(alleFotos.map((f) => f.code)).size === alleFotos.length,
+  `(${alleFotos.length} fotos)`);
+
+console.log("== feedbackknop ==");
+ok("knop staat altijd in de pagina", window.document.querySelector(".feedbackknop") !== null);
+ok("knop wijst naar het feedbackscherm",
+  window.document.querySelector(".feedbackknop").getAttribute("href") === "#/feedback");
 
 console.log(`\nconsole-fouten: ${fouten.length}`);
 for (const f of fouten.slice(0, 10)) console.log(`  ${f}`);

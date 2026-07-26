@@ -38,7 +38,7 @@ Tegen-intuïtief voor een onderwaterapp, maar deze app wordt aan de waterkant in
 fel daglicht gebruikt, vaak met natte handen en een telefoon op halve helderheid.
 Crème achtergrond met diep teal tekst leest daar aanzienlijk beter dan een donker
 thema. De uitzondering is het quizscherm: dat krijgt een donkere teal achtergrond
-zodat de foto alle aandacht pakt en de zichtsimulatie klopt. `prefers-color-scheme:
+zodat de foto alle aandacht pakt. `prefers-color-scheme:
 dark` wordt gerespecteerd voor wie 's avonds leert.
 
 ### Typografie
@@ -137,7 +137,6 @@ logboek bij, dit is geen tweede logboek maar een soortenteller.
 
 ### 2.8 Ik / instellingen
 
-- Zichtniveau (zie 5)
 - Export en import van voortgang als JSON, prominent en met uitleg waarom
 - PWA-installatie, met de Safari-reden erbij als praktische waarschuwing en niet
   als verkooppraatje
@@ -193,7 +192,7 @@ De moeilijkheid loopt op met het boekje, en dat is precies waar de leerwinst zit
 | 2 | foto naar naam, A of B |
 | 3 | A of B, uitsnede, zone of leefgebied |
 | 4 | uitsnede, gedrag, inheems of exoot, formaat schatten |
-| 5 | uitsnede met zichtsimulatie, gemengd |
+| 5 | uitsnede, A of B, gemengd |
 
 Afleiders komen altijd eerst uit `verwardMet` van de doelsoort. Pas als die op
 zijn, uit dezelfde `groep` en `leefgebied`. Willekeurige afleiders bestaan niet.
@@ -261,25 +260,19 @@ Dit maakt van fotoschaarste een graduele verschraling in plaats van een crash.
 
 ---
 
-## 5. Zichtsimulatie: knoop doorgehakt
+## 5. Zichtsimulatie: geschrapt
 
-`brief.md` liet open of dit één globaal CSS-filter wordt of per foto ingesteld,
-omdat sommige foto's al troebel zijn. Het wordt **allebei**, in deze vorm:
+Eerder stond hier een uitgewerkt voorstel voor een filter over de quizfoto, met
+vier niveaus van helder tot nachtduik, gekoppeld aan het Leitner-boekje. Dat is
+gebouwd en weer verwijderd: het wordt niet ondersteund.
 
-- Vier niveaus: helder, groenzweem, troebel, nachtduik met lampbundel
-- Het niveau volgt standaard het Leitner-boekje (boekje 1 tot 2 helder, 3 groen,
-  4 troebel, 5 nachtduik) en is met de hand te overschrijven in instellingen
-- Elke foto krijgt een veld `zichtBasis` (helder, matig, troebel), ingevuld
-  tijdens de triage
-- Het toegepaste filter is het **verschil** tussen doelniveau en basis, niet het
-  doelniveau zelf. Een foto die al troebel is krijgt op niveau "troebel" geen
-  extra filter, en wordt op niveau "helder" niet kunstmatig opgehelderd, maar
-  gewoon getoond met een notitie
-- Implementatie met CSS `filter` en een overlay met `mix-blend-mode`, geen canvas
+De moeilijkheid loopt daardoor volledig via het vraagtype, dat oploopt met het
+boekje: foto naar naam onderin, uitsnede en A-of-B bovenin. Nog steeds oplopend
+en nog steeds gericht op verwarparen, alleen zonder beeldbewerking.
 
-Kosten: één extra veld per foto en één klik tijdens triage. Zonder dit wordt een
-al troebele foto op niveau 4 volstrekt onleesbaar, wat niet moeilijker is maar
-kapot.
+Wie het alsnog wil: de opzet was een veld `zichtBasis` per foto en een filter
+dat het verschil toepast tussen doelniveau en die basis, zodat een al troebele
+foto niet dubbel vertroebeld wordt.
 
 ---
 
@@ -291,7 +284,7 @@ Uitbreiding op de schets in `brief.md`, niet iets nieuws.
 snoekduik.progress.v1
   schemaVersion: 1
   soorten: { <id>: { box, gezien, fout, laatsteReview, volgendeReview } }
-  instellingen: { zichtniveau, zichtAutomatisch }
+  instellingen: { ongekeurdToestaan }
   verwarparen: { "<idA>|<idB>": { fout, totaal } }
   sessie: { actief, items, positie }
 
@@ -418,7 +411,7 @@ achteraf niets gereconstrueerd te worden.
 4. Sessie-engine met vraagtype 1 en 4, plus de terugvalregels
 5. Leitner en localStorage met export/import en migratie
 6. PWA: manifest, service worker, installatieprompt
-7. Zichtsimulatie en de overige vraagtypes
+7. Overige vraagtypes
 8. Levenslijst
 9. Overige modules
 
