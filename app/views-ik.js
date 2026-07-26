@@ -5,7 +5,7 @@ import { ga } from './router.js';
 import { soorten, soortOpId, streefFotos, statistiek } from './data.js';
 import { aantalBeheerst } from './leitner.js';
 import {
-  instellingen, zetInstelling, waarnemingen, voegWaarnemingToe, verwijderWaarneming,
+  waarnemingen, voegWaarnemingToe, verwijderWaarneming,
   exporteerAlles, importeerAlles, wisAlles, alleenLezen,
 } from './store.js';
 
@@ -66,7 +66,6 @@ export function toonLevenslijst() {
 
 export function toonIk() {
   document.body.classList.remove('quiz');
-  const inst = instellingen();
   const alle = soorten();
   const beheerst = aantalBeheerst(alle.map((s) => s.id));
 
@@ -91,26 +90,9 @@ export function toonIk() {
       <input type="file" id="bestand" accept="application/json" hidden>
     </div>
 
-    <div class="kaart">
-      <div class="blokkop">Ontwikkeling</div>
-      <label class="regel" style="cursor:pointer">
-        <input type="checkbox" id="ongekeurd" ${inst.ongekeurdToestaan ? 'checked' : ''}>
-        <span style="flex:1">Ongekeurde foto's toestaan in de quiz</span>
-      </label>
-      <p class="mini">
-        Normaal komen alleen foto's in de quiz die iemand met de hand heeft goedgekeurd als echte
-        onderwateropname. Er zijn er nu nog te weinig, dus met deze schakelaar zijn alle modules
-        te bekijken. Ongekeurde foto's krijgen overal het label "nog niet gekeurd".</p>
-    </div>
-
     <a class="knop stil" href="#/gemaakt">Hoe dit gemaakt is</a>
     <button class="knop stil" id="wis" style="color:var(--bijna)">Alles wissen</button>
   `);
-
-  $('#ongekeurd').addEventListener('change', (e) => {
-    zetInstelling('ongekeurdToestaan', e.target.checked);
-    toonIk();
-  });
 
   $('#exporteer').addEventListener('click', () => {
     const blob = new Blob([exporteerAlles()], { type: 'application/json' });

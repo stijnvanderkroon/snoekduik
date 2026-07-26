@@ -65,8 +65,7 @@ const fb = await import(`${ROOT}/app/views-feedback.js`);
 
 store.laad();
 await data.laadSoorten();
-// Zonder deze schakelaar zijn eerste-duik en witvis leeg, dus de demo zou niks tonen.
-store.zetInstelling('ongekeurdToestaan', true);
+// De triage is af: alle schermen draaien op echt goedgekeurd materiaal.
 
 const readmeCss = readFileSync(`${ROOT}/app/app.css`, 'utf8');
 const scherm = () => window.document.getElementById('scherm');

@@ -9,7 +9,7 @@
  *    geleidelijk bij weinig materiaal.
  */
 
-import { instellingen, standVan } from './store.js';
+import { standVan } from './store.js';
 import { isToe, isNieuw, achterstand } from './leitner.js';
 
 export const SESSIE_LENGTE = 15;
@@ -49,16 +49,11 @@ function schud(lijst) {
 }
 
 /**
- * Foto's die in de quiz mogen. Alleen gekeurde in-situ opnames, want een duiker
- * moet herkennen wat hij onder water ziet, niet een strak zijaanzicht op een
- * meetlat. De ontwikkelschakelaar laat ongekeurd materiaal toe zodat modules
- * zonder voorraad toch te bekijken zijn.
+ * Foto's die in de quiz mogen: uitsluitend met de hand goedgekeurde in-situ
+ * opnames. Een duiker moet herkennen wat hij onder water ziet, niet een strak
+ * zijaanzicht op een meetlat.
  */
-export function quizFotos(soort) {
-  const gekeurd = soort.fotos.filter((f) => f.gekeurd);
-  if (gekeurd.length || !instellingen().ongekeurdToestaan) return gekeurd;
-  return soort.fotos.filter((f) => !f.twijfel);
-}
+export const quizFotos = (soort) => soort.fotos.filter((f) => f.gekeurd);
 
 export const heeftQuizFoto = (soort) => quizFotos(soort).length > 0;
 

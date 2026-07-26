@@ -95,6 +95,8 @@ async function main() {
     if (v.bronUrl) perFoto.set(`${v.soortId}|${v.bronUrl}`, v);
   }
 
+  const zonderMaker = [];
+
   const soorten = seed.soorten.map((s) => {
     const p = probe[s.id] ?? {};
     const rauw = [
@@ -122,6 +124,13 @@ async function main() {
     })
       // Afgekeurde foto's horen niet in de app, ook niet als plaatsvervanger.
       .filter((f) => perFoto.get(`${s.id}|${f.bronUrl}`)?.oordeel !== 'nee')
+      // Alles behalve CC0 eist naamsvermelding. Zonder bekende maker kunnen we
+      // daar niet aan voldoen, dus dan gebruiken we de foto niet.
+      .filter((f) => {
+        if (f.fotograaf || f.licentie === 'cc0') return true;
+        zonderMaker.push(`${s.id}: ${f.licentie} zonder maker, ${f.bronUrl}`);
+        return false;
+      })
       // Beste eerst: ster, dan gekeurd, dan volgorde van goedkeuren.
       .sort((a, b) =>
         (b.ster - a.ster) || (b.gekeurd - a.gekeurd) ||
@@ -231,6 +240,11 @@ async function main() {
   console.log('\nper module:');
   for (const [m, v] of Object.entries(perModule)) {
     console.log(`  ${m.padEnd(18)} ${String(v.quizKlaar).padStart(2)}/${v.totaal} quizklaar, ${v.metTekst} met tekst`);
+  }
+
+  if (zonderMaker.length) {
+    console.log(`\n${zonderMaker.length} foto's weggelaten omdat de maker onbekend is en de licentie naamsvermelding eist:`);
+    for (const r of zonderMaker) console.log(`  ${r}`);
   }
 
   if (klachten.length) {

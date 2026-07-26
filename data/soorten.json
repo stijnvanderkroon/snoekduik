@@ -1358,20 +1358,6 @@
      "bronUrl": "https://www.inaturalist.org/observations/347395307"
     },
     {
-     "code": "F-ZJVDSC",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Ecrevisse_a_pattes_blanches.jpg/330px-Ecrevisse_a_pattes_blanches.jpg",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Ecrevisse_a_pattes_blanches.jpg/1280px-Ecrevisse_a_pattes_blanches.jpg",
-     "tier": "insitu",
-     "gekeurd": true,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": 1518,
-     "fotograaf": null,
-     "licentie": "cc-by",
-     "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Ecrevisse_a_pattes_blanches.jpg"
-    },
-    {
      "code": "F-B5E58X",
      "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Orconectes_limosus%2C_Kamberkrebs.JPG/330px-Orconectes_limosus%2C_Kamberkrebs.JPG",
      "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Orconectes_limosus%2C_Kamberkrebs.JPG/1280px-Orconectes_limosus%2C_Kamberkrebs.JPG",
@@ -1442,7 +1428,7 @@
      "bronUrl": "https://www.inaturalist.org/observations/51247915"
     }
    ],
-   "aantalInsitu": 10,
+   "aantalInsitu": 9,
    "quizKlaar": true
   },
   {
@@ -2158,20 +2144,6 @@
      "bronUrl": "https://commons.wikimedia.org/wiki/File:Grass_carp_fexx.jpg"
     },
     {
-     "code": "F-QVEZKJ",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ctenopharyngodon_idella_01_Pengo.jpg/330px-Ctenopharyngodon_idella_01_Pengo.jpg",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ctenopharyngodon_idella_01_Pengo.jpg/1280px-Ctenopharyngodon_idella_01_Pengo.jpg",
-     "tier": "insitu",
-     "gekeurd": true,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": 1560,
-     "fotograaf": null,
-     "licentie": "cc-by-sa",
-     "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Ctenopharyngodon_idella_01_Pengo.jpg"
-    },
-    {
      "code": "F-CFNP7V",
      "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Grass_Carp.jpg/330px-Grass_Carp.jpg",
      "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Grass_Carp.jpg/1280px-Grass_Carp.jpg",
@@ -2214,7 +2186,7 @@
      "bronUrl": "https://www.inaturalist.org/observations/315380995"
     }
    ],
-   "aantalInsitu": 3,
+   "aantalInsitu": 2,
    "quizKlaar": true
   },
   {
@@ -2588,20 +2560,6 @@
      "licentie": "cc-by-sa",
      "bron": "commons",
      "bronUrl": "https://commons.wikimedia.org/wiki/File:Barbatula_barbatula_by_MdE.jpg"
-    },
-    {
-     "code": "F-9PEJK9",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Barbatula_barbatula_by_OpenCage.jpg/330px-Barbatula_barbatula_by_OpenCage.jpg",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Barbatula_barbatula_by_OpenCage.jpg/1280px-Barbatula_barbatula_by_OpenCage.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": true,
-     "ster": false,
-     "volgnummer": 915,
-     "fotograaf": null,
-     "licentie": "cc-by-sa",
-     "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Barbatula_barbatula_by_OpenCage.jpg"
     }
    ],
    "aantalInsitu": 10,
@@ -3656,20 +3614,6 @@
      "bronUrl": "https://www.inaturalist.org/observations/22534092"
     },
     {
-     "code": "F-QSGJGP",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Tr%C3%BCsche_Walchensee.jpg/330px-Tr%C3%BCsche_Walchensee.jpg",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Tr%C3%BCsche_Walchensee.jpg/1280px-Tr%C3%BCsche_Walchensee.jpg",
-     "tier": "insitu",
-     "gekeurd": true,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": 1026,
-     "fotograaf": null,
-     "licentie": "cc-by-sa",
-     "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Tr%C3%BCsche_Walchensee.jpg"
-    },
-    {
      "code": "F-DA7JBW",
      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/407449315/medium.jpeg",
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/407449315/large.jpeg",
@@ -3698,7 +3642,7 @@
      "bronUrl": "https://www.inaturalist.org/observations/115446755"
     }
    ],
-   "aantalInsitu": 3,
+   "aantalInsitu": 2,
    "quizKlaar": true
   },
   {
@@ -5663,20 +5607,6 @@
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/41612614"
-    },
-    {
-     "code": "F-MZWJ5Z",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Ecrevisse_pattes_rouges.jpg/330px-Ecrevisse_pattes_rouges.jpg",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Ecrevisse_pattes_rouges.jpg/1280px-Ecrevisse_pattes_rouges.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": true,
-     "ster": false,
-     "volgnummer": 785,
-     "fotograaf": null,
-     "licentie": "cc-by-sa",
-     "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Ecrevisse_pattes_rouges.jpg"
     }
    ],
    "aantalInsitu": 4,
