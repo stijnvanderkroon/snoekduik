@@ -2,7 +2,7 @@
 
 import { esc, $, toon, datumNL, bevestig } from './ui.js';
 import { ga } from './router.js';
-import { soorten, soortOpId, drempelQuiz, statistiek } from './data.js';
+import { soorten, soortOpId, streefFotos, statistiek } from './data.js';
 import { aantalBeheerst } from './leitner.js';
 import {
   instellingen, zetInstelling, waarnemingen, voegWaarnemingToe, verwijderWaarneming,
@@ -187,8 +187,8 @@ export function toonGemaakt() {
       <p style="margin:.2rem 0">Alleen zoeken is niet genoeg: geen enkele zoekmachine kan filteren op
       "onder water genomen". Iemand heeft daarom elke foto met de hand bekeken en beoordeeld. Nu zijn
       er <strong>${st.gekeurd} goedgekeurde foto's</strong> over ${st.soortenMetGekeurd} soorten. Een
-      soort komt pas in de quiz bij ${drempelQuiz()} goedgekeurde onderwaterfoto's, zodat je de soort
-      leert en niet het plaatje.</p>
+      soort doet mee zodra er één goedgekeurde onderwaterfoto is; we streven naar ${streefFotos()},
+      want met één foto leer je vooral dat ene plaatje.</p>
     </div>
 
     <div class="kaart">

@@ -1,46 +1,47 @@
 {
  "schemaVersion": 1,
  "gegenereerd": "scripts/bouw-soorten.mjs",
- "drempelQuiz": 5,
+ "drempelQuiz": 1,
+ "streefFotos": 5,
  "modules": {
   "eerste-duik": {
    "totaal": 12,
-   "quizKlaar": 2,
+   "quizKlaar": 9,
    "metTekst": 12
   },
   "witvis": {
    "totaal": 8,
-   "quizKlaar": 0,
+   "quizKlaar": 6,
    "metTekst": 8
   },
   "bodem-talud": {
    "totaal": 10,
-   "quizKlaar": 6,
+   "quizKlaar": 10,
    "metTekst": 10
   },
   "grondels": {
    "totaal": 4,
-   "quizKlaar": 1,
+   "quizKlaar": 3,
    "metTekst": 4
   },
   "rivier": {
    "totaal": 8,
-   "quizKlaar": 2,
+   "quizKlaar": 6,
    "metTekst": 8
   },
   "kreeften": {
    "totaal": 9,
-   "quizKlaar": 1,
+   "quizKlaar": 8,
    "metTekst": 9
   },
   "mossels-slakken": {
    "totaal": 7,
-   "quizKlaar": 1,
+   "quizKlaar": 4,
    "metTekst": 7
   },
   "vreemd-spul": {
    "totaal": 8,
-   "quizKlaar": 4,
+   "quizKlaar": 6,
    "metTekst": 8
   }
  },
@@ -236,46 +237,60 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-46ZTXC",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/406174507/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/406174507/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-Y2B946",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/5408380/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/5408380/large.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Alex Sosnovshchenko",
-     "licentie": "cc-by",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/228805540"
-    },
-    {
-     "code": "F-6CQFJM",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/465374729/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/465374729/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Евгений Софронов",
+     "volgnummer": 2264,
+     "fotograaf": "Sascha Schulz",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/259268178"
+     "bronUrl": "https://www.inaturalist.org/observations/4480026"
     },
     {
-     "code": "F-XJFS96",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/63220435/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/63220435/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-225TA6",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/574770451/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/574770451/large.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "deborod",
+     "volgnummer": 2283,
+     "fotograaf": "Alexander Schubert",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/39823723"
+     "bronUrl": "https://www.inaturalist.org/observations/318047258"
+    },
+    {
+     "code": "F-QJDAJ8",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Barsch_im_See.jpg/330px-Barsch_im_See.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Barsch_im_See.jpg/1280px-Barsch_im_See.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
+     "twijfel": false,
+     "ster": false,
+     "volgnummer": 2296,
+     "fotograaf": "Dellex",
+     "licentie": "cc-by-sa",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Barsch_im_See.jpg"
+    },
+    {
+     "code": "F-RGWGA4",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Abborre.jpg/330px-Abborre.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Abborre.jpg/1280px-Abborre.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
+     "twijfel": false,
+     "ster": false,
+     "volgnummer": 2301,
+     "fotograaf": "Esquilo",
+     "licentie": "cc-by-sa",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Abborre.jpg"
     },
     {
      "code": "F-4C2DRW",
@@ -283,55 +298,13 @@
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/5408407/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 2263,
      "fotograaf": "Sascha Schulz",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/4480055"
-    },
-    {
-     "code": "F-Y2B946",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/5408380/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/5408380/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Sascha Schulz",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/4480026"
-    },
-    {
-     "code": "F-TQ7EHK",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/174092962/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/174092962/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Igor Fefelov",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/103940366"
-    },
-    {
-     "code": "F-DH74RM",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/541440038/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/541440038/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Sibylle Kamphuis",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/300497413"
     },
     {
      "code": "F-2DTX6K",
@@ -339,17 +312,31 @@
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/568920495/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 2267,
      "fotograaf": "tanja-t",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/314958699"
+    },
+    {
+     "code": "F-M756QX",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Barsche_im_See_%28Jungfische%29.jpg/330px-Barsche_im_See_%28Jungfische%29.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Barsche_im_See_%28Jungfische%29.jpg/1280px-Barsche_im_See_%28Jungfische%29.jpg",
+     "tier": "onbekend",
+     "gekeurd": false,
+     "twijfel": true,
+     "ster": false,
+     "volgnummer": 2297,
+     "fotograaf": "Dellex",
+     "licentie": "cc-by-sa",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Barsche_im_See_(Jungfische).jpg"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 4,
+   "quizKlaar": true
   },
   {
    "id": "blankvoorn",
@@ -393,120 +380,50 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-QXJ75P",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/64058142/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/64058142/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-BTD385",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/337135150/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/337135150/large.jpeg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Michael Verdirame",
+     "volgnummer": 1906,
+     "fotograaf": "Ernesto Cavallini",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/40331840"
+     "bronUrl": "https://www.inaturalist.org/observations/192090002"
     },
     {
-     "code": "F-KHGA4R",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/309622740/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/309622740/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-C94VBF",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/123449064/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/123449064/large.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "dlmnlbm",
+     "volgnummer": 1920,
+     "fotograaf": "Martin Kielland",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/177979276"
+     "bronUrl": "https://www.inaturalist.org/observations/75456003"
     },
     {
-     "code": "F-8ZSKGK",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/489708862/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/489708862/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-HQ67QD",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/141512617/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/141512617/large.jpeg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Ирина Рогова",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/272205105"
-    },
-    {
-     "code": "F-M9XK7V",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/254577956/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/254577956/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Daniil Polyakov",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/147896135"
-    },
-    {
-     "code": "F-Y688KH",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/593572245/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/593572245/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Артур Крылов",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/327620756"
-    },
-    {
-     "code": "F-YPGDWC",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/307667656/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/307667656/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Tatyana Zarubo",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/176933551"
-    },
-    {
-     "code": "F-JQP35Q",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/528670360/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/528670360/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Tadeáš J. Vašut",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/293705288"
-    },
-    {
-     "code": "F-TBR4W2",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/386446448/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/386446448/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Vladislav Isaev",
+     "volgnummer": 1923,
+     "fotograaf": "Julien Renoult",
      "licentie": "cc-by",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/218391642"
+     "bronUrl": "https://www.inaturalist.org/observations/85953175"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 3,
+   "quizKlaar": true
   },
   {
    "id": "brasem",
@@ -588,7 +505,7 @@
     }
    ],
    "aantalInsitu": 3,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "karper",
@@ -851,7 +768,7 @@
     }
    ],
    "aantalInsitu": 4,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "paling",
@@ -1113,7 +1030,7 @@
     }
    ],
    "aantalInsitu": 1,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "snoekbaars",
@@ -1223,7 +1140,7 @@
     }
    ],
    "aantalInsitu": 4,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "driedoornige-stekelbaars",
@@ -1260,88 +1177,60 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-KYBREN",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/134575535/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/134575535/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Bruce Deagle",
-     "licentie": "cc-by",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/82017337"
-    },
-    {
      "code": "F-59AG8W",
      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/61657696/medium.jpeg",
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/61657696/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 2135,
      "fotograaf": "chris buelow",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/38762876"
     },
     {
-     "code": "F-BMXS8Z",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/501557757/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/501557757/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Mitchel Buckner",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/279313655"
-    },
-    {
-     "code": "F-TJT439",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/582827435/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/582827435/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "bjørn lie fostad",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/322201341"
-    },
-    {
      "code": "F-GEHRZG",
      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/244775846/medium.jpg",
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/244775846/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 2138,
      "fotograaf": "Riccardo Novaga",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/142742226"
     },
     {
-     "code": "F-S2J2AN",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/45366010/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/45366010/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-PWDY3M",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/506725995/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/506725995/large.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Katie Kushneryk",
+     "volgnummer": 2142,
+     "fotograaf": "kisaland",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/29079378"
+     "bronUrl": "https://www.inaturalist.org/observations/282058441"
+    },
+    {
+     "code": "F-2V9E9E",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/498252522/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/498252522/large.jpeg",
+     "tier": "insitu",
+     "gekeurd": true,
+     "twijfel": false,
+     "ster": false,
+     "volgnummer": 2149,
+     "fotograaf": "niklaszd",
+     "licentie": "cc-by-nc",
+     "bron": "inaturalist",
+     "bronUrl": "https://www.inaturalist.org/observations/277487991"
     },
     {
      "code": "F-88E2YN",
@@ -1349,31 +1238,17 @@
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/47358887/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 2140,
      "fotograaf": "Jael Palhas",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/30319466"
-    },
-    {
-     "code": "F-JHNANB",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/203710104/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/203710104/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Drew",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/120442627"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 4,
+   "quizKlaar": true
   },
   {
    "id": "zwanenmossel",
@@ -1676,116 +1551,46 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-QNVZSB",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/360426198/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/360426198/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "coltonfishing",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/203954594"
-    },
-    {
-     "code": "F-H48MN6",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/150465065/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/150465065/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Mike Durkalec",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/91003824"
-    },
-    {
-     "code": "F-P72BZS",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/184235470/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/184235470/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Almut Martens",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/109323101"
-    },
-    {
-     "code": "F-5YKDNB",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/284927232/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/284927232/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "huck15",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/164660998"
-    },
-    {
-     "code": "F-Q4CK9S",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/129956310/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/129956310/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "jayce-the-creature-creator",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/79345157"
-    },
-    {
-     "code": "F-WSEGV2",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/129958577/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/129958577/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "jayce-the-creature-creator",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/79346487"
-    },
-    {
      "code": "F-3ZS8E5",
      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/66844672/medium.jpg",
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/66844672/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 1984,
      "fotograaf": "Hubert Szczygieł",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/42112924"
     },
     {
-     "code": "F-5T2SZ6",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/667084504/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/667084504/large.jpg",
+     "code": "F-K6VBCP",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/513248243/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/513248243/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Drew",
+     "volgnummer": 2004,
+     "fotograaf": "debotkert",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/365373994"
+     "bronUrl": "https://www.inaturalist.org/observations/285537229"
+    },
+    {
+     "code": "F-MXKYDR",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rotfeder_Rudd.jpg/330px-Rotfeder_Rudd.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rotfeder_Rudd.jpg/1280px-Rotfeder_Rudd.jpg",
+     "tier": "onbekend",
+     "gekeurd": false,
+     "twijfel": true,
+     "ster": false,
+     "volgnummer": 2009,
+     "fotograaf": "Olaf Nies",
+     "licentie": "cc-by",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Rotfeder_Rudd.jpg"
     }
    ],
    "aantalInsitu": 0,
@@ -1942,7 +1747,7 @@
     }
    ],
    "aantalInsitu": 1,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "alver",
@@ -2052,7 +1857,7 @@
     }
    ],
    "aantalInsitu": 4,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "vetje",
@@ -2189,7 +1994,7 @@
     }
    ],
    "aantalInsitu": 3,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "kroeskarper",
@@ -2301,7 +2106,7 @@
     }
    ],
    "aantalInsitu": 3,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "giebel",
@@ -2341,120 +2146,36 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-36A8PX",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/606144466/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/606144466/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-BXB3DJ",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/427504669/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/427504669/large.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "berlasz",
+     "volgnummer": 1866,
+     "fotograaf": "rudi f",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/333851772"
+     "bronUrl": "https://www.inaturalist.org/observations/239989317"
     },
     {
-     "code": "F-RHAPFF",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/178703880/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/178703880/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-D8RSSC",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/CarassiusAuratusGibelio.JPG/330px-CarassiusAuratusGibelio.JPG",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/CarassiusAuratusGibelio.JPG/1280px-CarassiusAuratusGibelio.JPG",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "leoniewittwer",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/106386347"
-    },
-    {
-     "code": "F-3GXCM3",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179003695/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/179003695/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Thomas Zuna-Kratky",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/106546603"
-    },
-    {
-     "code": "F-YZEQET",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/449372718/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/449372718/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "donzelli",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/251174385"
-    },
-    {
-     "code": "F-N9ZXFB",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/422250051/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/422250051/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Марина Горбунова-Ëлкина",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/237296961"
-    },
-    {
-     "code": "F-RKC3Z2",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/466717461/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/466717461/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Марина Горбунова-Ëлкина",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/259945149"
-    },
-    {
-     "code": "F-2445BA",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/542928262/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/542928262/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "eugenezakharov",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/301300313"
-    },
-    {
-     "code": "F-HB6TB6",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/320210301/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/320210301/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Viktor Kovačević",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/183532458"
+     "volgnummer": 1882,
+     "fotograaf": "Piet Spaans",
+     "licentie": "cc-by-sa",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:CarassiusAuratusGibelio.JPG"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 2,
+   "quizKlaar": true
   },
   {
    "id": "graskarper",
@@ -2564,7 +2285,7 @@
     }
    ],
    "aantalInsitu": 3,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "rivierdonderpad",
@@ -3052,7 +2773,7 @@
     }
    ],
    "aantalInsitu": 2,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "grote-modderkruiper",
@@ -3592,7 +3313,7 @@
     }
    ],
    "aantalInsitu": 2,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "bittervoorn",
@@ -4048,7 +3769,7 @@
     }
    ],
    "aantalInsitu": 3,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "rivierprik",
@@ -4186,7 +3907,7 @@
     }
    ],
    "aantalInsitu": 4,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "zwartbekgrondel",
@@ -4230,120 +3951,22 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-FTBZJD",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/29118819/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/29118819/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Owen Strickland",
-     "licentie": "cc-by",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/18990675"
-    },
-    {
      "code": "F-BBEPMQ",
      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/24046034/medium.jpg",
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/24046034/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 1937,
      "fotograaf": "Alex R",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/16059644"
-    },
-    {
-     "code": "F-MSQHGS",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/422041646/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/422041646/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "laurasihvo",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/237167923"
-    },
-    {
-     "code": "F-QVS9EE",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/445243064/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/445243064/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Noah D",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/249109406"
-    },
-    {
-     "code": "F-C3RQBK",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/21303045/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/21303045/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Nancy L Barrett",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/14337286"
-    },
-    {
-     "code": "F-9MJDM7",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/680448277/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/680448277/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Elijah E.",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/372378986"
-    },
-    {
-     "code": "F-KMT9HS",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/235441143/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/235441143/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Kent Ross",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/137816407"
-    },
-    {
-     "code": "F-SCAB42",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/226445880/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/226445880/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "tanstaafl22",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/132982622"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 1,
+   "quizKlaar": true
   },
   {
    "id": "marmergrondel",
@@ -4426,7 +4049,7 @@
     }
    ],
    "aantalInsitu": 1,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "pontische-stroomgrondel",
@@ -4684,120 +4307,50 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-CE23F9",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/54921520/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/54921520/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-AKJ4XY",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/166091644/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/166091644/large.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Andrea Kreuzhage",
+     "volgnummer": 2049,
+     "fotograaf": "Roman Burkardt",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/34861851"
+     "bronUrl": "https://www.inaturalist.org/observations/99611952"
     },
     {
-     "code": "F-VXGNRM",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/226876852/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/226876852/large.jpg",
+     "code": "F-6XRSX3",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/97476738/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/97476738/large.jpeg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "thibaultguillouzo",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/133215929"
-    },
-    {
-     "code": "F-BBVT8Q",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/550537419/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/550537419/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Matthew Gerke",
+     "volgnummer": 2034,
+     "fotograaf": "Tavenetat Kevin",
      "licentie": "cc-by",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/305348341"
+     "bronUrl": "https://www.inaturalist.org/observations/60942368"
     },
     {
-     "code": "F-54RT3Z",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/608528626/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/608528626/large.jpg",
+     "code": "F-VDYBR5",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Obersee_-_Holzbr%C3%BCcke_2011-04-07_15-23-38.jpg/330px-Obersee_-_Holzbr%C3%BCcke_2011-04-07_15-23-38.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Obersee_-_Holzbr%C3%BCcke_2011-04-07_15-23-38.jpg/1280px-Obersee_-_Holzbr%C3%BCcke_2011-04-07_15-23-38.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Jonathan Wilson-Thieroff",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/335020134"
-    },
-    {
-     "code": "F-Y4M5E2",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/426357736/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/426357736/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Luca Boscain",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/239393681"
-    },
-    {
-     "code": "F-M5GQWV",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/435756389/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/435756389/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "mnauky",
-     "licentie": "cc-by",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/244293008"
-    },
-    {
-     "code": "F-JNW7CB",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/324089082/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/324089082/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "cleeb",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/185557092"
-    },
-    {
-     "code": "F-XMDKJ8",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/172463976/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/172463976/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "claude BEHR",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/103089970"
+     "volgnummer": 2061,
+     "fotograaf": "Roland zh",
+     "licentie": "cc-by-sa",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Obersee_-_Holzbr%C3%BCcke_2011-04-07_15-23-38.jpg"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 1,
+   "quizKlaar": true
   },
   {
    "id": "serpeling",
@@ -4864,7 +4417,7 @@
     }
    ],
    "aantalInsitu": 1,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "barbeel",
@@ -5299,7 +4852,7 @@
     }
    ],
    "aantalInsitu": 3,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "roofblei",
@@ -5431,7 +4984,7 @@
     }
    ],
    "aantalInsitu": 1,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "regenboogforel",
@@ -5934,120 +5487,22 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-ZPKVX4",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/244393772/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/244393772/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-SPVQAE",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/244229334/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/244229334/large.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Gail Fennell",
-     "licentie": "cc-by-nc",
+     "volgnummer": 2112,
+     "fotograaf": "mrdace",
+     "licentie": "cc-by",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/142541130"
-    },
-    {
-     "code": "F-C4KTNM",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/188416877/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/188416877/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Chris Burns",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/111601303"
-    },
-    {
-     "code": "F-TJFQ83",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/206333912/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/206333912/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Matthew K",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/121902380"
-    },
-    {
-     "code": "F-N8JGGJ",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/2769289/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/2769289/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Jenny Smith",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/2473342"
-    },
-    {
-     "code": "F-ZH898C",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/462267237/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/462267237/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Seth Shively",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/209155238"
-    },
-    {
-     "code": "F-AZM9YV",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/459290637/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/459290637/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Leslie S",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/256200230"
-    },
-    {
-     "code": "F-RX3T3J",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/174187155/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/174187155/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Alan de Queiroz",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/103995546"
-    },
-    {
-     "code": "F-RFAH4W",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/425218693/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/425218693/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "gracem57",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/238809952"
+     "bronUrl": "https://www.inaturalist.org/observations/142455105"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 1,
+   "quizKlaar": true
   },
   {
    "id": "californische-rivierkreeft",
@@ -6086,120 +5541,64 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-ZRBZ6H",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/78391702/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/78391702/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Parsa Fard",
-     "licentie": "cc-by",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/49382258"
-    },
-    {
-     "code": "F-XMVS3X",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/522082445/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/522082445/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Brian Starzomski",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/290230351"
-    },
-    {
-     "code": "F-7TNHRN",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/143263678/medium.gif",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/143263678/large.gif",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "John",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/86796043"
-    },
-    {
-     "code": "F-2TZDPT",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/219530812/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/219530812/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Matthew Vosper",
-     "licentie": "cc-by",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/129202356"
-    },
-    {
-     "code": "F-XS8BJ5",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/247689886/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/247689886/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "no rights reserved",
-     "licentie": "cc0",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/144328463"
-    },
-    {
      "code": "F-H9VCCZ",
      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/1088043/medium.JPG",
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/1088043/large.JPG",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 2223,
      "fotograaf": "Jakob Fahr",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/857937"
     },
     {
-     "code": "F-B2C3TA",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/123546868/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/123546868/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-BV72E7",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/283089938/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/283089938/large.jpeg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Parsa Fard",
-     "licentie": "cc-by",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/75509498"
-    },
-    {
-     "code": "F-MAEKHJ",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/42948616/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/42948616/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "oxalismtp",
+     "volgnummer": 2231,
+     "fotograaf": "Heidi Ware Carlisle",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/27593413"
+     "bronUrl": "https://www.inaturalist.org/observations/163660535"
+    },
+    {
+     "code": "F-STRBHV",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Pacifastacus_leniusculus2.jpg/330px-Pacifastacus_leniusculus2.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Pacifastacus_leniusculus2.jpg/1280px-Pacifastacus_leniusculus2.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
+     "twijfel": false,
+     "ster": false,
+     "volgnummer": 2252,
+     "fotograaf": "KENPEI",
+     "licentie": "cc-by-sa",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus2.jpg"
+    },
+    {
+     "code": "F-Y3XFPP",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Pacifastacus_leniusculus1.jpg/330px-Pacifastacus_leniusculus1.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Pacifastacus_leniusculus1.jpg/1280px-Pacifastacus_leniusculus1.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
+     "twijfel": false,
+     "ster": false,
+     "volgnummer": 2253,
+     "fotograaf": "KENPEI",
+     "licentie": "cc-by-sa",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus1.jpg"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 4,
+   "quizKlaar": true
   },
   {
    "id": "turkse-rivierkreeft",
@@ -6296,7 +5695,7 @@
     }
    ],
    "aantalInsitu": 1,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "europese-rivierkreeft",
@@ -6477,7 +5876,7 @@
     }
    ],
    "aantalInsitu": 4,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "chinese-wolhandkrab",
@@ -6541,7 +5940,7 @@
     }
    ],
    "aantalInsitu": 1,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "zoetwatergarnaal",
@@ -6648,7 +6047,7 @@
     }
    ],
    "aantalInsitu": 3,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "killergarnaal",
@@ -6935,7 +6334,7 @@
     }
    ],
    "aantalInsitu": 2,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "driehoeksmossel",
@@ -6972,120 +6371,7 @@
    },
    "meldenBij": "waarneming.nl",
    "tekstGecontroleerd": false,
-   "fotos": [
-    {
-     "code": "F-DDDM67",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/19563780/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/19563780/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "calebthinks",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/13348709"
-    },
-    {
-     "code": "F-4K4D8C",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/36892419/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/36892419/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "mnwild",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/23843813"
-    },
-    {
-     "code": "F-DPMNY2",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/525209568/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/525209568/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "KF",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/291891281"
-    },
-    {
-     "code": "F-5NFZD9",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/354186106/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/354186106/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "galcozack",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/200720222"
-    },
-    {
-     "code": "F-AGYHH9",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/96345964/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/96345964/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "bogey10",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/60264208"
-    },
-    {
-     "code": "F-YNDZBT",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/116530769/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/116530769/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "friendofnature2",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/71562870"
-    },
-    {
-     "code": "F-K76VJC",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/424245386/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/424245386/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Иван Матершев",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/238308546"
-    },
-    {
-     "code": "F-AC98WR",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/443340553/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/443340553/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "no rights reserved",
-     "licentie": "cc0",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/248155326"
-    }
-   ],
+   "fotos": [],
    "aantalInsitu": 0,
    "quizKlaar": false
   },
@@ -7126,120 +6412,78 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-6H4ZAQ",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/417769540/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/417769540/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-A8XBS9",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/469049955/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/469049955/large.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 1762,
+     "fotograaf": "Finn Klessmann",
+     "licentie": "cc-by-nc",
+     "bron": "inaturalist",
+     "bronUrl": "https://www.inaturalist.org/observations/261117536"
+    },
+    {
+     "code": "F-9S8DK6",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/352439483/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/352439483/large.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
+     "twijfel": false,
+     "ster": false,
+     "volgnummer": 1765,
+     "fotograaf": "Nicolas Schwab",
+     "licentie": "cc-by-nc",
+     "bron": "inaturalist",
+     "bronUrl": "https://www.inaturalist.org/observations/199822552"
+    },
+    {
+     "code": "F-RP4SQA",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/258701089/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/258701089/large.jpg",
+     "tier": "onbekend",
+     "gekeurd": false,
+     "twijfel": true,
+     "ster": false,
+     "volgnummer": 1749,
+     "fotograaf": "mobbini",
+     "licentie": "cc-by-nc",
+     "bron": "inaturalist",
+     "bronUrl": "https://www.inaturalist.org/observations/150072683"
+    },
+    {
+     "code": "F-VTTCEN",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/420897556/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/420897556/large.jpg",
+     "tier": "onbekend",
+     "gekeurd": false,
+     "twijfel": true,
+     "ster": false,
+     "volgnummer": 1752,
      "fotograaf": "Eduard Garin",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/234959440"
+     "bronUrl": "https://www.inaturalist.org/observations/236577599"
     },
     {
-     "code": "F-CHSNT9",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/449466628/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/449466628/large.jpeg",
+     "code": "F-2FA9VR",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/330556227/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/330556227/large.jpeg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "dominicentomology",
+     "volgnummer": 1761,
+     "fotograaf": "Jozef K. Richards",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/251221087"
-    },
-    {
-     "code": "F-FEZFRG",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/108742096/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/108742096/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Luke Armstrong",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/67321910"
-    },
-    {
-     "code": "F-WBNEA2",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/417769961/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/417769961/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Eduard Garin",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/234959459"
-    },
-    {
-     "code": "F-8CVKV7",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251675735/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/251675735/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Jasmin Rehrmbacher",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/146393192"
-    },
-    {
-     "code": "F-Z8PHXF",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/170324883/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/170324883/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "eliegaget",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/101948875"
-    },
-    {
-     "code": "F-9EZ48S",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/445096336/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/445096336/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "timheaton",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/249036959"
-    },
-    {
-     "code": "F-ZTWYAT",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/192532969/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/192532969/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Richard Waite",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/113992226"
+     "bronUrl": "https://www.inaturalist.org/observations/188803437"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 2,
+   "quizKlaar": true
   },
   {
    "id": "schildersmossel",
@@ -7323,111 +6567,27 @@
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/63098904/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 1768,
      "fotograaf": "Kazimieras Martinaitis",
      "licentie": "cc-by",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/39751293"
     },
     {
-     "code": "F-W4N43P",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/316721931/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/316721931/large.jpeg",
+     "code": "F-ANQ523",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/304427383/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/304427383/large.jpeg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Мария Маренина",
+     "volgnummer": 1797,
+     "fotograaf": "Мария Ушакова",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/181731872"
-    },
-    {
-     "code": "F-XEA7XS",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/648240536/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/648240536/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Юлія Юріївна Сільченко",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/355445155"
-    },
-    {
-     "code": "F-QN3K3J",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/355642518/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/355642518/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Анна Салтыкова",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/201465317"
-    },
-    {
-     "code": "F-NA2PT6",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/263005763/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/263005763/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Anastasiia Merkulova",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/152358287"
-    },
-    {
-     "code": "F-VE6J75",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/293741569/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/293741569/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Waterfront Save",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/169436790"
-    },
-    {
-     "code": "F-JX9TZV",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/416614637/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/416614637/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Arseniy T",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/234359947"
-    },
-    {
-     "code": "F-Z5KWDK",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/217027501/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/217027501/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Daba",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/127811317"
+     "bronUrl": "https://www.inaturalist.org/observations/175185090"
     }
    ],
    "aantalInsitu": 0,
@@ -7468,120 +6628,134 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-GNYVNA",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/129320645/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/129320645/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-RN9Z4X",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/350700077/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/350700077/large.jpeg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Goro Saber Animal",
+     "volgnummer": 2316,
+     "fotograaf": "Fabrizio Borghesi",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/78983043"
+     "bronUrl": "https://www.inaturalist.org/observations/198920601"
     },
     {
-     "code": "F-5R4VGA",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/583862323/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/583862323/large.jpg",
+     "code": "F-2WJNDD",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/285471606/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/285471606/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
      "twijfel": false,
      "ster": false,
      "volgnummer": null,
-     "fotograaf": "César Alonso",
+     "fotograaf": "Marlies en Donald",
+     "licentie": "cc-by-nc",
+     "bron": "inaturalist",
+     "bronUrl": "https://www.inaturalist.org/observations/164950351"
+    },
+    {
+     "code": "F-9JBKPR",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/417769867/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/417769867/large.jpg",
+     "tier": "onbekend",
+     "gekeurd": false,
+     "twijfel": false,
+     "ster": false,
+     "volgnummer": null,
+     "fotograaf": "Eduard Garin",
+     "licentie": "cc-by-nc",
+     "bron": "inaturalist",
+     "bronUrl": "https://www.inaturalist.org/observations/234959454"
+    },
+    {
+     "code": "F-JJ8SQ5",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/345405396/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/345405396/large.jpeg",
+     "tier": "onbekend",
+     "gekeurd": false,
+     "twijfel": false,
+     "ster": false,
+     "volgnummer": null,
+     "fotograaf": "Nicola Crockford",
      "licentie": "cc-by",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/322721411"
+     "bronUrl": "https://www.inaturalist.org/observations/196222477"
     },
     {
-     "code": "F-J457DC",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/40435407/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/40435407/large.jpg",
+     "code": "F-RRMJR5",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/373177946/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/373177946/large.jpeg",
      "tier": "onbekend",
      "gekeurd": false,
      "twijfel": false,
      "ster": false,
      "volgnummer": null,
-     "fotograaf": "Ina Siebert",
+     "fotograaf": "LibProj",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/26062923"
+     "bronUrl": "https://www.inaturalist.org/observations/211042493"
     },
     {
-     "code": "F-RZC86Q",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/36272299/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/36272299/large.jpeg",
+     "code": "F-QHCXNH",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/289254703/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/289254703/large.jpeg",
      "tier": "onbekend",
      "gekeurd": false,
      "twijfel": false,
      "ster": false,
      "volgnummer": null,
-     "fotograaf": "Gilles San Martin",
-     "licentie": "cc-by-sa",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/23442722"
-    },
-    {
-     "code": "F-226KPT",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/192200828/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/192200828/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Lina Kaminskaitė",
+     "fotograaf": "Анна Иванова",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/113778551"
+     "bronUrl": "https://www.inaturalist.org/observations/167003871"
     },
     {
-     "code": "F-6A9EFE",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/193246382/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/193246382/large.jpeg",
+     "code": "F-QZG5Q4",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/176480704/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/176480704/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
      "twijfel": false,
      "ster": false,
      "volgnummer": null,
-     "fotograaf": "Patrick Meurin",
+     "fotograaf": "Markus Krieger",
      "licentie": "cc-by",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/114439499"
+     "bronUrl": "https://www.inaturalist.org/observations/105212888"
     },
     {
-     "code": "F-SEAG2N",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/388895649/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/388895649/large.jpeg",
+     "code": "F-T7SG9M",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/71300279/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/71300279/large.jpeg",
      "tier": "onbekend",
      "gekeurd": false,
      "twijfel": false,
      "ster": false,
      "volgnummer": null,
-     "fotograaf": "Milcho Todorov",
+     "fotograaf": "a-curuxa",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/219696134"
+     "bronUrl": "https://www.inaturalist.org/observations/44973616"
     },
     {
-     "code": "F-JHHE3Q",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179589798/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/179589798/large.jpeg",
+     "code": "F-TT5DVT",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/682181835/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/682181835/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
      "twijfel": false,
      "ster": false,
      "volgnummer": null,
-     "fotograaf": "stelioskaripidis",
+     "fotograaf": "OmniProgWalrus",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/106850620"
+     "bronUrl": "https://www.inaturalist.org/observations/373286218"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 1,
+   "quizKlaar": true
   },
   {
    "id": "posthoornslak",
@@ -7618,120 +6792,50 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-P4GZ82",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/92684827/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/92684827/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-P92NCA",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/39413549/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/39413549/large.jpeg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Daniel Raposo",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/58074934"
-    },
-    {
-     "code": "F-PHEKC5",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/513991510/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/513991510/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Peter Oehler",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/285937804"
-    },
-    {
-     "code": "F-HSZ97S",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/174407293/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/174407293/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "spyrusmt",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/104109730"
-    },
-    {
-     "code": "F-DEAD6E",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/332706594/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/332706594/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Vadym Maniuk",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/189866052"
-    },
-    {
-     "code": "F-DW5XN7",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/512390813/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/512390813/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Albert Ros",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/285078311"
-    },
-    {
-     "code": "F-ZADAQZ",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/5400358/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/5400358/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Almantas Kulbis",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/4474556"
-    },
-    {
-     "code": "F-YX5S5H",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/176480811/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/176480811/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Markus Krieger",
+     "volgnummer": 2091,
+     "fotograaf": "Alexis Tinker-Tsavalas",
      "licentie": "cc-by",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/105212890"
+     "bronUrl": "https://www.inaturalist.org/observations/25447189"
     },
     {
-     "code": "F-WC6GXC",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179590017/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/179590017/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-RTT4QG",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Cambarellus_patzcuarensis-feeding.jpg/330px-Cambarellus_patzcuarensis-feeding.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Cambarellus_patzcuarensis-feeding.jpg/1280px-Cambarellus_patzcuarensis-feeding.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "stelioskaripidis",
+     "volgnummer": 2096,
+     "fotograaf": "Tommy Kronkvist",
+     "licentie": "cc-by-sa",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Cambarellus_patzcuarensis-feeding.jpg"
+    },
+    {
+     "code": "F-WAFB5C",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/62919707/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/62919707/large.jpeg",
+     "tier": "onbekend",
+     "gekeurd": false,
+     "twijfel": true,
+     "ster": false,
+     "volgnummer": 2090,
+     "fotograaf": "carla corazza",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/106850673"
+     "bronUrl": "https://www.inaturalist.org/observations/39646617"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 2,
+   "quizKlaar": true
   },
   {
    "id": "zoetwaterneriet",
@@ -8868,32 +7972,18 @@
    "tekstGecontroleerd": false,
    "fotos": [
     {
-     "code": "F-CAE972",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/450775324/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/450775324/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
+     "code": "F-V7G3QM",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/92107632/medium.jpeg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/92107632/large.jpeg",
+     "tier": "insitu",
+     "gekeurd": true,
      "twijfel": false,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "no rights reserved",
-     "licentie": "cc0",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/251877516"
-    },
-    {
-     "code": "F-2AW8VK",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/299598413/medium.png",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/299598413/large.png",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "maricel patino",
+     "volgnummer": 1818,
+     "fotograaf": "Peter Adams",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/172572956"
+     "bronUrl": "https://www.inaturalist.org/observations/57728046"
     },
     {
      "code": "F-3BV862",
@@ -8901,41 +7991,13 @@
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/551086143/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 1812,
      "fotograaf": "Clark County Public Health",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/305633634"
-    },
-    {
-     "code": "F-BMHY67",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/62571474/medium.jpeg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/62571474/large.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "katrina hashagen",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/39438138"
-    },
-    {
-     "code": "F-6EDV98",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/634833139/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/634833139/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Carol Harlow",
-     "licentie": "cc-by-nc",
-     "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/348116216"
     },
     {
      "code": "F-2N5H3N",
@@ -8943,45 +8005,59 @@
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/395040629/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
+     "volgnummer": 1815,
      "fotograaf": "grinnin",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/222980814"
     },
     {
-     "code": "F-2H5EVG",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/326114056/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/326114056/large.jpg",
+     "code": "F-6QDNX9",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/217954848/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/217954848/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Adam J. Searcy",
+     "volgnummer": 1820,
+     "fotograaf": "Luanne Johnson",
      "licentie": "cc-by",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/186591264"
+     "bronUrl": "https://www.inaturalist.org/observations/128322686"
     },
     {
-     "code": "F-57KNZG",
-     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/513700303/medium.jpg",
-     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/513700303/large.jpg",
+     "code": "F-93Z2Z8",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/550023267/medium.jpg",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/550023267/large.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "no rights reserved",
-     "licentie": "cc0",
+     "volgnummer": 1826,
+     "fotograaf": "donnamarie103",
+     "licentie": "cc-by-nc",
      "bron": "inaturalist",
-     "bronUrl": "https://www.inaturalist.org/observations/285790145"
+     "bronUrl": "https://www.inaturalist.org/observations/305074129"
+    },
+    {
+     "code": "F-ZZ3CN5",
+     "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/208889119/medium.png",
+     "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/208889119/large.png",
+     "tier": "onbekend",
+     "gekeurd": false,
+     "twijfel": true,
+     "ster": false,
+     "volgnummer": 1831,
+     "fotograaf": "onidiras-iNaturalist",
+     "licentie": "cc-by-nc",
+     "bron": "inaturalist",
+     "bronUrl": "https://www.inaturalist.org/observations/123314827"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 1,
+   "quizKlaar": true
   },
   {
    "id": "libellenlarve-glazenmaker",
@@ -9384,78 +8460,36 @@
      "bronUrl": "https://commons.wikimedia.org/wiki/File:Haemopis-sanguisuga-pferdeegel.jpg"
     },
     {
-     "code": "F-WTER4C",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Haemopis_sanguisugaPferdeegelHorseLeech.JPG/330px-Haemopis_sanguisugaPferdeegelHorseLeech.JPG",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Haemopis_sanguisugaPferdeegelHorseLeech.JPG/1280px-Haemopis_sanguisugaPferdeegelHorseLeech.JPG",
+     "code": "F-HJDPF7",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/An_Lochan_Uaine_horse_leech.png/330px-An_Lochan_Uaine_horse_leech.png",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/An_Lochan_Uaine_horse_leech.png/1280px-An_Lochan_Uaine_horse_leech.png",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Wald1siedel",
+     "volgnummer": 1736,
+     "fotograaf": "Pampuco",
      "licentie": "cc-by-sa",
      "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Haemopis_sanguisugaPferdeegelHorseLeech.JPG"
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:An_Lochan_Uaine_horse_leech.png"
     },
     {
-     "code": "F-ZMYPAC",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Picture_Natural_History_-_No_301_-_The_Horse-leech.png/330px-Picture_Natural_History_-_No_301_-_The_Horse-leech.png",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Picture_Natural_History_-_No_301_-_The_Horse-leech.png/1280px-Picture_Natural_History_-_No_301_-_The_Horse-leech.png",
+     "code": "F-FSFG8F",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Pferdeegel_Haemopis_sanguisuga.jpg/330px-Pferdeegel_Haemopis_sanguisuga.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Pferdeegel_Haemopis_sanguisuga.jpg/1280px-Pferdeegel_Haemopis_sanguisuga.jpg",
      "tier": "onbekend",
      "gekeurd": false,
-     "twijfel": false,
+     "twijfel": true,
      "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Mary E. C. Boutell",
-     "licentie": "cc0",
-     "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Picture_Natural_History_-_No_301_-_The_Horse-leech.png"
-    },
-    {
-     "code": "F-84B3EW",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Haemopis_sanguisuga_%28YPM_IZ_098127%29.jpeg/330px-Haemopis_sanguisuga_%28YPM_IZ_098127%29.jpeg",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Haemopis_sanguisuga_%28YPM_IZ_098127%29.jpeg/1280px-Haemopis_sanguisuga_%28YPM_IZ_098127%29.jpeg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Daniel J. Drew",
-     "licentie": "cc0",
-     "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Haemopis_sanguisuga_(YPM_IZ_098127).jpeg"
-    },
-    {
-     "code": "F-EWK64T",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Pijawki_w_laboratorium.webm/330px--Pijawki_w_laboratorium.webm.jpg",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Pijawki_w_laboratorium.webm/1280px--Pijawki_w_laboratorium.webm.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "Sylwia10",
+     "volgnummer": 1737,
+     "fotograaf": "Holger Krisp",
      "licentie": "cc-by",
      "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Pijawki_w_laboratorium.webm"
-    },
-    {
-     "code": "F-NXFVVA",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Pferdeegel_Haemopis-sanguisuga.jpg/330px-Pferdeegel_Haemopis-sanguisuga.jpg",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Pferdeegel_Haemopis-sanguisuga.jpg/1280px-Pferdeegel_Haemopis-sanguisuga.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": false,
-     "ster": false,
-     "volgnummer": null,
-     "fotograaf": "MiScKi",
-     "licentie": "cc-by-sa",
-     "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Pferdeegel_Haemopis-sanguisuga.jpg"
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Pferdeegel_Haemopis_sanguisuga.jpg"
     }
    ],
    "aantalInsitu": 2,
-   "quizKlaar": false
+   "quizKlaar": true
   },
   {
    "id": "bootsmannetje",

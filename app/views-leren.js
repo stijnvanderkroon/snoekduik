@@ -23,7 +23,7 @@ export function toonStart() {
     <div class="kop"><img class="logo" src="logos/logo-duikvlag.svg" alt=""><h1>Snoekduik</h1></div>
 
     ${klaar.bruikbaar === 0 ? `<div class="melding">
-      Nog geen enkele soort heeft de vijf goedgekeurde onderwaterfoto's die nodig zijn voor de quiz.
+      Nog geen enkele soort heeft een goedgekeurde onderwaterfoto.
       Zet bij <a href="#/ik">Ik</a> de ontwikkelschakelaar aan om met ongekeurde foto's te oefenen.
     </div>` : ''}
 
