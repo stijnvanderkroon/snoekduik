@@ -6,7 +6,7 @@
  *    veranderen nooit en zijn het zwaarste onderdeel
  */
 
-const VERSIE = 'snoekduik-v2';
+const VERSIE = 'snoekduik-v3';
 const SCHIL = `${VERSIE}-schil`;
 const FOTOS = `${VERSIE}-fotos`;
 const MAX_FOTOS = 400;
@@ -18,6 +18,7 @@ const SCHIL_BESTANDEN = [
   'app/ui.js', 'app/leitner.js', 'app/sessie.js',
   'app/views-leren.js', 'app/views-naslag.js', 'app/views-ik.js',
   'app/views-feedback.js', 'app/feedback-links.js',
+  'app/views-welkom.js', 'app/over-mij.js',
   'data/soorten.json',
   'logos/logo-duikvlag.svg', 'logos/favicon.svg', 'logos/icon-app.svg',
 ];

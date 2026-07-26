@@ -62,12 +62,14 @@ const leren = await import(`${ROOT}/app/views-leren.js`);
 const naslag = await import(`${ROOT}/app/views-naslag.js`);
 const ik = await import(`${ROOT}/app/views-ik.js`);
 const fb = await import(`${ROOT}/app/views-feedback.js`);
+const wk = await import(`${ROOT}/app/views-welkom.js`);
 
 store.laad();
 await data.laadSoorten();
 // De triage is af: alle schermen draaien op echt goedgekeurd materiaal.
 
 const readmeCss = readFileSync(`${ROOT}/app/app.css`, 'utf8');
+const readOverMij = readFileSync(`${ROOT}/app/over-mij.js`, 'utf8');
 const scherm = () => window.document.getElementById('scherm');
 const tekst = () => scherm().textContent.replace(/\s+/g, ' ').trim();
 
@@ -82,6 +84,7 @@ const schermen = [
   ['ik', () => ik.toonIk()],
   ['hoe gemaakt', () => ik.toonGemaakt()],
   ['feedback', () => fb.toonFeedback()],
+  ['welkom', () => wk.toonWelkom()],
 ];
 for (const [naam, fn] of schermen) {
   try {
@@ -228,6 +231,24 @@ console.log("== feedbackknop ==");
 ok("knop staat altijd in de pagina", window.document.querySelector(".feedbackknop") !== null);
 ok("knop wijst naar het feedbackscherm",
   window.document.querySelector(".feedbackknop").getAttribute("href") === "#/feedback");
+
+
+console.log("== welkomsscherm ==");
+store.wisAlles(); store.laad();
+ok("nog niet gezien bij een lege opslag", !store.instellingen().welkomGezien);
+wk.toonWelkom();
+const wt = tekst();
+ok("noemt de AI-herkomst", /met AI gemaakt/i.test(wt));
+ok("waarschuwt dat teksten niet nagekeken zijn", /niet door een duiker nagekeken/i.test(wt));
+ok("legt uit dat er geen tracking is", /geen tracking/i.test(wt));
+ok("legt de onderwaterfoto-regel uit", /alleen echte onderwaterfoto/i.test(wt));
+window.document.getElementById("beginnen").click();
+ok("beginnen onthoudt dat je het gezien hebt", store.instellingen().welkomGezien === true);
+
+console.log("== over mij ==");
+ik.toonGemaakt();
+const leeg = /Over mij/.test(tekst());
+ok("leeg over-mij blok wordt niet getoond", !leeg || /Over mij/.test(readOverMij));
 
 console.log(`\nconsole-fouten: ${fouten.length}`);
 for (const f of fouten.slice(0, 10)) console.log(`  ${f}`);

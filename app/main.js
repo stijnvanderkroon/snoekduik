@@ -2,12 +2,13 @@
 
 import { route, start, huidigPad } from './router.js';
 import { laadSoorten } from './data.js';
-import { laad as laadVoortgang } from './store.js';
+import { laad as laadVoortgang, instellingen } from './store.js';
 import { $, toon } from './ui.js';
 import { toonStart, toonSessie } from './views-leren.js';
 import { toonModules, toonSoorten, toonSoort } from './views-naslag.js';
 import { toonLevenslijst, toonIk, toonGemaakt } from './views-ik.js';
 import { toonFeedback } from './views-feedback.js';
+import { toonWelkom } from './views-welkom.js';
 
 const TABS = [
   ['/', 'Start', '◈'],
@@ -50,6 +51,13 @@ async function begin() {
   route('/ik', metTabs(toonIk));
   route('/gemaakt', metTabs(toonGemaakt));
   route('/feedback', metTabs(toonFeedback));
+  route('/welkom', metTabs(toonWelkom));
+
+  // Bij de eerste keer openen eerst het welkomsscherm, met de AI-waarschuwing.
+  const pad = window.location.hash.slice(1) || '/';
+  if (!instellingen().welkomGezien && pad === '/') {
+    window.location.replace('#/welkom');
+  }
 
   start();
 
