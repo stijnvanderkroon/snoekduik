@@ -18,7 +18,7 @@ export const HUIDIGE_VERSIE = 1;
 const leegVoortgang = () => ({
   schemaVersion: HUIDIGE_VERSIE,
   soorten: {},
-  instellingen: { ongekeurdToestaan: false },
+  instellingen: {},
   verwarparen: {},
   sessie: null,
 });

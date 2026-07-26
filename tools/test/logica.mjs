@@ -72,11 +72,13 @@ const items = sessie.bouwSessie(alle);
 ok('sessie levert items', items.length > 0, `(${items.length})`);
 ok('nieuwe soort krijgt eerst leerkaart', items[0]?.soort === 'leerkaart' || items.some((i) => i.soort === 'vraag'));
 
-console.log('== sessie met ongekeurd toegestaan ==');
-store.zetInstelling('ongekeurdToestaan', true);
-const klaar2 = sessie.watStaatKlaar(alle);
-console.log(`  nu ${klaar2.bruikbaar} soorten bruikbaar`);
-ok('ontwikkelschakelaar opent meer soorten', klaar2.bruikbaar > klaar.bruikbaar);
+console.log('== alleen goedgekeurde fotos in de quiz ==');
+const metOngekeurd = alle.filter((s) => s.fotos.some((f) => !f.gekeurd));
+ok('er bestaat nog ongekeurd materiaal', metOngekeurd.length > 0, `(${metOngekeurd.length} soorten)`);
+ok('geen enkele quizfoto is ongekeurd',
+  alle.every((s) => sessie.quizFotos(s).every((f) => f.gekeurd)));
+ok('elke quizfoto heeft een maker of is CC0',
+  alle.flatMap((s) => sessie.quizFotos(s)).every((f) => f.fotograaf || f.licentie === 'cc0'));
 
 console.log('== alle vraagtypes bouwen ==');
 const types = ['fotoNaam', 'naamFoto', 'uitsnede', 'aOfB', 'zone', 'gedrag', 'exoot', 'formaat'];
