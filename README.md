@@ -150,7 +150,19 @@ De app hoeft daarvoor niet aangepast te worden.
 | `brief.md` | achtergrond en afwegingen |
 | `CLAUDE.md` | randvoorwaarden voor wie eraan werkt |
 
-## Licenties
+## Licentie
 
-De foto's houden hun eigen licentie, die per foto in de app staat vermeld. Voor
-de code en de soortdata is nog geen licentie gekozen.
+De code, de teksten en de soortdata staan onder de **MIT-licentie**: gebruik,
+aanpassen en doorgeven mag, ook commercieel, zolang de copyrightvermelding
+meegaat. Zie \`LICENSE\`.
+
+**De foto's vallen daar niet onder.** Die zijn van de fotografen zelf en houden
+hun eigen licentie (CC0, CC BY, CC BY-SA of CC BY-NC). Bij elke foto in de app
+staan fotograaf, licentie en bron. Deze repository bevat alleen verwijzingen en
+gegevens over die foto's, nooit de beeldbestanden zelf.
+
+Hergebruik je dit project, respecteer dan per foto de eigen licentie. CC BY-NC
+staat bijvoorbeeld geen commercieel gebruik toe.
+
+Let bij hergebruik ook op de waarschuwing bovenaan: de soortteksten zijn met AI
+geschreven en nog niet allemaal door een duiker nagekeken.
