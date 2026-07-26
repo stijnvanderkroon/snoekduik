@@ -11,7 +11,7 @@
   },
   "witvis": {
    "totaal": 8,
-   "quizKlaar": 6,
+   "quizKlaar": 7,
    "metTekst": 8
   },
   "bodem-talud": {
@@ -1470,15 +1470,29 @@
      "code": "F-3ZS8E5",
      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/66844672/medium.jpg",
      "groot": "https://inaturalist-open-data.s3.amazonaws.com/photos/66844672/large.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": true,
+     "tier": "insitu",
+     "gekeurd": true,
+     "twijfel": false,
      "ster": false,
      "volgnummer": 1984,
      "fotograaf": "Hubert Szczygieł",
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/42112924"
+    },
+    {
+     "code": "F-MXKYDR",
+     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rotfeder_Rudd.jpg/330px-Rotfeder_Rudd.jpg",
+     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rotfeder_Rudd.jpg/1280px-Rotfeder_Rudd.jpg",
+     "tier": "insitu",
+     "gekeurd": true,
+     "twijfel": false,
+     "ster": false,
+     "volgnummer": 2009,
+     "fotograaf": "Olaf Nies",
+     "licentie": "cc-by",
+     "bron": "commons",
+     "bronUrl": "https://commons.wikimedia.org/wiki/File:Rotfeder_Rudd.jpg"
     },
     {
      "code": "F-K6VBCP",
@@ -1493,24 +1507,10 @@
      "licentie": "cc-by-nc",
      "bron": "inaturalist",
      "bronUrl": "https://www.inaturalist.org/observations/285537229"
-    },
-    {
-     "code": "F-MXKYDR",
-     "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rotfeder_Rudd.jpg/330px-Rotfeder_Rudd.jpg",
-     "groot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rotfeder_Rudd.jpg/1280px-Rotfeder_Rudd.jpg",
-     "tier": "onbekend",
-     "gekeurd": false,
-     "twijfel": true,
-     "ster": false,
-     "volgnummer": 2009,
-     "fotograaf": "Olaf Nies",
-     "licentie": "cc-by",
-     "bron": "commons",
-     "bronUrl": "https://commons.wikimedia.org/wiki/File:Rotfeder_Rudd.jpg"
     }
    ],
-   "aantalInsitu": 0,
-   "quizKlaar": false
+   "aantalInsitu": 2,
+   "quizKlaar": true
   },
   {
    "id": "kolblei",

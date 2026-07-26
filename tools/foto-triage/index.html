@@ -90,6 +90,9 @@
   .v-voortgang i{display:block;height:100%}
   .v-klaar{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:2rem}
 
+  .melding{background:#33290f;border:1px solid var(--ster);border-radius:8px;
+    padding:.6rem .8rem;margin-bottom:.8rem;font-size:.85rem;color:#f0dcae}
+  .melding a{color:#ffd98a}
   #toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#243141;
     border:1px solid var(--line);padding:.5rem .9rem;border-radius:6px;font-size:.85rem;opacity:0;
     transition:opacity .2s;pointer-events:none;z-index:200}
@@ -134,7 +137,7 @@
     <span class="pil" id="v-module"></span>
     <span class="v-meta" id="v-soortstand"></span>
     <span class="spacer"></span>
-    <label class="stat"><input type="checkbox" id="v-alleen-nieuw" checked> alleen onbeoordeelde</label>
+    <label class="stat"><input type="checkbox" id="v-alleen-nieuw"> alleen onbeoordeelde</label>
     <span class="v-teller" id="v-teller"></span>
     <button id="v-sluit">Esc</button>
   </div>
@@ -175,6 +178,19 @@ let opslaanTimer = null;
 let teller = 0;
 
 const $ = (s) => document.querySelector(s);
+
+/**
+ * Filter uit de URL, om een deelverzameling opnieuw te beoordelen.
+ *   ?soorten=ruisvoorn,kolblei   alleen deze soorten
+ *   ?oordeel=misschien           alleen foto's met dit eerdere oordeel
+ * Zonder parameters gedraagt de tool zich als altijd.
+ */
+const zoek = new URLSearchParams(location.search);
+const FILTER = {
+  soorten: zoek.get('soorten') ? new Set(zoek.get('soorten').split(',')) : null,
+  oordeel: zoek.get('oordeel') ? new Set(zoek.get('oordeel').split(',')) : null,
+};
+const filterActief = Boolean(FILTER.soorten || FILTER.oordeel);
 const sleutelVan = (soortId, foto) => `${soortId}|${foto.bronUrl}`;
 
 function toast(tekst) {
@@ -491,8 +507,11 @@ async function start() {
   }
 
   const soorten = Object.entries(probe.soorten)
-    .filter(([, s]) => s.gecheckt)
+    .filter(([id, s]) => s.gecheckt && (!FILTER.soorten || FILTER.soorten.has(id)))
     .sort((a, b) => (a[1].inaturalist?.bruikbaarTotaal ?? 0) - (b[1].inaturalist?.bruikbaarTotaal ?? 0));
+
+  const totaalAantalFotos = Object.values(probe.soorten).reduce(
+    (n, s) => n + (s.inaturalist?.samples?.length ?? 0) + (s.commons?.samples?.length ?? 0), 0);
 
   const inhoud = document.createDocumentFragment();
   fotos = [];
@@ -501,7 +520,10 @@ async function start() {
     const lijst = [
       ...(soort.inaturalist?.samples ?? []).map((s) => ({ ...s, bron: 'inat' })),
       ...(soort.commons?.samples ?? []).map((s) => ({ ...s, bron: 'commons' })),
-    ];
+    ].filter((foto) => {
+      if (!FILTER.oordeel) return true;
+      return FILTER.oordeel.has(verdicts[sleutelVan(soortId, foto)]?.oordeel);
+    });
     if (lijst.length === 0) continue;
 
     const sec = document.createElement('section');
@@ -543,6 +565,18 @@ async function start() {
     inhoud.appendChild(sec);
   }
 
+  if (filterActief) {
+    const delen = [];
+    if (FILTER.soorten) delen.push(`soorten: ${[...FILTER.soorten].join(', ')}`);
+    if (FILTER.oordeel) delen.push(`eerder beoordeeld als: ${[...FILTER.oordeel].join(', ')}`);
+    $('#inhoud').insertAdjacentHTML('beforebegin', `<div class="melding">
+      <strong>Filter actief.</strong> ${delen.join(' &middot; ')}. Je ziet ${fotos.length}
+      van de ${totaalAantalFotos} foto's. <a href="${location.pathname}">Toon alles</a>.
+    </div>`);
+  }
+  // Met een oordeelfilter gaat het juist om foto's die al beoordeeld zijn, dus
+  // dan mag "alleen onbeoordeelde" niet aanstaan.
+  $('#v-alleen-nieuw').checked = !filterActief;
   $('#inhoud').replaceChildren(inhoud);
   fotos.forEach((f) => ververGrid(f.sleutel));
   werkTellingenBij();
