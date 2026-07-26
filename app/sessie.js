@@ -9,7 +9,7 @@
  *    geleidelijk bij weinig materiaal.
  */
 
-import { standVan } from './store.js';
+import { standVan, alleParen } from './store.js';
 import { isToe, isNieuw, achterstand } from './leitner.js';
 
 export const SESSIE_LENGTE = 15;
@@ -271,6 +271,31 @@ export function kiesType(box) {
  * Een nieuwe soort krijgt altijd eerst een leerkaart en daarna direct één
  * makkelijke vraag over diezelfde soort.
  */
+/**
+ * Soorten om vrij mee te oefenen als er niets te herhalen is en niets nieuws
+ * meer. Zonder dit valt de app stil zodra je een module één keer doorlopen hebt:
+ * een goed antwoord zet een soort op boekje 2, en die komt pas een dag later
+ * terug.
+ *
+ * Volgorde: eerst soorten uit verwarparen waar je de meeste fouten in maakt,
+ * daarna het laagste boekje, daarna het langst niet gezien.
+ */
+function oefenKandidaten(inScope) {
+  const paren = alleParen();
+  const foutenVan = (id) => Object.entries(paren)
+    .filter(([sleutel]) => sleutel.split('|').includes(id))
+    .reduce((n, [, p]) => n + p.fout, 0);
+
+  return inScope
+    .filter((s) => standVan(s.id).box > 0)
+    .map((s) => ({ soort: s, fouten: foutenVan(s.id), stand: standVan(s.id) }))
+    .sort((a, b) =>
+      (b.fouten - a.fouten)
+      || (a.stand.box - b.stand.box)
+      || ((a.stand.laatsteReview ?? 0) - (b.stand.laatsteReview ?? 0)))
+    .map((x) => x.soort);
+}
+
 export function bouwSessie(alleSoorten, { moduleFilter = null, nu = Date.now() } = {}) {
   const bruikbaar = alleSoorten.filter(heeftQuizFoto);
   const inScope = moduleFilter ? bruikbaar.filter((s) => s.module === moduleFilter) : bruikbaar;
@@ -291,6 +316,15 @@ export function bouwSessie(alleSoorten, { moduleFilter = null, nu = Date.now() }
     items.push({ soort: 'leerkaart', soortId: soort.id });
     const vraag = maakVraag(soort, bruikbaar, 'fotoNaam');
     if (vraag) items.push({ soort: 'vraag', ...vraag });
+  }
+
+  // Niets te herhalen en niets nieuws? Dan een vrije oefenronde, zodat de app
+  // niet stilvalt. Deze vragen verzetten het schema niet, zie `extra`.
+  if (items.length === 0) {
+    for (const soort of oefenKandidaten(inScope).slice(0, SESSIE_LENGTE)) {
+      const vraag = maakVraag(soort, bruikbaar, kiesType(standVan(soort.id).box));
+      if (vraag) items.push({ soort: 'vraag', extra: true, ...vraag });
+    }
   }
 
   // Nooit twee vragen over dezelfde soort achter elkaar, behalve de koppeling
@@ -316,5 +350,7 @@ export function watStaatKlaar(alleSoorten, nu = Date.now()) {
     herhalen: bruikbaar.filter((s) => isToe(s.id, nu)).length,
     nieuw: bruikbaar.filter((s) => isNieuw(s.id)).length,
     bruikbaar: bruikbaar.length,
+    // Soorten die je al kent en dus vrij kunt oefenen.
+    geleerd: bruikbaar.filter((s) => standVan(s.id).box > 0).length,
   };
 }

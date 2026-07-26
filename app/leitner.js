@@ -30,8 +30,20 @@ export function achterstand(soortId, nu = Date.now()) {
   return Math.max(0, nu - s.volgendeReview);
 }
 
-export function verwerkAntwoord(soortId, goed, nu = Date.now()) {
+/**
+ * Verwerkt een antwoord. Bij vrij oefenen (`extra`) telt een goed antwoord niet
+ * mee voor het schema: anders kun je in één middag alles naar boekje 5 tikken en
+ * is de spreiding weg. Een fout antwoord telt altijd, want dat is echte
+ * informatie over wat je nog niet kent.
+ */
+export function verwerkAntwoord(soortId, goed, { nu = Date.now(), extra = false } = {}) {
   const vorige = standVan(soortId);
+
+  if (extra && goed) {
+    zetStand(soortId, { ...vorige, gezien: vorige.gezien + 1 });
+    return { vorigeBox: vorige.box, nieuweBox: vorige.box, omhoog: false };
+  }
+
   const box = goed ? Math.min(MAX_BOX, Math.max(1, vorige.box) + 1) : 1;
 
   const nieuw = {
@@ -54,7 +66,19 @@ export function markeerGezien(soortId, nu = Date.now()) {
   });
 }
 
-/** Aantal soorten dat "blijft zitten", de maat die de app als voortgang toont. */
+/** Aantal soorten dat "blijft zitten": boekje 4 of 5. */
 export function aantalBeheerst(soortIds) {
   return soortIds.filter((id) => standVan(id).box >= 4).length;
+}
+
+/**
+ * Voortgang van 0 tot 100 over een groep soorten, als gemiddelde vulling van de
+ * boekjes. Anders dan `aantalBeheerst` beweegt dit meteen: wachten tot boekje 4
+ * duurt minstens vier dagen, en een ring die dagenlang op nul staat leest als
+ * kapot in plaats van als streng.
+ */
+export function voortgangPercentage(soortIds) {
+  if (soortIds.length === 0) return 0;
+  const som = soortIds.reduce((n, id) => n + Math.min(MAX_BOX, standVan(id).box), 0);
+  return Math.round((som / (soortIds.length * MAX_BOX)) * 100);
 }
