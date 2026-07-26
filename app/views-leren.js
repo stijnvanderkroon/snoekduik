@@ -3,7 +3,7 @@
 import { esc, el, $, toon, attributie, ongekeurdLabel } from './ui.js';
 import { ga } from './router.js';
 import { soorten, soortOpId } from './data.js';
-import { bouwSessie, watStaatKlaar, quizFotos, leerFoto, heeftQuizFoto, LABELS } from './sessie.js';
+import { bouwSessie, bouwToets, watStaatKlaar, quizFotos, leerFoto, heeftQuizFoto, LABELS } from './sessie.js';
 import { verwerkAntwoord, markeerGezien } from './leitner.js';
 import { noteerPaar, bewaarSessie, lopendeSessie, wisSessie, standVan } from './store.js';
 
@@ -38,6 +38,7 @@ export function toonStart() {
     ${bezig ? `<button class="knop groot" id="verder">Verder waar je gebleven was</button>` : ''}
     <button class="knop ${bezig ? 'stil' : 'groot'}" id="oefen" ${klaar.bruikbaar === 0 ? 'disabled' : ''}>
       ${bezig ? 'Nieuwe sessie' : (klaar.herhalen === 0 && klaar.nieuw === 0 ? 'Vrij oefenen' : 'Oefenen')}</button>
+    <a class="knop stil" href="#/toets">Test mijn kennis</a>
     <a class="knop stil" href="#/modules">Kies een module</a>
     <a class="knop stil" href="#/soorten">Zoek een soort</a>
   `);
@@ -46,9 +47,56 @@ export function toonStart() {
   $('#verder')?.addEventListener('click', () => ga('/sessie'));
 }
 
+// ---- toets ------------------------------------------------------------------
+
+/** Modulekiezer voor de toets. Modules zonder speelbare soorten doen niet mee. */
+export function toonToetsKeuze() {
+  document.body.classList.remove('quiz');
+  const perModule = new Map();
+  for (const s of soorten()) {
+    const v = perModule.get(s.module) ?? { totaal: 0, speelbaar: 0 };
+    v.totaal += 1;
+    if (heeftQuizFoto(s)) v.speelbaar += 1;
+    perModule.set(s.module, v);
+  }
+
+  const kaarten = [...perModule.entries()].map(([mod, v]) => {
+    if (v.speelbaar === 0) {
+      return `<div class="kaart" style="opacity:.55">
+        <strong>${esc(LABELS.module[mod] ?? mod)}</strong>
+        <div class="mini">nog geen speelbare soorten</div></div>`;
+    }
+    return `<a class="kaart" href="#/toets/${esc(mod)}" style="display:block;text-decoration:none;color:inherit">
+      <strong>${esc(LABELS.module[mod] ?? mod)}</strong>
+      <div class="mini">${v.speelbaar} ${v.speelbaar === 1 ? 'vraag' : 'vragen'}</div></a>`;
+  }).join('');
+
+  toon(`
+    <div class="kop"><a class="chip" href="#/">terug</a><span class="spacer"></span></div>
+    <h1 style="font-size:1.3rem;margin:.2rem 0 .4rem">Test mijn kennis</h1>
+    <p class="mini" style="margin:0 0 1rem">Alleen vragen, geen leerkaarten. Elke soort uit de module
+      komt één keer langs. Je herhaalschema verandert er niet van, behalve als je iets fout hebt.</p>
+    ${kaarten}
+  `);
+}
+
 // ---- sessie -----------------------------------------------------------------
 
 let sessie = null;
+
+export function toonToets({ module }) {
+  const items = bouwToets(soorten(), module);
+  if (!items.length) {
+    document.body.classList.remove('quiz');
+    toon(`<div class="kop"><h1>Toets</h1></div>
+      <div class="leeg">Deze module heeft nog geen speelbare soorten.</div>
+      <a class="knop stil" href="#/toets">Kies een andere module</a>`);
+    return;
+  }
+  sessie = { items, positie: 0, resultaten: [], module, toets: true };
+  bewaarSessie(sessie);
+  tekenItem();
+}
 
 export function toonSessie(params = {}) {
   const module = params.module ?? null;
@@ -231,7 +279,8 @@ function toonFeedback(vraag, gekozenId, goed, doel, gekozenSoort) {
     // Fout materiaal komt later in dezelfde sessie eenmaal terug, zodat je niet
     // weggaat met de fout als laatste indruk. Hooguit een keer: anders raakt wie
     // veel mist nooit aan het einde van de sessie.
-    if (!goed && !vraag.herhaling) sessie.items.push({ ...vraag, herhaling: true });
+    // In een toets komt niets terug: de lengte staat vast, anders zegt de uitslag niets.
+    if (!goed && !vraag.herhaling && !sessie.toets) sessie.items.push({ ...vraag, herhaling: true });
     volgende();
   });
 }
@@ -269,22 +318,30 @@ function toonKlaar() {
   wisSessie();
   const module = sessie.module;
 
+  const isToets = Boolean(sessie.toets);
+  const pct = res.length ? Math.round((goed / res.length) * 100) : 0;
+
   toon(`
-    <div class="kop"><img class="logo" src="logos/logo-duikvlag.svg" alt=""><h1>Klaar</h1></div>
-    <p class="mini" style="margin:0 0 1rem">${res.length} ${res.length === 1 ? 'vraag' : 'vragen'}, ${goed} goed.${
-      wasExtra ? ' Dit was een vrije oefenronde, dus goede antwoorden verzetten je herhaalschema niet.' : ''}</p>
+    <div class="kop"><img class="logo" src="logos/logo-duikvlag.svg" alt=""><h1>${isToets ? 'Uitslag' : 'Klaar'}</h1></div>
+    ${isToets ? `<div class="kaart" style="text-align:center">
+      <div style="font-size:2rem;font-weight:700;letter-spacing:-1px">${goed} van de ${res.length}</div>
+      <div class="mini">${pct}% goed${module ? ` in ${esc(LABELS.module[module] ?? module)}` : ''}</div>
+    </div>` : `<p class="mini" style="margin:0 0 1rem">${res.length} ${res.length === 1 ? 'vraag' : 'vragen'}, ${goed} goed.${
+      wasExtra ? ' Dit was een vrije oefenronde, dus goede antwoorden verzetten je herhaalschema niet.' : ''}</p>`}
     ${lijst(omhoog, 'Ging omhoog')}
     ${lijst(terug, 'Komt terug')}
     ${!res.length ? '<div class="leeg">Geen vragen beantwoord.</div>' : ''}
     <a class="knop" href="#/">Klaar</a>
     <div style="text-align:center;margin-top:.4rem">
-      <button class="tekstknop" id="nog">nog een ronde</button>
+      <button class="tekstknop" id="nog">${isToets ? 'toets opnieuw doen' : 'nog een ronde'}</button>
     </div>
   `);
 
   $('#nog').addEventListener('click', () => {
     wisSessie();
-    ga(module ? `/sessie/${module}` : '/sessie');
-    if ((window.location.hash.slice(1) || '/') === (module ? `/sessie/${module}` : '/sessie')) toonSessie({ module });
+    if (isToets) return toonToets({ module });
+    const doel = module ? `/sessie/${module}` : '/sessie';
+    ga(doel);
+    if ((window.location.hash.slice(1) || '/') === doel) toonSessie({ module });
   });
 }

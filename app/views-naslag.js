@@ -51,6 +51,7 @@ export function toonModules() {
 
 let filterTekst = '';
 let filterGroep = 'alles';
+let filterModule = 'alles';
 
 export function toonSoorten() {
   document.body.classList.remove('quiz');
@@ -65,10 +66,19 @@ export function toonSoorten() {
     ['weekdier', 'Weekdieren'],
   ];
 
+  // Modules op volgorde van de soortenlijst, zodat de keuzelijst dezelfde
+  // volgorde houdt als het moduleoverzicht.
+  const modulesInVolgorde = [...new Set(alle.map((s) => s.module))];
+
   toon(`
     <div class="kop"><h1>Soorten</h1><span class="spacer"></span>
-      <span class="chip">${alle.length}</span></div>
+      <span class="chip" id="aantal">${alle.length}</span></div>
     <input class="zoek" id="zoek" placeholder="Zoek op naam" value="${esc(filterTekst)}">
+    <select id="module" style="margin-bottom:.5rem">
+      <option value="alles">Alle modules</option>
+      ${modulesInVolgorde.map((m) => `<option value="${esc(m)}" ${filterModule === m ? 'selected' : ''}>${
+        esc(LABELS.module[m] ?? m)} (${alle.filter((s) => s.module === m).length})</option>`).join('')}
+    </select>
     <div class="wikkel" style="margin-bottom:.6rem;overflow-x:auto">
       ${filters.map(([k, label]) => `<button class="chip ${filterGroep === k ? '' : 'uit'}"
         data-f="${k}" style="${filterGroep === k ? 'background:var(--teal);color:#fff;border-color:var(--teal)' : ''}"
@@ -79,6 +89,7 @@ export function toonSoorten() {
 
   const zoekveld = $('#zoek');
   zoekveld.addEventListener('input', () => { filterTekst = zoekveld.value; tekenLijst(); });
+  $('#module').addEventListener('change', (e) => { filterModule = e.target.value; tekenLijst(); });
   for (const knop of $$('[data-f]')) {
     knop.addEventListener('click', () => { filterGroep = knop.dataset.f; toonSoorten(); });
   }
@@ -89,11 +100,15 @@ function tekenLijst() {
   const term = filterTekst.trim().toLowerCase();
   const lijst = soorten().filter((s) => {
     if (term && !`${s.naamNL} ${s.naamWetenschappelijk}`.toLowerCase().includes(term)) return false;
+    if (filterModule !== 'alles' && s.module !== filterModule) return false;
     if (filterGroep === 'quiz') return heeftQuizFoto(s);
     if (filterGroep === 'exoot') return s.status?.includes('exoot');
     if (['vis', 'kreeftachtige', 'weekdier'].includes(filterGroep)) return s.groep === filterGroep;
     return true;
   });
+
+  const teller = $('#aantal');
+  if (teller) teller.textContent = lijst.length === soorten().length ? String(lijst.length) : `${lijst.length} van ${soorten().length}`;
 
   $('#lijst').innerHTML = lijst.length === 0
     ? '<div class="leeg">Niets gevonden.</div>'
@@ -106,6 +121,7 @@ function tekenLijst() {
         <div style="flex:1;min-width:0">
           <div class="naam">${esc(s.naamNL)}</div>
           <div class="mini" style="font-style:italic">${esc(s.naamWetenschappelijk)}</div>
+          ${filterModule === 'alles' ? `<div class="mini">${esc(LABELS.module[s.module] ?? s.module)}</div>` : ''}
         </div>
         ${box ? `<span class="chip">${box}/5</span>` : ''}</a>`;
     }).join('');

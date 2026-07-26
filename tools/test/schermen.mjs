@@ -264,6 +264,51 @@ ok("regelafbrekingen worden geen woordplakkers", (() => {
   return [...kaart.querySelectorAll("p")].every((p) => !/\S{25,}/.test(p.textContent));
 })());
 
+
+console.log("== test mijn kennis ==");
+store.wisAlles(); store.laad();
+leren.toonToetsKeuze();
+const toetsLinks = [...window.document.querySelectorAll('a[href^="#/toets/"]')];
+ok("toetskeuze toont startbare modules", toetsLinks.length > 0, `(${toetsLinks.length})`);
+ok("toetskeuze zegt dat er geen leerkaarten in zitten", /geen leerkaarten/i.test(tekst()));
+
+const module = toetsLinks[0].getAttribute("href").split("/").pop();
+leren.toonToets({ module });
+let toetsStappen = 0;
+let leerkaartenInToets = 0;
+while (toetsStappen < 40) {
+  if (window.document.getElementById("snap")) { leerkaartenInToets += 1; window.document.getElementById("snap").click(); }
+  else {
+    const knoppen = [...window.document.querySelectorAll(".optie:not([disabled])")];
+    if (!knoppen.length) break;
+    knoppen[toetsStappen % 2 ? knoppen.length - 1 : 0].click();
+    window.document.getElementById("verder")?.click();
+  }
+  toetsStappen += 1;
+}
+ok("toets bevat geen leerkaarten", leerkaartenInToets === 0);
+ok("toets eindigt op een uitslag met score", /Uitslag/.test(tekst()) && /van de/.test(tekst()));
+ok("een toets verzet het herhaalschema niet bij goede antwoorden",
+  Object.values(store.alleStanden()).every((s) => s.box <= 1));
+
+console.log("== modulefilter in de soortenlijst ==");
+naslag.toonSoorten();
+const keuze = window.document.getElementById("module");
+ok("modulekiezer aanwezig", Boolean(keuze));
+ok("bevat alle modules plus 'alle'",
+  keuze.options.length === new Set(data.soorten().map((s) => s.module)).size + 1,
+  `(${keuze.options.length} opties)`);
+keuze.value = "witvis";
+keuze.dispatchEvent(new window.Event("change"));
+const naFilter = [...window.document.querySelectorAll("#lijst .lijstitem")];
+const verwacht = data.soorten().filter((s) => s.module === "witvis").length;
+ok("filtert op module", naFilter.length === verwacht, `(${naFilter.length} van verwacht ${verwacht})`);
+ok("teller volgt het filter", /van \d+/.test(window.document.getElementById("aantal").textContent));
+keuze.value = "alles";
+keuze.dispatchEvent(new window.Event("change"));
+ok("filter terugzetten toont alles weer",
+  window.document.querySelectorAll("#lijst .lijstitem").length === data.soorten().length);
+
 console.log(`\nconsole-fouten: ${fouten.length}`);
 for (const f of fouten.slice(0, 10)) console.log(`  ${f}`);
 
