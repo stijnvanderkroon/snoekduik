@@ -309,6 +309,58 @@ keuze.dispatchEvent(new window.Event("change"));
 ok("filter terugzetten toont alles weer",
   window.document.querySelectorAll("#lijst .lijstitem").length === data.soorten().length);
 
+
+console.log("== feedbackfotos komen uit de vraag ==");
+{
+  // Zelfde opname, ander formaat: de vraag toont large of 1280px, het
+  // feedbackscherm medium of 330px. Vergelijk dus op identiteit, niet op URL.
+  const zelfdeFoto = (src) => String(src)
+    .replace(/\/(medium|large|original|square|small)\.(jpe?g|png)/i, "/X")
+    .replace(/\/\d+px-/, "/Xpx-");
+  const zichtbaar = () => new Set([...window.document.querySelectorAll("#scherm img")]
+    .map((i) => zelfdeFoto(i.getAttribute("src"))));
+
+  const perType = new Map();
+  let afwijkingen = 0;
+
+  for (const mod of new Set(data.soorten().map((s) => s.module))) {
+    for (let ronde = 0; ronde < 3; ronde += 1) {
+      store.wisSessie();
+      leren.toonToets({ module: mod });
+      for (let stap = 0; stap < 30; stap += 1) {
+        const knoppen = [...window.document.querySelectorAll(".optie:not([disabled])")];
+        if (!knoppen.length) break;
+        const voor = zichtbaar();
+        knoppen[knoppen.length - 1].click();
+
+        const paneel = window.document.querySelector(".fb");
+        const figuren = paneel ? [...paneel.querySelectorAll(".verg figure")] : [];
+        if (figuren.length) {
+          const type = paneel.dataset.type ?? "onbekend";
+          const telling = perType.get(type) ?? { gezien: 0, mis: 0 };
+          telling.gezien += 1;
+          // De juiste foto moet de foto zijn die je net bekeek. De foto van je
+          // eigen keuze alleen bij naamFoto, want daar stonden vier fotos in
+          // beeld; bij de andere types was die soort enkel een naam.
+          for (const fig of figuren) {
+            if (type !== "naamFoto" && !fig.querySelector(".juist")) continue;
+            const src = fig.querySelector("img").getAttribute("src");
+            if (!voor.has(zelfdeFoto(src))) { telling.mis += 1; afwijkingen += 1; }
+          }
+          perType.set(type, telling);
+        }
+        window.document.getElementById("verder")?.click();
+      }
+    }
+  }
+
+  for (const [type, telling] of perType) {
+    ok(`${type}: feedbackfoto is de foto uit de vraag`, telling.mis === 0,
+      `(${telling.gezien} vergelijkingen, ${telling.mis} afwijkingen)`);
+  }
+  ok("geen enkele afwijking over alle vraagtypes", afwijkingen === 0, `(${afwijkingen})`);
+}
+
 console.log(`\nconsole-fouten: ${fouten.length}`);
 for (const f of fouten.slice(0, 10)) console.log(`  ${f}`);
 
