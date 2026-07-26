@@ -120,8 +120,9 @@ Het belangrijkste onderscheid in dit project: alleen **echte onderwaterfoto's**
 komen in de quiz. Bijna al het beschikbare beeld van Nederlandse zoetwatervis
 komt uit de hengelsport, en een vis op een meetlat leert je niet wat je onder
 water ziet. Geen enkele zoekmachine kan filteren op "onder water genomen", dus
-dat oordeel is handwerk. Een soort komt pas in de quiz bij vijf goedgekeurde
-onderwaterfoto's.
+dat oordeel is handwerk. Een soort doet mee in de quiz zodra er één goedgekeurde
+onderwaterfoto is. De streefwaarde is vijf per soort: met één foto leer je vooral
+dat ene plaatje.
 
 Zolang er nog te weinig zijn staat er bij **Ik** een schakelaar om ongekeurde
 foto's toe te laten, zodat alle modules te bekijken zijn. Die krijgen overal het

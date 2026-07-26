@@ -90,8 +90,10 @@ de JSON. Reken op 20–30 MB totaal — ruim binnen wat GitHub Pages aankan.
 Nederlandse onderwaterfotografiehoek benaderen. ANEMOON en duikers die aan
 soortmonitoring doen hebben archieven én zijn zelf doelgroep.
 
-Minimaal 5 in-situ foto's per soort. Met minder leren mensen de fóto herkennen
-in plaats van de soort.
+Streefwaarde is 5 in-situ foto's per soort: met minder leren mensen eerder de
+fóto herkennen dan de soort. Het is bewust een streefwaarde en geen drempel; een
+soort doet al mee zodra er één goedgekeurde onderwaterfoto is, omdat wachten op
+vijf betekent dat de meeste soorten voorlopig onzichtbaar blijven.
 
 ## Voortgang in localStorage
 

@@ -15,7 +15,8 @@ export async function laadSoorten() {
 export const soorten = () => bestand?.soorten ?? [];
 export const soortOpId = (id) => opId.get(id) ?? null;
 export const modules = () => bestand?.modules ?? {};
-export const drempelQuiz = () => bestand?.drempelQuiz ?? 5;
+export const drempelQuiz = () => bestand?.drempelQuiz ?? 1;
+export const streefFotos = () => bestand?.streefFotos ?? 5;
 
 export function statistiek() {
   const alle = soorten();

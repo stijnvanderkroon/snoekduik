@@ -1,7 +1,7 @@
 /** Feedbackmenu: doorverwijzingen naar formulieren, plus wat we het hardst nodig hebben. */
 
 import { esc, $, toon } from './ui.js';
-import { soorten, drempelQuiz } from './data.js';
+import { soorten, streefFotos } from './data.js';
 import { LABELS } from './sessie.js';
 import { FORMULIEREN } from './feedback-links.js';
 
@@ -17,7 +17,7 @@ function meestGewild(maximaal = 20) {
       module: s.module,
       heeft: s.fotos.filter((f) => f.gekeurd).length,
     }))
-    .filter((s) => s.heeft < drempelQuiz())
+    .filter((s) => s.heeft < streefFotos())
     .sort((a, b) => a.heeft - b.heeft)
     .slice(0, maximaal);
 }
@@ -38,20 +38,21 @@ function kaart({ sleutel, kop, tekst, knop, extra = '' }) {
 export function toonFeedback() {
   document.body.classList.remove('quiz');
   const gewild = meestGewild();
-  const tekort = soorten().filter((s) => s.fotos.filter((f) => f.gekeurd).length < drempelQuiz()).length;
+  const tekort = soorten().filter((s) => s.fotos.filter((f) => f.gekeurd).length < streefFotos()).length;
 
   const gewildLijst = gewild.length ? `
     <details class="uitklap">
       <summary>Waar we de meeste foto's van missen (${tekort} soorten)</summary>
       <p class="mini" style="margin:.4rem 0">
-        Een soort komt pas in de quiz bij ${drempelQuiz()} goedgekeurde onderwaterfoto's.
-        Hieronder de soorten die er nog het verst vanaf zitten.</p>
+        Een soort doet al mee zodra er één goedgekeurde onderwaterfoto is, maar met één foto
+        leer je vooral dat plaatje. We streven naar ${streefFotos()} per soort. Hieronder de
+        soorten die er nog het verst vanaf zitten.</p>
       <table class="gewild">
         <tbody>
         ${gewild.map((s) => `<tr>
           <td>${esc(s.naam)}<div class="mini" style="font-style:italic">${esc(s.wetenschappelijk)}</div></td>
           <td class="mini">${esc(LABELS.module[s.module] ?? s.module)}</td>
-          <td class="nodig">${s.heeft} van ${drempelQuiz()}</td>
+          <td class="nodig">${s.heeft} van ${streefFotos()}</td>
         </tr>`).join('')}
         </tbody>
       </table>

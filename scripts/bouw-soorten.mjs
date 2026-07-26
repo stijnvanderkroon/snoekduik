@@ -25,7 +25,15 @@ import { TEKSTEN } from './soortteksten.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Aantal gekeurde in-situ foto's dat een soort nodig heeft om in de quiz te komen. */
-export const DREMPEL_QUIZ = 5;
+export const DREMPEL_QUIZ = 1;
+
+/**
+ * Hoeveel foto's we per soort eigenlijk willen hebben. Dit is geen drempel maar
+ * een streefwaarde: hij bepaalt welke soorten bovenaan de "gezocht"-lijst staan
+ * en wanneer een soort ruim genoeg materiaal heeft om niet steeds dezelfde foto
+ * te tonen. Met één foto leer je het plaatje, met een handvol de soort.
+ */
+export const STREEF_FOTOS = 5;
 
 /** Ongekeurde foto's per soort in de uitvoer. Alleen om de app te kunnen bekijken tijdens de triage. */
 const MAX_ONGEKEURD = 8;
@@ -176,6 +184,7 @@ async function main() {
     schemaVersion: 1,
     gegenereerd: 'scripts/bouw-soorten.mjs',
     drempelQuiz: DREMPEL_QUIZ,
+    streefFotos: STREEF_FOTOS,
     modules: perModule,
     soorten,
   };
@@ -216,7 +225,8 @@ async function main() {
   const metFoto = soorten.filter((s) => s.fotos.length).length;
   const klaar = soorten.filter((s) => s.quizKlaar);
   console.log(`data/soorten.json geschreven: ${soorten.length} soorten`);
-  console.log(`  met foto's: ${metFoto}, quizklaar (>=${DREMPEL_QUIZ} gekeurd): ${klaar.length}`);
+  const opStreef = soorten.filter((s) => s.aantalInsitu >= STREEF_FOTOS).length;
+  console.log(`  met foto's: ${metFoto}, quizklaar (>=${DREMPEL_QUIZ} gekeurd): ${klaar.length}, op streefwaarde (>=${STREEF_FOTOS}): ${opStreef}`);
   console.log(`  met tekst: ${soorten.filter((s) => s.herkenningOnderWater).length}`);
   console.log('\nper module:');
   for (const [m, v] of Object.entries(perModule)) {

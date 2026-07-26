@@ -424,10 +424,15 @@ achteraf niets gereconstrueerd te worden.
 **Hoeveel in-situ foto's per soort als minimum?** `CLAUDE.md` zegt 8 voor de
 prioriteitsmodules, `brief.md` zegt minimaal 5, en de triage meet tot nu toe
 ongeveer 5,9 goede foto's per 42 beoordeelde. Drie getallen die niet samengaan.
-Het ontwerp gaat uit van **5 om in de quiz te komen, 8 als streefwaarde**, met
-een tweede foto nodig voor soorten die vaak afleider zijn. Dit bepaalt hoeveel
-soorten de eerste versie haalt en of ronde 2 dieper moet zoeken of dat er
-materiaal bij moet komen.
+Beslist: **1 goedgekeurde foto om in de quiz te komen, 5 als streefwaarde.**
+Wachten op vijf hield het overgrote deel van de soorten onzichtbaar. De
+streefwaarde stuurt nu alleen nog de "gezocht"-lijst in het feedbackscherm en
+de markering op de soortpagina.
+
+De keerzijde staat er eerlijk bij: bij één foto leert iemand dat ene plaatje en
+niet de soort, en het feedbackscherm na een fout antwoord kan dan niet twee
+verschillende foto's naast elkaar zetten. De app vangt dat af door de
+vergelijking over te slaan als er maar één foto is.
 
 ### Dit heeft een verdedigbare standaard, later beslissen kan
 

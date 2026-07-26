@@ -3,7 +3,7 @@
 
 import { esc, $, $$, toon, attributie, ongekeurdLabel, ringStijl } from './ui.js';
 import { ga } from './router.js';
-import { soorten, soortOpId, modules, drempelQuiz } from './data.js';
+import { soorten, soortOpId, modules, streefFotos } from './data.js';
 import { LABELS, heeftQuizFoto, quizFotos } from './sessie.js';
 import { aantalBeheerst } from './leitner.js';
 import { voegWaarnemingToe, standVan } from './store.js';
@@ -42,7 +42,7 @@ export function toonModules() {
       Modules zijn ingangen, geen volgorde. Je kunt overal beginnen.</p>
     <div class="modrooster">${kaarten}</div>
     <p class="mini" style="margin-top:.8rem">
-      Een module is speelbaar zodra er soorten met ${drempelQuiz()} goedgekeurde onderwaterfoto's in zitten.
+      Een module is speelbaar zodra er een soort met een goedgekeurde onderwaterfoto in zit.
       De ring toont hoeveel soorten blijven zitten, niet hoeveel je gezien hebt.</p>
   `);
 }
@@ -148,7 +148,7 @@ export function toonSoort({ id }) {
       ${(s.zone ?? []).map((z) => `<span class="chip">${esc(LABELS.zone[z] ?? z)}</span>`).join('')}
       ${(s.leefgebied ?? []).map((g) => `<span class="chip">${esc(LABELS.leefgebied[g] ?? g)}</span>`).join('')}
       ${(s.status ?? []).map((st) => `<span class="chip ${st === 'exoot' ? 'let' : ''}">${esc(st)}</span>`).join('')}
-      <span class="chip ${insitu.length >= drempelQuiz() ? '' : 'let'}">${insitu.length} gekeurde onderwaterfoto's</span>
+      <span class="chip ${insitu.length >= streefFotos() ? '' : 'let'}">${insitu.length} gekeurde onderwaterfoto's</span>
     </div>
 
     ${s.tekstGecontroleerd === false && s.herkenningOnderWater ? `<div class="melding">
