@@ -5,7 +5,7 @@ import { esc, $, $$, toon, attributie, ongekeurdLabel, ringStijl } from './ui.js
 import { ga } from './router.js';
 import { soorten, soortOpId, modules, streefFotos } from './data.js';
 import { LABELS, heeftQuizFoto, quizFotos } from './sessie.js';
-import { aantalBeheerst } from './leitner.js';
+import { aantalBeheerst, voortgangPercentage } from './leitner.js';
 import { voegWaarnemingToe, standVan } from './store.js';
 
 // ---- modules ----------------------------------------------------------------
@@ -21,8 +21,7 @@ export function toonModules() {
 
   const kaarten = [...perModule.entries()].map(([mod, lijst]) => {
     const speelbaar = lijst.filter(heeftQuizFoto);
-    const beheerst = aantalBeheerst(lijst.map((s) => s.id));
-    const pct = Math.round((beheerst / lijst.length) * 100);
+    const pct = voortgangPercentage(lijst.map((s) => s.id));
     const uit = speelbaar.length === 0;
 
     return `<a class="mod ${uit ? 'uit' : ''}" href="${uit ? '#/soorten' : `#/sessie/${esc(mod)}`}">
@@ -43,7 +42,8 @@ export function toonModules() {
     <div class="modrooster">${kaarten}</div>
     <p class="mini" style="margin-top:.8rem">
       Een module is speelbaar zodra er een soort met een goedgekeurde onderwaterfoto in zit.
-      De ring toont hoeveel soorten blijven zitten, niet hoeveel je gezien hebt.</p>
+      De ring loopt mee met hoe goed elke soort zit: hij vult zich naarmate soorten in hogere
+      boekjes komen, en is pas vol als alles in boekje 5 staat.</p>
   `);
 }
 

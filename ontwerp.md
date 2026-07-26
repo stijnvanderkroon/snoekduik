@@ -107,8 +107,10 @@ Acht modules als kaarten met een voortgangsring: eerste-duik (12), witvis (8),
 bodem-talud (10), grondels (4), rivier (8), kreeften (9), mossels-slakken (7),
 vreemd-spul (8).
 
-Modules zijn ingangen, geen volgorde. Een module is niet "af": de ring toont
-hoeveel soorten in boekje 4 of 5 zitten. Dat is een stand van zaken, geen score
+Modules zijn ingangen, geen volgorde. Een module is niet "af": de ring loopt mee
+met hoe goed elke soort zit, als gemiddelde vulling van de boekjes. Alleen
+boekje 4 en 5 tellen zou betekenen dat de ring minstens vier dagen op nul blijft
+staan, en dat leest als kapot in plaats van als streng. Dat is een stand van zaken, geen score
 om vol te maken, en er is geen beloning aan verbonden. Modules zonder genoeg
 gekeurde foto's tonen "in voorbereiding" en zijn niet startbaar, in plaats van te
 verschijnen met lege of slechte platen.
@@ -179,8 +181,14 @@ wanneer je oefent, en er wordt nergens bijgehouden of je dat gisteren ook deed.
    koppeling
 5. Sluit af met een item dat de gebruiker waarschijnlijk goed heeft
 
-Bij niets te herhalen en niets nieuws meer: een verwarpaar-ronde over soorten die
-statistisch het vaakst verward worden.
+Bij niets te herhalen en niets nieuws meer volgt een **vrije oefenronde**: soorten
+die je al kent, met voorrang voor de verwarparen waarin je de meeste fouten maakt.
+Zonder dit valt de app stil zodra je een module een keer doorlopen hebt, want een
+goed antwoord zet een soort op boekje 2 en die komt pas een dag later terug.
+
+In zo'n vrije ronde telt een goed antwoord **niet** mee voor het schema. Anders
+tik je in een middag alles naar boekje 5 en is de spreiding weg. Een fout
+antwoord telt wel, want dat zegt iets echts over wat je nog niet kent.
 
 ### 3.3 Vraagtype hangt aan het boekje
 

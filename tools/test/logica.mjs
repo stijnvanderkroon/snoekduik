@@ -72,6 +72,36 @@ const items = sessie.bouwSessie(alle);
 ok('sessie levert items', items.length > 0, `(${items.length})`);
 ok('nieuwe soort krijgt eerst leerkaart', items[0]?.soort === 'leerkaart' || items.some((i) => i.soort === 'vraag'));
 
+console.log('== vrij oefenen als er niets te herhalen is ==');
+store.wisAlles(); store.laad();
+{
+  const mod = alle.filter((s) => s.module === 'eerste-duik');
+  // speel de module helemaal uit
+  for (let i = 0; i < 10; i += 1) {
+    const items = sessie.bouwSessie(alle, { moduleFilter: 'eerste-duik' });
+    if (!items.length) break;
+    for (const it of items) {
+      if (it.soort === 'leerkaart') leitner.markeerGezien(it.soortId);
+      else leitner.verwerkAntwoord(it.soortId, true, { extra: Boolean(it.extra) });
+    }
+  }
+  const daarna = sessie.bouwSessie(alle, { moduleFilter: 'eerste-duik' });
+  ok('sessie valt niet stil na de eerste doorloop', daarna.length > 0, `(${daarna.length} items)`);
+  ok('die extra ronde is gemarkeerd', daarna.every((i) => i.extra));
+  ok('en bevat geen leerkaarten meer', daarna.every((i) => i.soort === 'vraag'));
+
+  const voor = store.standVan(daarna[0].soortId);
+  leitner.verwerkAntwoord(daarna[0].soortId, true, { extra: true });
+  const na = store.standVan(daarna[0].soortId);
+  ok('goed antwoord bij vrij oefenen verzet het schema niet',
+    na.box === voor.box && na.volgendeReview === voor.volgendeReview);
+  leitner.verwerkAntwoord(daarna[0].soortId, false, { extra: true });
+  ok('fout antwoord telt wel, ook bij vrij oefenen', store.standVan(daarna[0].soortId).box === 1);
+
+  ok('voortgang beweegt meteen, niet pas bij boekje 4',
+    leitner.voortgangPercentage(mod.map((s) => s.id)) > 0);
+}
+
 console.log('== alleen goedgekeurde fotos in de quiz ==');
 const metOngekeurd = alle.filter((s) => s.fotos.some((f) => !f.gekeurd));
 ok('er bestaat nog ongekeurd materiaal', metOngekeurd.length > 0, `(${metOngekeurd.length} soorten)`);

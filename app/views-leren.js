@@ -14,10 +14,17 @@ export function toonStart() {
   const klaar = watStaatKlaar(soorten());
   const bezig = lopendeSessie();
 
-  const regel = klaar.bruikbaar === 0
-    ? 'Er zijn nog geen soorten met goedgekeurde onderwaterfoto\'s.'
-    : `${klaar.herhalen} ${klaar.herhalen === 1 ? 'soort is' : 'soorten zijn'} toe aan herhaling, ` +
-      `${klaar.nieuw} nieuw beschikbaar.`;
+  let regel;
+  if (klaar.bruikbaar === 0) {
+    regel = 'Er zijn nog geen soorten met goedgekeurde onderwaterfoto\'s.';
+  } else if (klaar.herhalen === 0 && klaar.nieuw === 0) {
+    regel = `Niets staat klaar om te herhalen. Je kunt vrij oefenen met de ${klaar.geleerd} soorten die je al gezien hebt.`;
+  } else if (klaar.herhalen === 0) {
+    regel = `Niets staat klaar om te herhalen, ${klaar.nieuw} nieuwe ${klaar.nieuw === 1 ? 'soort' : 'soorten'} beschikbaar.`;
+  } else {
+    regel = `${klaar.herhalen} ${klaar.herhalen === 1 ? 'soort is' : 'soorten zijn'} toe aan herhaling, `
+      + `${klaar.nieuw} nieuw beschikbaar.`;
+  }
 
   toon(`
     <div class="kop"><img class="logo" src="logos/logo-duikvlag.svg" alt=""><h1>Snoekduik</h1></div>
@@ -30,7 +37,7 @@ export function toonStart() {
 
     ${bezig ? `<button class="knop groot" id="verder">Verder waar je gebleven was</button>` : ''}
     <button class="knop ${bezig ? 'stil' : 'groot'}" id="oefen" ${klaar.bruikbaar === 0 ? 'disabled' : ''}>
-      ${bezig ? 'Nieuwe sessie' : 'Oefenen'}</button>
+      ${bezig ? 'Nieuwe sessie' : (klaar.herhalen === 0 && klaar.nieuw === 0 ? 'Vrij oefenen' : 'Oefenen')}</button>
     <a class="knop stil" href="#/modules">Kies een module</a>
     <a class="knop stil" href="#/soorten">Zoek een soort</a>
   `);
@@ -168,7 +175,7 @@ function antwoord(vraag, gekozenId, doelSoort) {
     else knop.classList.add('flauw');
   }
 
-  const uitkomst = verwerkAntwoord(vraag.soortId, goed);
+  const uitkomst = verwerkAntwoord(vraag.soortId, goed, { extra: Boolean(vraag.extra) });
   sessie.resultaten.push({ soortId: vraag.soortId, goed, ...uitkomst });
 
   // Alleen soortkeuzes zeggen iets over verwarparen; zone- of formaatvragen niet.
@@ -241,6 +248,7 @@ function toonKlaar() {
   document.body.classList.remove('quiz');
   const res = sessie.resultaten;
   const goed = res.filter((r) => r.goed).length;
+  const wasExtra = sessie.items.some((i) => i.extra);
 
   const omhoog = [...new Set(res.filter((r) => r.omhoog).map((r) => r.soortId))];
   const terug = [...new Set(res.filter((r) => !r.goed).map((r) => r.soortId))];
@@ -263,7 +271,8 @@ function toonKlaar() {
 
   toon(`
     <div class="kop"><img class="logo" src="logos/logo-duikvlag.svg" alt=""><h1>Klaar</h1></div>
-    <p class="mini" style="margin:0 0 1rem">${res.length} ${res.length === 1 ? 'vraag' : 'vragen'}, ${goed} goed.</p>
+    <p class="mini" style="margin:0 0 1rem">${res.length} ${res.length === 1 ? 'vraag' : 'vragen'}, ${goed} goed.${
+      wasExtra ? ' Dit was een vrije oefenronde, dus goede antwoorden verzetten je herhaalschema niet.' : ''}</p>
     ${lijst(omhoog, 'Ging omhoog')}
     ${lijst(terug, 'Komt terug')}
     ${!res.length ? '<div class="leeg">Geen vragen beantwoord.</div>' : ''}
