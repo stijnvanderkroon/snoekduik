@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Snoekduik ontwerp, schermen</title>
+<style>
+  :root{
+    --merk:#BE3A2B; --diep:#1B4B45; --teal:#2E7D6B; --creme:#F4F0E3;
+    --amber:#E8B44A; --bijna:#C97A2B; --lijn:#d9d3c2; --dim:#6b7f78;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#e7e2d4;color:var(--diep);
+    font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:1.5rem}
+  h1{font-size:1.3rem;margin:0 0 .2rem}
+  .intro{max-width:70ch;color:#4a5f59;font-size:.9rem;margin-bottom:1.5rem}
+  .waarschuwing{background:#fff4e0;border:1px solid var(--bijna);border-radius:8px;
+    padding:.7rem .9rem;font-size:.85rem;max-width:70ch;margin-bottom:1.5rem}
+
+  .rij{display:flex;gap:1.6rem;flex-wrap:wrap;align-items:flex-start}
+  .kolom{width:380px;flex:0 0 auto}
+  .kolom > h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--dim);margin:0 0 .5rem;font-weight:600}
+
+  /* telefoonframe op de doelmaat uit CLAUDE.md */
+  .tel{width:380px;height:760px;background:var(--creme);border-radius:26px;
+    border:1px solid var(--lijn);box-shadow:0 8px 28px #0002;overflow:hidden;
+    display:flex;flex-direction:column;position:relative}
+  .tel.donker{background:#0e2420}
+
+  .balk{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;flex:0 0 auto}
+  .logo{width:26px;height:26px;border-radius:6px;flex:0 0 auto}
+  .merknaam{font-weight:600;letter-spacing:-.3px}
+  .spacer{flex:1}
+  .chip{font-size:.72rem;padding:.15rem .5rem;border-radius:999px;
+    border:1px solid var(--lijn);background:#fff8;white-space:nowrap}
+  .chip.vlam{border-color:var(--amber);color:#8a6512;background:#fdf3dc;font-weight:600}
+
+  .inhoud{flex:1;overflow:hidden;padding:0 .9rem}
+  .tabs{flex:0 0 auto;display:flex;border-top:1px solid var(--lijn);background:#fffdf6}
+  .tab{flex:1;text-align:center;padding:.5rem 0 .6rem;font-size:.68rem;color:var(--dim)}
+  .tab.aan{color:var(--teal);font-weight:700}
+  .tab i{display:block;font-size:1.1rem;font-style:normal;margin-bottom:.1rem}
+
+  .knop{display:block;width:100%;border:0;border-radius:12px;padding:.85rem;
+    font:inherit;font-weight:650;cursor:default;background:var(--teal);color:#fff;text-align:center}
+  .knop.stil{background:#fff;color:var(--diep);border:1px solid var(--lijn);font-weight:500}
+  .knop.groot{padding:1.05rem;font-size:1.05rem}
+
+  .kaart{background:#fffdf6;border:1px solid var(--lijn);border-radius:14px;padding:.8rem;margin-bottom:.7rem}
+  .mini{font-size:.78rem;color:var(--dim)}
+  .titelrij{display:flex;align-items:baseline;gap:.4rem}
+  .wet{font-style:italic;color:var(--dim);font-size:.8rem}
+
+  img.foto{width:100%;display:block;border-radius:10px;object-fit:cover;background:#0b1219}
+
+  /* quiz */
+  .qtop{padding:.6rem .9rem 0}
+  .voortgang{height:5px;background:#ffffff22;border-radius:3px;overflow:hidden}
+  .voortgang i{display:block;height:100%;width:46%;background:var(--amber)}
+  .vraag{color:#dfeee9;font-size:1rem;padding:.7rem .9rem .5rem;font-weight:600}
+  .qbeeld{margin:0 .9rem;border-radius:12px;overflow:hidden;position:relative}
+  .qbeeld img{width:100%;height:250px;object-fit:cover;display:block}
+  /* zichtsimulatie niveau 2: groenzweem plus contrastverlies */
+  .zicht2{filter:saturate(.75) contrast(.82) brightness(.92)}
+  .zicht2::after{content:"";position:absolute;inset:0;background:#2E7D6B;
+    mix-blend-mode:multiply;opacity:.28}
+  .zichtlabel{position:absolute;left:.5rem;bottom:.5rem;background:#000a;color:#cfe;
+    font-size:.66rem;padding:.15rem .45rem;border-radius:999px}
+  .opties{padding:.8rem .9rem;display:grid;gap:.5rem}
+  .optie{background:#14332d;border:1px solid #2c5b52;color:#eaf5f2;border-radius:12px;
+    padding:.8rem .9rem;font-weight:600;font-size:.95rem}
+  .optie.goed{background:var(--teal);border-color:var(--teal);color:#fff}
+  .optie.fout{background:#3a2418;border-color:var(--bijna);color:#ffd9b8}
+  .attrib{color:#8fb3ab;font-size:.62rem;padding:.15rem .9rem}
+
+  /* feedback */
+  .fb{position:absolute;left:0;right:0;bottom:0;background:#fffdf6;
+    border-top:3px solid var(--bijna);border-radius:16px 16px 0 0;padding:.9rem}
+  .fb h3{margin:0 0 .5rem;font-size:1rem;color:var(--bijna)}
+  .verg{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.6rem}
+  .verg figure{margin:0}
+  .verg img{width:100%;height:88px;object-fit:cover;border-radius:8px;display:block}
+  .verg figcaption{font-size:.74rem;margin-top:.2rem;font-weight:600}
+  .verg .jouw{color:var(--bijna)} .verg .juist{color:var(--teal)}
+  .sleutel{background:#f0f6f3;border-left:3px solid var(--teal);padding:.5rem .6rem;
+    font-size:.84rem;border-radius:0 6px 6px 0}
+
+  /* modules */
+  .modgrid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .mod{background:#fffdf6;border:1px solid var(--lijn);border-radius:14px;padding:.7rem;
+    display:flex;gap:.55rem;align-items:center}
+  .mod.uit{opacity:.5}
+  .ring{width:36px;height:36px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+    font-size:.62rem;font-weight:700;color:var(--diep)}
+  .modnaam{font-size:.84rem;font-weight:600;line-height:1.2}
+
+  .lijst{display:flex;gap:.6rem;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--lijn)}
+  .lijst img{width:54px;height:42px;object-fit:cover;border-radius:7px;flex:0 0 auto}
+  .zoek{width:100%;border:1px solid var(--lijn);border-radius:10px;padding:.55rem .7rem;
+    font:inherit;background:#fffdf6;margin-bottom:.4rem}
+
+  .noot{font-size:.78rem;color:var(--dim);margin:.5rem 0 0;max-width:380px}
+  .let{background:#fff4e0;border:1px solid #e6c894;border-radius:6px;padding:.1rem .35rem;font-size:.68rem}
+  @media(max-width:820px){ body{padding:.8rem} .kolom{width:100%} .tel{width:100%;max-width:380px} }
+</style>
+</head>
+<body>
+
+<h1>Snoekduik, schermontwerp</h1>
+<p class="intro">Zeven schermen op 380px, de maat uit <code>CLAUDE.md</code>. Palet afgeleid van
+<code>logo-duikvlag.svg</code>: teal als basis, duikvlagrood alleen voor het merk, amber spaarzaam voor
+markeringen. Geen streak, XP, badges of notificaties: zie hoofdstuk 7 van <code>ontwerp.md</code>.</p>
+
+<div class="waarschuwing">
+  <strong>Let op, de foto's zijn nog niet gekeurd.</strong> De soorten in
+  <code>eerste-duik</code> en <code>witvis</code> zijn nog niet getrieerd, dus dit zijn ruwe
+  iNaturalist-samples. Sommige zijn vrijwel zeker hengelsportfoto's (vis in de hand of op een mat)
+  en zouden de quiz nooit halen. Ze staan hier alleen om de lay-out op echte beeldverhoudingen te tonen.
+</div>
+
+<div class="rij" id="app"></div>
+
+<script>
+const D = {"soorten":{"snoek":{"nl":"Snoek","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/43842211/medium.jpeg","lic":"cc-by-nc","fot":"(c) w4l3nt1n, some rights reserved (CC BY-NC)"},"baars":{"nl":"Baars","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/406174507/medium.jpeg","lic":"cc-by","fot":"(c) Alex Sosnovshchenko, some rights reserved"},"blankvoorn":{"nl":"Blankvoorn","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/64058142/medium.jpg","lic":"cc-by-nc","fot":"(c) Michael Verdirame, some rights reserved ("},"brasem":{"nl":"Brasem","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/98507616/medium.jpg","lic":"cc-by-nc","fot":"(c) Stanislav Cherepushkin, some rights reser"},"zeelt":{"nl":"Zeelt","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/15103391/medium.jpeg","lic":"cc-by-nc","fot":"(c) Bradley Rasmussen, some rights reserved ("},"karper":{"nl":"Karper","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/175650416/medium.jpg","lic":"cc-by-nc","fot":"(c) Tatiana Svidskaia, some rights reserved ("},"kolblei":{"nl":"Kolblei","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/492180503/medium.jpeg","lic":"cc-by-nc","fot":"(c) martiann, some rights reserved (CC BY-NC)"},"ruisvoorn":{"nl":"Ruisvoorn","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/360426198/medium.jpg","lic":"cc-by-nc","fot":"(c) coltonfishing, some rights reserved (CC B"},"snoekbaars":{"nl":"Snoekbaars","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/498057600/medium.jpg","lic":"cc-by-nc","fot":"(c) Maxfield JonasKrueger, some rights reserv"},"pos":{"nl":"Pos","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/402585807/medium.jpg","lic":"cc-by-nc","fot":"(c) smarj, some rights reserved (CC BY-NC)"}},"goed":[{"id":"grote-modderkruiper","nl":"Grote modderkruiper","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/141509972/medium.jpeg","lic":"cc-by","fot":"(c) Julien Renoult, some rights reserved"},{"id":"grote-modderkruiper","nl":"Grote modderkruiper","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/450192680/medium.jpg","lic":"cc-by-nc","fot":"(c) teddydolstra, some rights reserved ("},{"id":"grote-modderkruiper","nl":"Grote modderkruiper","thumb":"https://inaturalist-open-data.s3.amazonaws.com/photos/360100709/medium.jpeg","lic":"cc-by-nc","fot":"(c) peterschiphof, some rights reserved "}]};
+const VLAG = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140' width='140' height='140' role='img' aria-label='Snoekduik logo, duikvlag'><title>Snoekduik logo, duikvlag</title><rect width='140' height='140' rx='10' fill='#BE3A2B'/><path d='M 8 8 C 28 16 48 30 62 44 L 78 58 L 100 62 L 106 78 L 88 74 L 108 100 L 132 116 L 126 126 L 116 132 L 100 108 L 74 88 L 78 106 L 62 100 L 58 78 L 44 62 C 30 48 16 28 8 8 Z' fill='#F4F0E3'/><path d='M 10 6 C 26 16 40 28 52 40' fill='none' stroke='#BE3A2B' stroke-width='2.5' stroke-linecap='round'/><path d='M 46 26 C 40 34 36 40 32 48' fill='none' stroke='#BE3A2B' stroke-width='2' stroke-linecap='round'/><circle cx='33' cy='23' r='4.5' fill='#8E2A1E'/></svg>";
+const S = D.soorten;
+const el = (h) => { const t=document.createElement('template'); t.innerHTML=h.trim(); return t.content.firstChild; };
+
+const logo = `<img class="logo" alt="" src="data:image/svg+xml;utf8,${encodeURIComponent(VLAG)}">`;
+const tabs = (aan) => `<nav class="tabs">
+  ${[['Start','◈'],['Modules','▦'],['Soorten','☰'],['Ik','●']].map(([n,i])=>
+    `<div class="tab ${n===aan?'aan':''}"><i>${i}</i>${n}</div>`).join('')}
+</nav>`;
+
+const ring = (pct,kleur) => `<div class="ring" style="background:conic-gradient(${kleur} ${pct*3.6}deg,#e4ded0 0)">
+  <span style="background:#fffdf6;width:26px;height:26px;border-radius:50%;display:grid;place-items:center">${pct}%</span></div>`;
+
+// ---- 1. Start ----
+const vandaag = `<div class="tel">
+  <div class="balk">${logo}<span class="merknaam">snoekduik</span><span class="spacer"></span>
+    </div>
+  <div class="inhoud">
+    <div style="text-align:center;padding:.6rem 0 1rem">
+      <div style="font-size:1.5rem;font-weight:700;letter-spacing:-.5px">Snoekduik</div>
+      <div class="mini" style="margin-top:.2rem">12 soorten zijn toe aan herhaling, 3 nieuwe beschikbaar</div>
+    </div>
+    <button class="knop groot" style="margin-bottom:.55rem">Oefenen</button>
+    <button class="knop stil" style="margin-bottom:.55rem">Kies een module</button>
+    <button class="knop stil" style="margin-bottom:1rem">Zoek een soort</button>
+    <div class="kaart">
+      <div class="mini" style="margin-bottom:.4rem">Willekeurige soort</div>
+      <img class="foto" style="height:150px" src="${S.zeelt.thumb}" alt="" referrerpolicy="no-referrer">
+      <div class="titelrij" style="margin-top:.5rem"><strong>Zeelt</strong><span class="wet">Tinca tinca</span></div>
+      <div class="mini" style="margin-top:.25rem">Blijft vaak roerloos in de kruidzone hangen en laat je
+        opvallend dichtbij komen.</div>
+    </div>
+  </div>
+  ${tabs('Start')}
+</div>
+<p class="noot"><strong>1. Start.</strong> Drie ingangen, geen aansporing. Geen streak, geen XP, geen
+dagdoel. De regel eronder beschrijft alleen wat er klaarstaat.</p>`;
+
+// ---- 2. Quiz met zichtsimulatie ----
+const quiz = `<div class="tel donker">
+  <div class="qtop"><div class="voortgang"><i></i></div></div>
+  <div class="vraag">Welke vis zie je hier?</div>
+  <div class="qbeeld zicht2">
+    <img src="${S.blankvoorn.thumb}" alt="" referrerpolicy="no-referrer">
+    <span class="zichtlabel">zicht: groenzweem</span>
+  </div>
+  <div class="attrib">${S.blankvoorn.fot} · ${S.blankvoorn.lic}</div>
+  <div class="opties">
+    <div class="optie">Kolblei</div>
+    <div class="optie">Blankvoorn</div>
+    <div class="optie">Ruisvoorn</div>
+    <div class="optie">Brasem</div>
+  </div>
+  ${tabs('')}
+</div>
+<p class="noot"><strong>2. Quizvraag.</strong> Donkere achtergrond zodat de foto pakt. Alle vier de
+afleiders komen uit <code>verwardMet</code>, dus dit is het witvisprobleem in één vraag. Het
+groenfilter is de moeilijkheidsknop. Attributie staat in beeld, niet weggestopt.</p>`;
+
+// ---- 3. Feedback na fout ----
+const feedback = `<div class="tel donker">
+  <div class="qtop"><div class="voortgang"><i></i></div></div>
+  <div class="vraag">Welke vis zie je hier?</div>
+  <div class="qbeeld zicht2"><img src="${S.blankvoorn.thumb}" alt="" referrerpolicy="no-referrer"></div>
+  <div class="opties" style="padding-bottom:0">
+    <div class="optie fout">Ruisvoorn</div>
+  </div>
+  <div class="fb">
+    <h3>Bijna. Dit was een blankvoorn.</h3>
+    <div class="verg">
+      <figure><img src="${S.ruisvoorn.thumb}" alt="" referrerpolicy="no-referrer">
+        <figcaption class="jouw">Jij koos: ruisvoorn</figcaption></figure>
+      <figure><img src="${S.blankvoorn.thumb}" alt="" referrerpolicy="no-referrer">
+        <figcaption class="juist">Juist: blankvoorn</figcaption></figure>
+    </div>
+    <div class="sleutel"><strong>Het verschil:</strong> bij de ruisvoorn staat de rugvin duidelijk
+      achter de aanzet van de buikvin, bij de blankvoorn recht erboven. Het oog is rood bij de blankvoorn, goudgeel bij de ruisvoorn.</div>
+    <button class="knop" style="margin-top:.7rem">Verder</button>
+  </div>
+</div>
+<p class="noot"><strong>3. Feedback bij fout.</strong> Warm oranje, niet duikvlagrood: fout mag geen
+alarm zijn. Altijd de twee soorten naast elkaar plus de ene regel die ze scheidt. Geen levens, de
+sessie loopt door.<br><span class='let'>Nog te regelen</span> de vergelijking gebruikt hier dezelfde foto als de vraag. In de app hoort dit een tweede in-situ foto te zijn, wat het fotobudget per soort verhoogt.</p>`;
+
+// ---- 4. Modules ----
+const mods = [
+  ['Eerste duik','12 soorten',62,'#2E7D6B',false],
+  ['Witvis','8 soorten',25,'#2E7D6B',false],
+  ['Bodem en talud','10 soorten',10,'#2E7D6B',false],
+  ['Grondels','4 soorten',0,'#94a8a2',true],
+  ['Rivier','8 soorten',0,'#94a8a2',true],
+  ['Kreeften','9 soorten',0,'#94a8a2',true],
+  ['Mossels en slakken','7 soorten',0,'#94a8a2',true],
+  ['Vreemd spul','8 soorten',0,'#94a8a2',true],
+];
+const modulescherm = `<div class="tel">
+  <div class="balk">${logo}<span class="merknaam">Modules</span><span class="spacer"></span>
+    <span class="chip">21 / 66 geleerd</span></div>
+  <div class="inhoud">
+    <p class="mini" style="margin:.1rem 0 .7rem">Modules zijn ingangen, geen volgorde. Je kunt overal beginnen.</p>
+    <div class="modgrid">
+      ${mods.map(([n,a,p,k,uit])=>`<div class="mod ${uit?'uit':''}">${ring(p,k)}
+        <div><div class="modnaam">${n}</div><div class="mini">${uit?'in voorbereiding':a}</div></div></div>`).join('')}
+    </div>
+    <p class="noot" style="margin-top:.7rem">Modules zonder gekeurde onderwaterfoto's zijn niet
+      startbaar. Liever grijs dan een quiz met slechte platen.</p>
+  </div>
+  ${tabs('Modules')}
+</div>
+<p class="noot"><strong>4. Modules.</strong> Voortgangsring toont hoeveel soorten in boekje 4 of 5
+zitten, dus niet "hoeveel gezien" maar "hoeveel blijft zitten".</p>`;
+
+// ---- 5. Soortdetail ----
+const detail = `<div class="tel">
+  <div class="balk"><span class="chip">‹ terug</span><span class="spacer"></span>
+    <span class="chip">boekje 3 van 5</span></div>
+  <div class="inhoud" style="overflow-y:auto">
+    <img class="foto" style="height:190px" src="${S.snoek.thumb}" alt="" referrerpolicy="no-referrer">
+    <div class="mini" style="font-size:.66rem;margin:.25rem 0 .6rem">${S.snoek.fot} · ${S.snoek.lic} · bron ↗</div>
+    <div class="titelrij"><strong style="font-size:1.15rem">Snoek</strong><span class="wet">Esox lucius</span></div>
+    <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin:.5rem 0">
+      <span class="chip">tot 130 cm</span><span class="chip">kruidzone</span>
+      <span class="chip">talud</span><span class="chip">inheems</span></div>
+    <div class="kaart"><div class="mini" style="margin-bottom:.2rem">Onder water herkennen</div>
+      Langgerekt, platte eendenbek. Rugvin ver naar achteren, vlak boven de staartaanzet.
+      Olijfgroene flanken met lichte dwarsbanden.</div>
+    <div class="kaart" style="border-left:3px solid var(--teal)">
+      <div class="mini" style="margin-bottom:.2rem">🤿 Gedrag bij een duiker</div>
+      Blijft roerloos hangen en vertrouwt op camouflage. Laat je vaak tot een meter naderen
+      en schiet dan met één klap weg.</div>
+    <div class="kaart"><div class="mini" style="margin-bottom:.4rem">Wordt verward met</div>
+      <div class="lijst" style="border:0;padding-top:0"><img src="${S.snoekbaars.thumb}" alt="" referrerpolicy="no-referrer">
+        <div><strong style="font-size:.88rem">Snoekbaars</strong><div class="mini">Twee rugvinnen,
+          glazig oog. De snoek heeft er één, ver naar achteren.</div></div></div>
+      <button class="knop stil" style="margin-top:.5rem">Train dit paar</button></div>
+    <button class="knop" style="margin-bottom:.8rem">＋ Gezien tijdens duik</button>
+  </div>
+  ${tabs('Soorten')}
+</div>
+<p class="noot"><strong>5. Soortdetail.</strong> Werkt offline en staat los van de leervoortgang: dit
+is het scherm voor na de duik. Attributie staat direct onder de foto.</p>`;
+
+// ---- 6. Soortenlijst ----
+const lijstItems = ['snoek','baars','blankvoorn','brasem','karper','zeelt','kolblei','pos'];
+const lijst = `<div class="tel">
+  <div class="balk">${logo}<span class="merknaam">Soorten</span><span class="spacer"></span>
+    <span class="chip">66</span></div>
+  <div class="inhoud" style="overflow-y:auto">
+    <input class="zoek" placeholder="Zoek op naam" value="">
+    <div style="display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.5rem">
+      <span class="chip" style="background:var(--teal);color:#fff;border-color:var(--teal)">Alles</span>
+      <span class="chip">Diepe plas</span><span class="chip">Sloot</span><span class="chip">Rivier</span>
+      <span class="chip">Exoot</span></div>
+    ${lijstItems.map(id=>`<div class="lijst"><img src="${S[id].thumb}" alt="" referrerpolicy="no-referrer">
+      <div style="flex:1"><strong style="font-size:.9rem">${S[id].nl}</strong>
+        <div class="mini">${{snoek:'Esox lucius',baars:'Perca fluviatilis',blankvoorn:'Rutilus rutilus',
+        brasem:'Abramis brama',karper:'Cyprinus carpio',zeelt:'Tinca tinca',kolblei:'Blicca bjoerkna',
+        pos:'Gymnocephalus cernua'}[id]}</div></div>
+      <span class="chip">${(id.length%5)+1}/5</span></div>`).join('')}
+  </div>
+  ${tabs('Soorten')}
+</div>
+<p class="noot"><strong>6. Soortenlijst.</strong> Zoeken en filteren op leefgebied en status. Het
+cijfer rechts is het Leitner-boekje.</p>`;
+
+
+// ---- 7. Sessie klaar ----
+const klaarScherm = `<div class="tel">
+  <div class="balk">${logo}<span class="merknaam">snoekduik</span></div>
+  <div class="inhoud">
+    <div style="padding:.4rem 0 1rem">
+      <div style="font-size:1.3rem;font-weight:700;letter-spacing:-.4px">Klaar</div>
+      <div class="mini" style="margin-top:.15rem">14 vragen, 11 goed</div>
+    </div>
+    <div class="kaart">
+      <div class="mini" style="margin-bottom:.5rem">Ging omhoog</div>
+      ${['snoek','baars','zeelt'].map(id=>`<div class="lijst"><img src="${S[id].thumb}" alt="" referrerpolicy="no-referrer">
+        <div style="flex:1"><strong style="font-size:.88rem">${S[id].nl}</strong></div>
+        <span class="chip">naar boekje ${(id.length%3)+3}</span></div>`).join('')}
+    </div>
+    <div class="kaart">
+      <div class="mini" style="margin-bottom:.5rem">Komt terug</div>
+      ${['blankvoorn','kolblei'].map(id=>`<div class="lijst"><img src="${S[id].thumb}" alt="" referrerpolicy="no-referrer">
+        <div style="flex:1"><strong style="font-size:.88rem">${S[id].nl}</strong>
+          <div class="mini">verward met elkaar</div></div>
+        <span class="chip">boekje 1</span></div>`).join('')}
+    </div>
+    <button class="knop" style="margin-top:.3rem">Klaar</button>
+    <div style="text-align:center;margin-top:.6rem"><span class="mini" style="text-decoration:underline">nog een ronde</span></div>
+  </div>
+  ${tabs('Start')}
+</div>
+<p class="noot"><strong>7. Sessie klaar.</strong> Feitelijk, geen viering. Geen XP, geen punten, geen
+confetti. "Nog een ronde" staat er klein en zonder nadruk onder, als mogelijkheid en niet als
+aansporing. Wat terugviel staat er even neutraal bij als wat vooruitging.</p>`;
+
+const app = document.getElementById('app');
+[['Start',vandaag],['Kern van de sessie',quiz],['Fout, zonder straf',feedback],
+ ['Overzicht',modulescherm],['Naslag',detail],['Zoeken',lijst],['Afsluiting',klaarScherm]]
+ .forEach(([kop,html])=>{
+   const k=el(`<div class="kolom"><h2>${kop}</h2></div>`);
+   k.appendChild(el(`<div>${html}</div>`));
+   app.appendChild(k);
+ });
+</script>
+</body>
+</html>

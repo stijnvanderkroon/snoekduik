@@ -1,0 +1,2222 @@
+{
+  "schemaVersion": 1,
+  "taal": "nl",
+  "bron": "Snoekduik seed-lijst, handmatig samengesteld",
+  "aantal": 66,
+  "soorten": [
+    {
+      "id": "snoek",
+      "naamNL": "Snoek",
+      "naamWetenschappelijk": "Esox lucius",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "ondiepe-plas",
+        "sloot-kanaal",
+        "rivier"
+      ],
+      "zone": [
+        "kruidzone",
+        "talud"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 130,
+      "verwardMet": [],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "baars",
+      "naamNL": "Baars",
+      "naamWetenschappelijk": "Perca fluviatilis",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "ondiepe-plas",
+        "sloot-kanaal",
+        "rivier",
+        "groot-open-water"
+      ],
+      "zone": [
+        "talud",
+        "hard-substraat",
+        "open-water"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 50,
+      "verwardMet": [
+        "snoekbaars",
+        "pos"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "blankvoorn",
+      "naamNL": "Blankvoorn",
+      "naamWetenschappelijk": "Rutilus rutilus",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "ondiepe-plas",
+        "sloot-kanaal",
+        "rivier",
+        "groot-open-water"
+      ],
+      "zone": [
+        "open-water"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 40,
+      "verwardMet": [
+        "ruisvoorn",
+        "winde",
+        "kolblei"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "brasem",
+      "naamNL": "Brasem",
+      "naamWetenschappelijk": "Abramis brama",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "ondiepe-plas",
+        "sloot-kanaal",
+        "groot-open-water"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 75,
+      "verwardMet": [
+        "kolblei"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "karper",
+      "naamNL": "Karper",
+      "naamWetenschappelijk": "Cyprinus carpio",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "bodem",
+        "kruidzone"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 100,
+      "verwardMet": [
+        "kroeskarper",
+        "giebel",
+        "graskarper"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "zeelt",
+      "naamNL": "Zeelt",
+      "naamWetenschappelijk": "Tinca tinca",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "kruidzone",
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 60,
+      "verwardMet": [
+        "kroeskarper"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "paling",
+      "naamNL": "Paling",
+      "naamWetenschappelijk": "Anguilla anguilla",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "ondiepe-plas",
+        "sloot-kanaal",
+        "rivier",
+        "groot-open-water"
+      ],
+      "zone": [
+        "bodem",
+        "hard-substraat"
+      ],
+      "status": [
+        "inheems",
+        "bedreigd"
+      ],
+      "maxLengteCm": 130,
+      "verwardMet": [
+        "grote-modderkruiper"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "pos",
+      "naamNL": "Pos",
+      "naamWetenschappelijk": "Gymnocephalus cernua",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "groot-open-water",
+        "rivier"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 20,
+      "verwardMet": [
+        "baars"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "snoekbaars",
+      "naamNL": "Snoekbaars",
+      "naamWetenschappelijk": "Sander lucioperca",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "groot-open-water",
+        "rivier"
+      ],
+      "zone": [
+        "open-water",
+        "talud"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 100,
+      "verwardMet": [
+        "baars"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "driedoornige-stekelbaars",
+      "naamNL": "Driedoornige stekelbaars",
+      "naamWetenschappelijk": "Gasterosteus aculeatus",
+      "groep": "vis",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "kruidzone"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 8,
+      "verwardMet": [
+        "tiendoornige-stekelbaars"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "zwanenmossel",
+      "naamNL": "Zwanenmossel",
+      "naamWetenschappelijk": "Anodonta cygnea",
+      "groep": "weekdier",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 20,
+      "verwardMet": [
+        "vijvermossel",
+        "schildersmossel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "gevlekte-amerikaanse-rivierkreeft",
+      "naamNL": "Gevlekte Amerikaanse rivierkreeft",
+      "naamWetenschappelijk": "Faxonius limosus",
+      "groep": "kreeftachtige",
+      "module": "eerste-duik",
+      "leefgebied": [
+        "diepe-plas",
+        "ondiepe-plas",
+        "sloot-kanaal",
+        "rivier"
+      ],
+      "zone": [
+        "talud",
+        "hard-substraat"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 12,
+      "verwardMet": [
+        "geknobbelde-amerikaanse-rivierkreeft",
+        "turkse-rivierkreeft"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "ruisvoorn",
+      "naamNL": "Ruisvoorn",
+      "naamWetenschappelijk": "Scardinius erythrophthalmus",
+      "groep": "vis",
+      "module": "witvis",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "kruidzone",
+        "open-water"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 40,
+      "verwardMet": [
+        "blankvoorn"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "kolblei",
+      "naamNL": "Kolblei",
+      "naamWetenschappelijk": "Blicca bjoerkna",
+      "groep": "vis",
+      "module": "witvis",
+      "leefgebied": [
+        "diepe-plas",
+        "sloot-kanaal",
+        "groot-open-water"
+      ],
+      "zone": [
+        "bodem",
+        "open-water"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 35,
+      "verwardMet": [
+        "brasem",
+        "blankvoorn"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "winde",
+      "naamNL": "Winde",
+      "naamWetenschappelijk": "Leuciscus idus",
+      "groep": "vis",
+      "module": "witvis",
+      "leefgebied": [
+        "rivier",
+        "groot-open-water",
+        "diepe-plas"
+      ],
+      "zone": [
+        "open-water"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 60,
+      "verwardMet": [
+        "blankvoorn",
+        "kopvoorn"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "alver",
+      "naamNL": "Alver",
+      "naamWetenschappelijk": "Alburnus alburnus",
+      "groep": "vis",
+      "module": "witvis",
+      "leefgebied": [
+        "rivier",
+        "groot-open-water",
+        "diepe-plas"
+      ],
+      "zone": [
+        "open-water"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 20,
+      "verwardMet": [
+        "vetje",
+        "serpeling"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "vetje",
+      "naamNL": "Vetje",
+      "naamWetenschappelijk": "Leucaspius delineatus",
+      "groep": "vis",
+      "module": "witvis",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "kruidzone",
+        "open-water"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 9,
+      "verwardMet": [
+        "alver"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "kroeskarper",
+      "naamNL": "Kroeskarper",
+      "naamWetenschappelijk": "Carassius carassius",
+      "groep": "vis",
+      "module": "witvis",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "kruidzone",
+        "bodem"
+      ],
+      "status": [
+        "inheems",
+        "zeldzaam"
+      ],
+      "maxLengteCm": 45,
+      "verwardMet": [
+        "giebel",
+        "karper"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "giebel",
+      "naamNL": "Giebel",
+      "naamWetenschappelijk": "Carassius gibelio",
+      "groep": "vis",
+      "module": "witvis",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal",
+        "diepe-plas"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 45,
+      "verwardMet": [
+        "kroeskarper",
+        "karper"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "graskarper",
+      "naamNL": "Graskarper",
+      "naamWetenschappelijk": "Ctenopharyngodon idella",
+      "groep": "vis",
+      "module": "witvis",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "kruidzone"
+      ],
+      "status": [
+        "exoot",
+        "uitgezet"
+      ],
+      "maxLengteCm": 120,
+      "verwardMet": [
+        "karper",
+        "winde"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "rivierdonderpad",
+      "naamNL": "Rivierdonderpad",
+      "naamWetenschappelijk": "Cottus perifretum",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "rivier",
+        "beek",
+        "groot-open-water"
+      ],
+      "zone": [
+        "bodem",
+        "hard-substraat"
+      ],
+      "status": [
+        "inheems",
+        "beschermd"
+      ],
+      "maxLengteCm": 15,
+      "verwardMet": [
+        "bermpje"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "bermpje",
+      "naamNL": "Bermpje",
+      "naamWetenschappelijk": "Barbatula barbatula",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "beek",
+        "rivier",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 14,
+      "verwardMet": [
+        "rivierdonderpad",
+        "kleine-modderkruiper"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "kleine-modderkruiper",
+      "naamNL": "Kleine modderkruiper",
+      "naamWetenschappelijk": "Cobitis taenia",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "sloot-kanaal",
+        "ondiepe-plas",
+        "rivier"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems",
+        "beschermd"
+      ],
+      "maxLengteCm": 12,
+      "verwardMet": [
+        "bermpje",
+        "grote-modderkruiper"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "grote-modderkruiper",
+      "naamNL": "Grote modderkruiper",
+      "naamWetenschappelijk": "Misgurnus fossilis",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "sloot-kanaal",
+        "ondiepe-plas"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems",
+        "beschermd",
+        "zeldzaam"
+      ],
+      "maxLengteCm": 30,
+      "verwardMet": [
+        "paling",
+        "kleine-modderkruiper"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "riviergrondel",
+      "naamNL": "Riviergrondel",
+      "naamWetenschappelijk": "Gobio gobio",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "rivier",
+        "beek",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 15,
+      "verwardMet": [
+        "zwartbekgrondel",
+        "bermpje"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "tiendoornige-stekelbaars",
+      "naamNL": "Tiendoornige stekelbaars",
+      "naamWetenschappelijk": "Pungitius pungitius",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "sloot-kanaal",
+        "ondiepe-plas"
+      ],
+      "zone": [
+        "kruidzone"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 7,
+      "verwardMet": [
+        "driedoornige-stekelbaars"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "bittervoorn",
+      "naamNL": "Bittervoorn",
+      "naamWetenschappelijk": "Rhodeus amarus",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "sloot-kanaal",
+        "ondiepe-plas"
+      ],
+      "zone": [
+        "kruidzone",
+        "bodem"
+      ],
+      "status": [
+        "inheems",
+        "beschermd"
+      ],
+      "maxLengteCm": 9,
+      "verwardMet": [
+        "blankvoorn",
+        "vetje"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "meerval",
+      "naamNL": "Meerval",
+      "naamWetenschappelijk": "Silurus glanis",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "diepe-plas",
+        "rivier",
+        "groot-open-water"
+      ],
+      "zone": [
+        "bodem",
+        "hard-substraat"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 250,
+      "verwardMet": [],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "kwabaal",
+      "naamNL": "Kwabaal",
+      "naamWetenschappelijk": "Lota lota",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "rivier",
+        "groot-open-water"
+      ],
+      "zone": [
+        "bodem",
+        "hard-substraat"
+      ],
+      "status": [
+        "inheems",
+        "zeldzaam"
+      ],
+      "maxLengteCm": 80,
+      "verwardMet": [
+        "meerval",
+        "paling"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "rivierprik",
+      "naamNL": "Rivierprik",
+      "naamWetenschappelijk": "Lampetra fluviatilis",
+      "groep": "vis",
+      "module": "bodem-talud",
+      "leefgebied": [
+        "rivier"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems",
+        "beschermd"
+      ],
+      "maxLengteCm": 45,
+      "verwardMet": [
+        "beekprik",
+        "paling"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "zwartbekgrondel",
+      "naamNL": "Zwartbekgrondel",
+      "naamWetenschappelijk": "Neogobius melanostomus",
+      "groep": "vis",
+      "module": "grondels",
+      "leefgebied": [
+        "rivier",
+        "groot-open-water",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "bodem",
+        "hard-substraat"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 25,
+      "verwardMet": [
+        "marmergrondel",
+        "pontische-stroomgrondel",
+        "kesslers-grondel",
+        "riviergrondel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "marmergrondel",
+      "naamNL": "Marmergrondel",
+      "naamWetenschappelijk": "Proterorhinus semilunaris",
+      "groep": "vis",
+      "module": "grondels",
+      "leefgebied": [
+        "rivier",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "bodem",
+        "kruidzone"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 11,
+      "verwardMet": [
+        "zwartbekgrondel",
+        "pontische-stroomgrondel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "pontische-stroomgrondel",
+      "naamNL": "Pontische stroomgrondel",
+      "naamWetenschappelijk": "Neogobius fluviatilis",
+      "groep": "vis",
+      "module": "grondels",
+      "leefgebied": [
+        "rivier"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 20,
+      "verwardMet": [
+        "zwartbekgrondel",
+        "kesslers-grondel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "kesslers-grondel",
+      "naamNL": "Kesslers grondel",
+      "naamWetenschappelijk": "Ponticola kessleri",
+      "groep": "vis",
+      "module": "grondels",
+      "leefgebied": [
+        "rivier"
+      ],
+      "zone": [
+        "bodem",
+        "hard-substraat"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 22,
+      "verwardMet": [
+        "zwartbekgrondel",
+        "pontische-stroomgrondel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "kopvoorn",
+      "naamNL": "Kopvoorn",
+      "naamWetenschappelijk": "Squalius cephalus",
+      "groep": "vis",
+      "module": "rivier",
+      "leefgebied": [
+        "rivier",
+        "beek"
+      ],
+      "zone": [
+        "open-water"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 60,
+      "verwardMet": [
+        "winde",
+        "serpeling"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "serpeling",
+      "naamNL": "Serpeling",
+      "naamWetenschappelijk": "Leuciscus leuciscus",
+      "groep": "vis",
+      "module": "rivier",
+      "leefgebied": [
+        "rivier",
+        "beek"
+      ],
+      "zone": [
+        "open-water"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 30,
+      "verwardMet": [
+        "kopvoorn",
+        "alver"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "barbeel",
+      "naamNL": "Barbeel",
+      "naamWetenschappelijk": "Barbus barbus",
+      "groep": "vis",
+      "module": "rivier",
+      "leefgebied": [
+        "rivier"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 90,
+      "verwardMet": [
+        "sneep"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "sneep",
+      "naamNL": "Sneep",
+      "naamWetenschappelijk": "Chondrostoma nasus",
+      "groep": "vis",
+      "module": "rivier",
+      "leefgebied": [
+        "rivier"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 50,
+      "verwardMet": [
+        "barbeel",
+        "winde"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "roofblei",
+      "naamNL": "Roofblei",
+      "naamWetenschappelijk": "Leuciscus aspius",
+      "groep": "vis",
+      "module": "rivier",
+      "leefgebied": [
+        "rivier",
+        "groot-open-water"
+      ],
+      "zone": [
+        "open-water"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 100,
+      "verwardMet": [
+        "winde",
+        "kopvoorn"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "beekforel",
+      "naamNL": "Beekforel",
+      "naamWetenschappelijk": "Salmo trutta fario",
+      "groep": "vis",
+      "module": "rivier",
+      "leefgebied": [
+        "beek"
+      ],
+      "zone": [
+        "open-water",
+        "bodem"
+      ],
+      "status": [
+        "inheems",
+        "zeldzaam"
+      ],
+      "maxLengteCm": 50,
+      "verwardMet": [
+        "regenboogforel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "regenboogforel",
+      "naamNL": "Regenboogforel",
+      "naamWetenschappelijk": "Oncorhynchus mykiss",
+      "groep": "vis",
+      "module": "rivier",
+      "leefgebied": [
+        "beek",
+        "diepe-plas"
+      ],
+      "zone": [
+        "open-water"
+      ],
+      "status": [
+        "exoot",
+        "uitgezet"
+      ],
+      "maxLengteCm": 60,
+      "verwardMet": [
+        "beekforel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "beekprik",
+      "naamNL": "Beekprik",
+      "naamWetenschappelijk": "Lampetra planeri",
+      "groep": "vis",
+      "module": "rivier",
+      "leefgebied": [
+        "beek"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems",
+        "beschermd"
+      ],
+      "maxLengteCm": 18,
+      "verwardMet": [
+        "rivierprik"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "rode-amerikaanse-rivierkreeft",
+      "naamNL": "Rode Amerikaanse rivierkreeft",
+      "naamWetenschappelijk": "Procambarus clarkii",
+      "groep": "kreeftachtige",
+      "module": "kreeften",
+      "leefgebied": [
+        "sloot-kanaal",
+        "ondiepe-plas"
+      ],
+      "zone": [
+        "bodem",
+        "talud"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 15,
+      "verwardMet": [
+        "turkse-rivierkreeft"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "geknobbelde-amerikaanse-rivierkreeft",
+      "naamNL": "Geknobbelde Amerikaanse rivierkreeft",
+      "naamWetenschappelijk": "Faxonius virilis",
+      "groep": "kreeftachtige",
+      "module": "kreeften",
+      "leefgebied": [
+        "sloot-kanaal",
+        "diepe-plas",
+        "rivier"
+      ],
+      "zone": [
+        "talud",
+        "hard-substraat"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 13,
+      "verwardMet": [
+        "gevlekte-amerikaanse-rivierkreeft"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "californische-rivierkreeft",
+      "naamNL": "Californische rivierkreeft",
+      "naamWetenschappelijk": "Pacifastacus leniusculus",
+      "groep": "kreeftachtige",
+      "module": "kreeften",
+      "leefgebied": [
+        "beek",
+        "rivier",
+        "diepe-plas"
+      ],
+      "zone": [
+        "talud",
+        "hard-substraat"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 18,
+      "verwardMet": [
+        "europese-rivierkreeft"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "turkse-rivierkreeft",
+      "naamNL": "Turkse rivierkreeft",
+      "naamWetenschappelijk": "Pontastacus leptodactylus",
+      "groep": "kreeftachtige",
+      "module": "kreeften",
+      "leefgebied": [
+        "diepe-plas",
+        "sloot-kanaal",
+        "groot-open-water"
+      ],
+      "zone": [
+        "talud",
+        "bodem"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 20,
+      "verwardMet": [
+        "europese-rivierkreeft",
+        "rode-amerikaanse-rivierkreeft"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "europese-rivierkreeft",
+      "naamNL": "Europese rivierkreeft",
+      "naamWetenschappelijk": "Astacus astacus",
+      "groep": "kreeftachtige",
+      "module": "kreeften",
+      "leefgebied": [
+        "beek"
+      ],
+      "zone": [
+        "talud",
+        "hard-substraat"
+      ],
+      "status": [
+        "inheems",
+        "zeldzaam"
+      ],
+      "maxLengteCm": 18,
+      "verwardMet": [
+        "californische-rivierkreeft",
+        "turkse-rivierkreeft"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "chinese-wolhandkrab",
+      "naamNL": "Chinese wolhandkrab",
+      "naamWetenschappelijk": "Eriocheir sinensis",
+      "groep": "kreeftachtige",
+      "module": "kreeften",
+      "leefgebied": [
+        "rivier",
+        "sloot-kanaal",
+        "groot-open-water"
+      ],
+      "zone": [
+        "bodem",
+        "talud"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 10,
+      "verwardMet": [],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "zoetwatergarnaal",
+      "naamNL": "Zoetwatergarnaal",
+      "naamWetenschappelijk": "Atyaephyra desmarestii",
+      "groep": "kreeftachtige",
+      "module": "kreeften",
+      "leefgebied": [
+        "sloot-kanaal",
+        "rivier",
+        "ondiepe-plas"
+      ],
+      "zone": [
+        "kruidzone"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 4,
+      "verwardMet": [
+        "killergarnaal"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "killergarnaal",
+      "naamNL": "Killergarnaal",
+      "naamWetenschappelijk": "Dikerogammarus villosus",
+      "groep": "kreeftachtige",
+      "module": "kreeften",
+      "leefgebied": [
+        "rivier",
+        "groot-open-water",
+        "diepe-plas"
+      ],
+      "zone": [
+        "hard-substraat",
+        "bodem"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 3,
+      "verwardMet": [
+        "zoetwatergarnaal",
+        "waterpissebed"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "waterpissebed",
+      "naamNL": "Waterpissebed",
+      "naamWetenschappelijk": "Asellus aquaticus",
+      "groep": "kreeftachtige",
+      "module": "kreeften",
+      "leefgebied": [
+        "sloot-kanaal",
+        "ondiepe-plas"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 2,
+      "verwardMet": [
+        "killergarnaal"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "driehoeksmossel",
+      "naamNL": "Driehoeksmossel",
+      "naamWetenschappelijk": "Dreissena polymorpha",
+      "groep": "weekdier",
+      "module": "mossels-slakken",
+      "leefgebied": [
+        "diepe-plas",
+        "groot-open-water",
+        "rivier"
+      ],
+      "zone": [
+        "hard-substraat"
+      ],
+      "status": [
+        "exoot",
+        "ingeburgerd"
+      ],
+      "maxLengteCm": 4,
+      "verwardMet": [
+        "quaggamossel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "quaggamossel",
+      "naamNL": "Quaggamossel",
+      "naamWetenschappelijk": "Dreissena rostriformis bugensis",
+      "groep": "weekdier",
+      "module": "mossels-slakken",
+      "leefgebied": [
+        "diepe-plas",
+        "groot-open-water",
+        "rivier"
+      ],
+      "zone": [
+        "hard-substraat",
+        "bodem"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 4,
+      "verwardMet": [
+        "driehoeksmossel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "schildersmossel",
+      "naamNL": "Schildersmossel",
+      "naamWetenschappelijk": "Unio pictorum",
+      "groep": "weekdier",
+      "module": "mossels-slakken",
+      "leefgebied": [
+        "rivier",
+        "sloot-kanaal",
+        "diepe-plas"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 14,
+      "verwardMet": [
+        "zwanenmossel",
+        "vijvermossel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "vijvermossel",
+      "naamNL": "Vijvermossel",
+      "naamWetenschappelijk": "Anodonta anatina",
+      "groep": "weekdier",
+      "module": "mossels-slakken",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 12,
+      "verwardMet": [
+        "zwanenmossel",
+        "schildersmossel"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "poelslak",
+      "naamNL": "Poelslak",
+      "naamWetenschappelijk": "Lymnaea stagnalis",
+      "groep": "weekdier",
+      "module": "mossels-slakken",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "kruidzone"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 6,
+      "verwardMet": [
+        "posthoornslak"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "posthoornslak",
+      "naamNL": "Posthoornslak",
+      "naamWetenschappelijk": "Planorbarius corneus",
+      "groep": "weekdier",
+      "module": "mossels-slakken",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "kruidzone"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 4,
+      "verwardMet": [
+        "poelslak"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "zoetwaterneriet",
+      "naamNL": "Zoetwaterneriet",
+      "naamWetenschappelijk": "Theodoxus fluviatilis",
+      "groep": "weekdier",
+      "module": "mossels-slakken",
+      "leefgebied": [
+        "rivier",
+        "groot-open-water"
+      ],
+      "zone": [
+        "hard-substraat"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 1,
+      "verwardMet": [],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "zoetwaterkwal",
+      "naamNL": "Zoetwaterkwal",
+      "naamWetenschappelijk": "Craspedacusta sowerbii",
+      "groep": "overig",
+      "module": "vreemd-spul",
+      "leefgebied": [
+        "diepe-plas"
+      ],
+      "zone": [
+        "open-water"
+      ],
+      "status": [
+        "exoot",
+        "ingeburgerd"
+      ],
+      "maxLengteCm": 3,
+      "verwardMet": [],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "zoetwaterspons",
+      "naamNL": "Zoetwaterspons",
+      "naamWetenschappelijk": "Spongilla lacustris",
+      "groep": "overig",
+      "module": "vreemd-spul",
+      "leefgebied": [
+        "diepe-plas",
+        "sloot-kanaal",
+        "rivier"
+      ],
+      "zone": [
+        "hard-substraat"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 30,
+      "verwardMet": [
+        "zoetwatermosdiertje"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "zoetwatermosdiertje",
+      "naamNL": "Zoetwatermosdiertje",
+      "naamWetenschappelijk": "Cristatella mucedo",
+      "groep": "overig",
+      "module": "vreemd-spul",
+      "leefgebied": [
+        "diepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "hard-substraat",
+        "kruidzone"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 20,
+      "verwardMet": [
+        "amerikaans-mosdiertje",
+        "zoetwaterspons"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "amerikaans-mosdiertje",
+      "naamNL": "Amerikaans mosdiertje",
+      "naamWetenschappelijk": "Pectinatella magnifica",
+      "groep": "overig",
+      "module": "vreemd-spul",
+      "leefgebied": [
+        "diepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "hard-substraat"
+      ],
+      "status": [
+        "exoot"
+      ],
+      "maxLengteCm": 60,
+      "verwardMet": [
+        "zoetwatermosdiertje"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": "waarneming.nl",
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "libellenlarve-glazenmaker",
+      "naamNL": "Libellenlarve (glazenmaker)",
+      "naamWetenschappelijk": "Aeshna sp.",
+      "groep": "overig",
+      "module": "vreemd-spul",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "kruidzone",
+        "bodem"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 5,
+      "verwardMet": [
+        "kokerjuffer"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "kokerjuffer",
+      "naamNL": "Kokerjuffer",
+      "naamWetenschappelijk": "Trichoptera",
+      "groep": "overig",
+      "module": "vreemd-spul",
+      "leefgebied": [
+        "beek",
+        "sloot-kanaal",
+        "ondiepe-plas"
+      ],
+      "zone": [
+        "bodem",
+        "hard-substraat"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 4,
+      "verwardMet": [
+        "libellenlarve-glazenmaker"
+      ],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "paardenbloedzuiger",
+      "naamNL": "Paardenbloedzuiger",
+      "naamWetenschappelijk": "Haemopis sanguisuga",
+      "groep": "overig",
+      "module": "vreemd-spul",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "bodem",
+        "hard-substraat"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 10,
+      "verwardMet": [],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    },
+    {
+      "id": "bootsmannetje",
+      "naamNL": "Bootsmannetje",
+      "naamWetenschappelijk": "Notonecta glauca",
+      "groep": "overig",
+      "module": "vreemd-spul",
+      "leefgebied": [
+        "ondiepe-plas",
+        "sloot-kanaal"
+      ],
+      "zone": [
+        "open-water",
+        "kruidzone"
+      ],
+      "status": [
+        "inheems"
+      ],
+      "maxLengteCm": 2,
+      "verwardMet": [],
+      "herkenningOnderWater": null,
+      "gedragBijDuiker": null,
+      "seizoen": null,
+      "weetje": null,
+      "meldenBij": null,
+      "fotos": [],
+      "fotoProbe": {
+        "inaturalist": null,
+        "commons": null,
+        "gecheckt": false
+      }
+    }
+  ]
+}

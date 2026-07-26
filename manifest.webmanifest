@@ -1,0 +1,16 @@
+{
+  "name": "Snoekduik",
+  "short_name": "Snoekduik",
+  "description": "Leer herkennen wat er in Nederlands zoetwater onder water zwemt.",
+  "lang": "nl",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4F0E3",
+  "theme_color": "#2E7D6B",
+  "icons": [
+    { "src": "logos/icon-app.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "logos/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

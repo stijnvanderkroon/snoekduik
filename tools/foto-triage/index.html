@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Snoekduik fototriage (dev)</title>
+<style>
+  :root{
+    --bg:#0f1720; --panel:#18222e; --line:#2a3949; --text:#e6edf3; --dim:#93a4b5;
+    --goed:#3fb950; --misschien:#d29922; --nee:#f85149; --onbeoordeeld:#3d4d5e; --ster:#e3b341;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.5 system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text)}
+
+  header{position:sticky;top:0;z-index:10;background:var(--panel);border-bottom:1px solid var(--line);
+    padding:.7rem 1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+  header h1{font-size:1rem;margin:0;white-space:nowrap}
+  .stat{font-size:.82rem;color:var(--dim)}
+  .stat b{color:var(--text)}
+  button{font:inherit;background:#243141;color:var(--text);border:1px solid var(--line);
+    border-radius:6px;padding:.35rem .7rem;cursor:pointer}
+  button:hover{background:#2d3d50}
+  button.primary{background:#1f6feb;border-color:#1f6feb}
+  .spacer{flex:1}
+
+  .balk{height:6px;background:var(--onbeoordeeld);border-radius:3px;overflow:hidden;display:flex;min-width:160px;flex:1}
+  .balk i{display:block;height:100%}
+
+  main{padding:1rem;max-width:1500px;margin:0 auto}
+  .hulp{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem;
+    margin-bottom:1rem;font-size:.86rem}
+  .hulp code{background:#243141;padding:.05rem .3rem;border-radius:3px}
+
+  section{border:1px solid var(--line);border-radius:8px;margin-bottom:1rem;background:var(--panel)}
+  .kop{padding:.6rem .8rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;
+    border-bottom:1px solid var(--line);position:sticky;top:52px;background:var(--panel);z-index:5}
+  .kop h2{font-size:.98rem;margin:0}
+  .kop em{font-weight:400;color:var(--dim);font-style:italic}
+  .telling{font-size:.78rem;color:var(--dim)}
+  .pil{font-size:.7rem;padding:.1rem .45rem;border-radius:999px;border:1px solid var(--line)}
+  .pil.waarschuwing{border-color:var(--misschien);color:var(--misschien)}
+  .pil.klaar{border-color:var(--goed);color:var(--goed)}
+
+  .raster{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.6rem;padding:.8rem}
+  figure{margin:0;border:3px solid var(--onbeoordeeld);border-radius:7px;overflow:hidden;background:#111a24;
+    cursor:pointer;position:relative}
+  figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#0b1219}
+  figure[data-oordeel="goed"]{border-color:var(--goed)}
+  figure[data-oordeel="misschien"]{border-color:var(--misschien)}
+  figure[data-oordeel="nee"]{border-color:var(--nee);opacity:.45}
+  figcaption{font-size:.68rem;padding:.25rem .4rem;color:var(--dim);display:flex;justify-content:space-between;gap:.3rem}
+  .bron-commons{color:#d2a8ff} .bron-inat{color:#7ee787}
+  .bronlabel{font-weight:600}
+  .merk{position:absolute;top:.3rem;right:.3rem;font-size:.9rem;width:1.4rem;height:1.4rem;border-radius:50%;
+    display:grid;place-items:center;background:#000c}
+  .rangmerk{position:absolute;top:.3rem;left:.3rem;font-size:.65rem;padding:.05rem .35rem;border-radius:999px;
+    background:#000c;color:var(--goed);font-weight:700}
+  .sterretje{position:absolute;bottom:1.7rem;left:.3rem;color:var(--ster);font-size:.9rem;text-shadow:0 0 3px #000}
+  .verborgen{display:none}
+
+  /* ---- volledig scherm ---- */
+  #viewer{position:fixed;inset:0;z-index:100;background:#05090d;display:none;flex-direction:column}
+  #viewer.open{display:flex}
+  .v-top{display:flex;gap:.9rem;align-items:center;padding:.55rem .9rem;background:#0d141c;
+    border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .v-top h2{font-size:.95rem;margin:0;white-space:nowrap}
+  .v-top em{font-weight:400;color:var(--dim);font-style:italic}
+  .v-beeld{flex:1;display:grid;place-items:center;position:relative;overflow:hidden;padding:.4rem}
+  /* contain, never crop: judging in-situ needs the whole frame */
+  .v-beeld img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+  .v-beeld.laden::after{content:"laden…";position:absolute;color:var(--dim);font-size:.85rem}
+  .v-rand{position:absolute;inset:0;pointer-events:none;border:6px solid transparent}
+  .v-rand[data-o="goed"]{border-color:var(--goed)}
+  .v-rand[data-o="misschien"]{border-color:var(--misschien)}
+  .v-rand[data-o="nee"]{border-color:var(--nee)}
+  .v-vlag{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.6);font-size:7rem;
+    font-weight:800;opacity:0;transition:opacity .12s,transform .12s;pointer-events:none;text-shadow:0 4px 24px #000}
+  .v-vlag.pop{opacity:.92;transform:translate(-50%,-50%) scale(1)}
+  .v-onder{display:flex;gap:.5rem;align-items:center;padding:.5rem .9rem;background:#0d141c;
+    border-top:1px solid var(--line);flex-wrap:wrap}
+  .v-onder .knop{flex:1;min-width:90px;padding:.6rem;font-weight:600;border:1px solid var(--line)}
+  .knop-nee:hover,.knop-nee.actief{background:var(--nee);border-color:var(--nee)}
+  .knop-mis:hover,.knop-mis.actief{background:var(--misschien);border-color:var(--misschien);color:#000}
+  .knop-goed:hover,.knop-goed.actief{background:var(--goed);border-color:var(--goed);color:#000}
+  .knop-ster.actief{background:var(--ster);border-color:var(--ster);color:#000}
+  .v-meta{font-size:.78rem;color:var(--dim)}
+  .v-meta a{color:#58a6ff}
+  .v-teller{font-variant-numeric:tabular-nums;font-size:.82rem;color:var(--dim);white-space:nowrap}
+  .v-voortgang{height:4px;background:#1b2733;display:flex}
+  .v-voortgang i{display:block;height:100%}
+  .v-klaar{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:2rem}
+
+  #toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#243141;
+    border:1px solid var(--line);padding:.5rem .9rem;border-radius:6px;font-size:.85rem;opacity:0;
+    transition:opacity .2s;pointer-events:none;z-index:200}
+  #toast.zichtbaar{opacity:1}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Fototriage</h1>
+  <div class="balk" title="voortgang">
+    <i id="balk-goed" style="background:var(--goed)"></i>
+    <i id="balk-misschien" style="background:var(--misschien)"></i>
+    <i id="balk-nee" style="background:var(--nee)"></i>
+  </div>
+  <span class="stat" id="stats">laden…</span>
+  <span class="spacer"></span>
+  <button class="primary" id="start-viewer">▶ Beoordelen (volledig scherm)</button>
+  <button id="exporteer">Exporteer JSON</button>
+  <button id="bewaar">Bewaar</button>
+</header>
+
+<main>
+  <div class="hulp">
+    <strong>Doel:</strong> per soort minimaal 5 échte in-situ onderwaterfoto's.
+    Beoordeel <em>alles</em>, ook boven de 5: het totaal bepaalt of een soort haalbaar is,
+    en de volgorde waarin je ze goedkeurt wordt bewaard zodat we later de beste eruit kunnen halen.<br>
+    <strong>Volledig scherm:</strong> <code>1</code> nee · <code>2</code> misschien · <code>3</code> goed
+    (springt automatisch door) · <code>0</code> wis · <code>S</code> topfoto · <code>←</code>/<code>→</code>
+    terug/vooruit · <code>Esc</code> sluiten.<br>
+    <strong>Meer dan 5 goede?</strong> Niets gaat verloren: de volgorde blijft bewaard.
+    Druk <code>S</code> op de echte uitschieters, anders is de "top 5" niet meer dan
+    de eerste vijf die je goedkeurde.<br>
+    Soorten staan met de minste bruikbare foto's eerst.
+  </div>
+  <div id="inhoud">Laden…</div>
+</main>
+
+<div id="viewer">
+  <div class="v-top">
+    <h2 id="v-naam"></h2>
+    <span class="pil" id="v-module"></span>
+    <span class="v-meta" id="v-soortstand"></span>
+    <span class="spacer"></span>
+    <label class="stat"><input type="checkbox" id="v-alleen-nieuw" checked> alleen onbeoordeelde</label>
+    <span class="v-teller" id="v-teller"></span>
+    <button id="v-sluit">Esc</button>
+  </div>
+  <div class="v-voortgang">
+    <i id="v-balk-goed" style="background:var(--goed)"></i>
+    <i id="v-balk-misschien" style="background:var(--misschien)"></i>
+    <i id="v-balk-nee" style="background:var(--nee)"></i>
+  </div>
+  <div class="v-beeld" id="v-beeld">
+    <img id="v-img" alt="" referrerpolicy="no-referrer">
+    <div class="v-rand" id="v-rand"></div>
+    <div class="v-vlag" id="v-vlag"></div>
+  </div>
+  <div class="v-onder">
+    <button class="knop knop-nee"  data-o="nee">1 · niet bruikbaar</button>
+    <button class="knop knop-mis"  data-o="misschien">2 · misschien</button>
+    <button class="knop knop-goed" data-o="goed">3 · goed</button>
+    <button class="knop knop-ster" id="v-ster" title="topfoto (S)">★ top</button>
+    <span class="v-meta" id="v-meta"></span>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const OORDELEN = ['nee', 'misschien', 'goed'];
+const CYCLE = { undefined: 'goed', goed: 'misschien', misschien: 'nee', nee: null };
+const OPSLAG_SLEUTEL = 'snoekduik.fototriage.v1';
+const MERKEN = { goed: '✓', misschien: '?', nee: '✕' };
+const VLAG = { goed: '✓', misschien: '?', nee: '✕' };
+const KLEUR = { goed: 'var(--goed)', misschien: 'var(--misschien)', nee: 'var(--nee)' };
+
+let verdicts = {};
+let fotos = [];
+let vIndex = 0;
+let opslaanTimer = null;
+/** Monotonic; recorded on every verdict so the order of approval survives, letting us rank later. */
+let teller = 0;
+
+const $ = (s) => document.querySelector(s);
+const sleutelVan = (soortId, foto) => `${soortId}|${foto.bronUrl}`;
+
+function toast(tekst) {
+  const el = $('#toast');
+  el.textContent = tekst;
+  el.classList.add('zichtbaar');
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.classList.remove('zichtbaar'), 1600);
+}
+
+/** Thumbnails are too small to judge full screen; derive the larger original. */
+function grootUrl(thumb, bron) {
+  if (!thumb) return thumb;
+  if (bron === 'inat') return thumb.replace('/medium.', '/large.');
+  return thumb.replace(/\/\d+px-/, '/1280px-');
+}
+
+// ---- opslag -----------------------------------------------------------------
+
+const bewaarLokaal = () => localStorage.setItem(OPSLAG_SLEUTEL, JSON.stringify(verdicts));
+
+async function bewaarServer(stil = false) {
+  try {
+    const res = await fetch('/api/oordelen', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ oordelen: verdicts }),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (!stil) toast(`Bewaard: ${data.aantal} oordelen`);
+  } catch (err) {
+    if (!stil) toast(`Server onbereikbaar (${err.message}) — lokaal bewaard, gebruik Exporteer`);
+  }
+}
+
+function planOpslaan() {
+  bewaarLokaal();
+  clearTimeout(opslaanTimer);
+  opslaanTimer = setTimeout(() => bewaarServer(true), 1200);
+}
+
+function exporteer() {
+  const blob = new Blob([JSON.stringify({ schemaVersion: 1, oordelen: verdicts }, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'fotoOordelen.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// ---- oordelen ---------------------------------------------------------------
+
+function zetOordeel(sleutel, oordeel, meta) {
+  if (oordeel === null) {
+    delete verdicts[sleutel];
+  } else {
+    const vorig = verdicts[sleutel] ?? {};
+    verdicts[sleutel] = {
+      ...meta,
+      oordeel,
+      ster: vorig.ster ?? false,
+      // Kept from the first judgement so re-judging does not reshuffle the ranking.
+      volgnummer: vorig.volgnummer ?? (teller += 1),
+    };
+  }
+  rangCache = null;
+  // Removing a "goed" shifts every later rank in that species, so refresh the whole group.
+  for (const f of fotos) if (f.soortId === meta.soortId) ververGrid(f.sleutel);
+  werkTellingenBij();
+  planOpslaan();
+}
+
+function zetSter(sleutel) {
+  const v = verdicts[sleutel];
+  if (!v) return toast('Geef eerst een oordeel');
+  v.ster = !v.ster;
+  ververGrid(sleutel);
+  planOpslaan();
+  return v.ster;
+}
+
+/** bronUrl -> rank within its species, rebuilt only when a verdict changes. */
+let rangCache = null;
+
+function rangIndex() {
+  if (rangCache) return rangCache;
+  const perSoort = new Map();
+  for (const v of Object.values(verdicts)) {
+    if (v.oordeel !== 'goed') continue;
+    if (!perSoort.has(v.soortId)) perSoort.set(v.soortId, []);
+    perSoort.get(v.soortId).push(v);
+  }
+  rangCache = new Map();
+  for (const lijst of perSoort.values()) {
+    lijst.sort((a, b) => (a.volgnummer ?? 0) - (b.volgnummer ?? 0));
+    lijst.forEach((v, i) => rangCache.set(`${v.soortId}|${v.bronUrl}`, i + 1));
+  }
+  return rangCache;
+}
+
+function rangVan(sleutel) {
+  if (verdicts[sleutel]?.oordeel !== 'goed') return null;
+  return rangIndex().get(sleutel) ?? null;
+}
+
+function ververGrid(sleutel) {
+  const fig = document.querySelector(`[data-sleutel="${CSS.escape(sleutel)}"]`);
+  if (!fig) return;
+  const v = verdicts[sleutel];
+  if (!v) delete fig.dataset.oordeel;
+  else fig.dataset.oordeel = v.oordeel;
+  fig.querySelector('.merk').textContent = v ? MERKEN[v.oordeel] : '';
+  const rang = rangVan(sleutel);
+  fig.querySelector('.rangmerk').textContent = rang ? `#${rang}` : '';
+  fig.querySelector('.sterretje').textContent = v?.ster ? '★' : '';
+}
+
+function werkTellingenBij() {
+  const tel = { goed: 0, misschien: 0, nee: 0 };
+  for (const f of fotos) {
+    const v = verdicts[f.sleutel]?.oordeel;
+    if (v) tel[v] += 1;
+  }
+  const totaal = fotos.length;
+  const beoordeeld = tel.goed + tel.misschien + tel.nee;
+  $('#stats').innerHTML =
+    `<b>${beoordeeld}</b>/${totaal} beoordeeld · <b style="color:var(--goed)">${tel.goed}</b> goed · ` +
+    `<b style="color:var(--misschien)">${tel.misschien}</b> misschien · <b style="color:var(--nee)">${tel.nee}</b> nee`;
+
+  for (const [id, w] of [['goed', tel.goed], ['misschien', tel.misschien], ['nee', tel.nee]]) {
+    const pct = `${(w / totaal) * 100}%`;
+    $(`#balk-${id}`).style.width = pct;
+    $(`#v-balk-${id}`).style.width = pct;
+  }
+
+  document.querySelectorAll('section[data-soort]').forEach((sec) => {
+    const eigen = fotos.filter((f) => f.soortId === sec.dataset.soort);
+    const goed = eigen.filter((f) => verdicts[f.sleutel]?.oordeel === 'goed').length;
+    const gedaan = eigen.filter((f) => verdicts[f.sleutel]).length;
+    sec.querySelector('.voortgang').textContent = `${gedaan}/${eigen.length} beoordeeld · ${goed} goed`;
+    const status = sec.querySelector('.status');
+    status.className = `pil status ${goed >= 5 ? 'klaar' : gedaan === eigen.length ? 'waarschuwing' : ''}`;
+    status.textContent = goed >= 5 ? `${goed} goed` : gedaan === eigen.length ? `te weinig (${goed})` : 'bezig';
+  });
+}
+
+// ---- volledig scherm --------------------------------------------------------
+
+const viewerOpen = () => $('#viewer').classList.contains('open');
+
+function werklijst() {
+  return $('#v-alleen-nieuw').checked ? fotos.filter((f) => !verdicts[f.sleutel]) : fotos;
+}
+
+function toonKlaar() {
+  $('#v-img').removeAttribute('src');
+  $('#v-naam').textContent = 'Alles beoordeeld';
+  $('#v-meta').textContent = '';
+  $('#v-teller').textContent = '';
+  $('#v-soortstand').textContent = 'Zet "alleen onbeoordeelde" uit om te herzien.';
+  $('#v-rand').removeAttribute('data-o');
+}
+
+function toonFoto(index) {
+  const lijst = werklijst();
+  if (lijst.length === 0) return toonKlaar();
+  vIndex = Math.max(0, Math.min(index, lijst.length - 1));
+  const foto = lijst[vIndex];
+  const v = verdicts[foto.sleutel];
+
+  const img = $('#v-img');
+  $('#v-beeld').classList.add('laden');
+  img.onload = () => $('#v-beeld').classList.remove('laden');
+  // Fall back to the thumbnail if the larger derivative does not exist.
+  img.onerror = () => { img.onerror = null; img.src = foto.thumb; };
+  img.src = grootUrl(foto.thumb, foto.meta.bron);
+
+  $('#v-naam').innerHTML = `${foto.naamNL} <em>${foto.naamWetenschappelijk}</em>`;
+  $('#v-module').textContent = foto.module;
+  $('#v-teller').textContent = `${vIndex + 1} / ${lijst.length}`;
+
+  const eigen = fotos.filter((f) => f.soortId === foto.soortId);
+  const goed = eigen.filter((f) => verdicts[f.sleutel]?.oordeel === 'goed').length;
+  const gedaan = eigen.filter((f) => verdicts[f.sleutel]).length;
+  $('#v-soortstand').textContent = `soort: ${gedaan}/${eigen.length} beoordeeld, ${goed} goed${goed >= 5 ? ' ✓' : ''}`;
+
+  const rang = rangVan(foto.sleutel);
+  $('#v-meta').innerHTML =
+    `<span class="bronlabel ${foto.meta.bron === 'commons' ? 'bron-commons' : 'bron-inat'}">` +
+    `${foto.meta.bron === 'commons' ? 'Commons' : 'iNat'}</span> · ${foto.meta.licentie ?? '?'} · ` +
+    `${(foto.meta.fotograaf ?? '').slice(0, 60)} · <a href="${foto.meta.bronUrl}" target="_blank" rel="noopener">bron ↗</a>` +
+    (rang ? ` · <b style="color:var(--goed)">goed #${rang}</b>` : '');
+
+  const rand = $('#v-rand');
+  if (v) rand.dataset.o = v.oordeel; else rand.removeAttribute('data-o');
+  document.querySelectorAll('.v-onder .knop[data-o]').forEach((b) =>
+    b.classList.toggle('actief', v?.oordeel === b.dataset.o));
+  $('#v-ster').classList.toggle('actief', Boolean(v?.ster));
+
+  // Preload the next few so judging never waits on the network.
+  for (const next of werklijst().slice(vIndex + 1, vIndex + 4)) {
+    new Image().src = grootUrl(next.thumb, next.meta.bron);
+  }
+}
+
+function flits(oordeel) {
+  const vlag = $('#v-vlag');
+  vlag.textContent = VLAG[oordeel];
+  vlag.style.color = KLEUR[oordeel];
+  vlag.classList.add('pop');
+  setTimeout(() => vlag.classList.remove('pop'), 160);
+}
+
+function beoordeelHuidige(oordeel) {
+  const lijst = werklijst();
+  const foto = lijst[vIndex];
+  if (!foto) return;
+
+  if (oordeel === null) {
+    zetOordeel(foto.sleutel, null, foto.meta);
+    toonFoto(vIndex);
+    return;
+  }
+
+  flits(oordeel);
+  const alleenNieuw = $('#v-alleen-nieuw').checked;
+  zetOordeel(foto.sleutel, oordeel, foto.meta);
+
+  // With "unjudged only" on, this photo leaves the list, so the same index is already the next one.
+  if (alleenNieuw) {
+    const rest = werklijst();
+    if (rest.length === 0) return toonKlaar();
+    toonFoto(Math.min(vIndex, rest.length - 1));
+  } else {
+    toonFoto(vIndex + 1);
+  }
+}
+
+function opendViewer() {
+  $('#viewer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const lijst = werklijst();
+  toonFoto(lijst.length ? 0 : 0);
+}
+
+function sluitViewer() {
+  $('#viewer').classList.remove('open');
+  document.body.style.overflow = '';
+  bewaarServer(true);
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT') return;
+  if (!viewerOpen()) {
+    if (e.key.toLowerCase() === 'v') { opendViewer(); e.preventDefault(); }
+    return;
+  }
+  const k = e.key.toLowerCase();
+  if (k === 'escape') sluitViewer();
+  else if (['1', '2', '3'].includes(e.key)) beoordeelHuidige(OORDELEN[Number(e.key) - 1]);
+  else if (e.key === '0') beoordeelHuidige(null);
+  else if (k === 's') {
+    const foto = werklijst()[vIndex];
+    if (foto && zetSter(foto.sleutel) !== undefined) toonFoto(vIndex);
+  }
+  else if (e.key === 'ArrowRight' || e.key === ' ') toonFoto(vIndex + 1);
+  else if (e.key === 'ArrowLeft') toonFoto(vIndex - 1);
+  else return;
+  e.preventDefault();
+});
+
+// ---- opbouw -----------------------------------------------------------------
+
+function bouwKaart(foto) {
+  const v = verdicts[foto.sleutel];
+  const fig = document.createElement('figure');
+  fig.dataset.sleutel = foto.sleutel;
+  if (v) fig.dataset.oordeel = v.oordeel;
+  fig.innerHTML = `
+    <img loading="lazy" src="${foto.thumb}" alt="" referrerpolicy="no-referrer">
+    <span class="merk">${v ? MERKEN[v.oordeel] : ''}</span>
+    <span class="rangmerk"></span>
+    <span class="sterretje">${v?.ster ? '★' : ''}</span>
+    <figcaption>
+      <span class="bronlabel ${foto.meta.bron === 'commons' ? 'bron-commons' : 'bron-inat'}">
+        ${foto.meta.bron === 'commons' ? 'Commons' : 'iNat'}</span>
+      <span>${foto.meta.licentie ?? '?'}</span>
+    </figcaption>`;
+  fig.addEventListener('click', () => {
+    // Grid click jumps into the viewer so the photo can be seen uncropped.
+    $('#v-alleen-nieuw').checked = false;
+    $('#viewer').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    toonFoto(fotos.indexOf(foto));
+  });
+  return fig;
+}
+
+async function start() {
+  try {
+    verdicts = (await (await fetch('/api/oordelen')).json()).oordelen ?? {};
+  } catch { verdicts = {}; }
+  const lokaal = JSON.parse(localStorage.getItem(OPSLAG_SLEUTEL) ?? '{}');
+  verdicts = { ...lokaal, ...verdicts };
+  teller = Math.max(0, ...Object.values(verdicts).map((v) => v.volgnummer ?? 0));
+
+  let probe;
+  try {
+    probe = await (await fetch('/api/probe')).json();
+  } catch (err) {
+    $('#inhoud').innerHTML = `<p style="color:var(--nee)">Kan data/fotoProbe.json niet laden: ${err.message}</p>`;
+    return;
+  }
+
+  const soorten = Object.entries(probe.soorten)
+    .filter(([, s]) => s.gecheckt)
+    .sort((a, b) => (a[1].inaturalist?.bruikbaarTotaal ?? 0) - (b[1].inaturalist?.bruikbaarTotaal ?? 0));
+
+  const inhoud = document.createDocumentFragment();
+  fotos = [];
+
+  for (const [soortId, soort] of soorten) {
+    const lijst = [
+      ...(soort.inaturalist?.samples ?? []).map((s) => ({ ...s, bron: 'inat' })),
+      ...(soort.commons?.samples ?? []).map((s) => ({ ...s, bron: 'commons' })),
+    ];
+    if (lijst.length === 0) continue;
+
+    const sec = document.createElement('section');
+    sec.dataset.soort = soortId;
+    sec.innerHTML = `
+      <div class="kop">
+        <h2>${soort.naamNL} <em>${soort.naamWetenschappelijk}</em></h2>
+        <span class="pil">${soort.module}</span>
+        <span class="pil status">bezig</span>
+        <span class="telling">iNat bruikbaar ${soort.inaturalist?.bruikbaarTotaal ?? '?'} ·
+          Commons ${soort.commons?.bestandenInCategorie ?? 0} ·
+          taxon ${soort.inaturalist?.status ?? '?'}</span>
+        <span class="spacer"></span>
+        <span class="telling voortgang"></span>
+      </div>`;
+
+    const raster = document.createElement('div');
+    raster.className = 'raster';
+    for (const foto of lijst) {
+      const item = {
+        soortId,
+        naamNL: soort.naamNL,
+        naamWetenschappelijk: soort.naamWetenschappelijk,
+        module: soort.module,
+        sleutel: sleutelVan(soortId, foto),
+        thumb: foto.thumb,
+        meta: {
+          soortId,
+          bron: foto.bron,
+          licentie: foto.licentie,
+          bronUrl: foto.bronUrl,
+          fotograaf: foto.fotograaf ?? null,
+        },
+      };
+      fotos.push(item);
+      raster.appendChild(bouwKaart(item));
+    }
+    sec.appendChild(raster);
+    inhoud.appendChild(sec);
+  }
+
+  $('#inhoud').replaceChildren(inhoud);
+  fotos.forEach((f) => ververGrid(f.sleutel));
+  werkTellingenBij();
+}
+
+$('#start-viewer').addEventListener('click', opendViewer);
+$('#v-sluit').addEventListener('click', sluitViewer);
+$('#v-alleen-nieuw').addEventListener('change', (e) => {
+  // Keyboard events from a focused input are ignored, so hand focus back to the page.
+  e.target.blur();
+  toonFoto(0);
+});
+$('#v-ster').addEventListener('click', () => {
+  const foto = werklijst()[vIndex];
+  if (foto) { zetSter(foto.sleutel); toonFoto(vIndex); }
+});
+document.querySelectorAll('.v-onder .knop[data-o]').forEach((b) =>
+  b.addEventListener('click', () => {
+    // Otherwise the button keeps focus and Space re-triggers it instead of advancing.
+    b.blur();
+    beoordeelHuidige(b.dataset.o);
+  }));
+$('#bewaar').addEventListener('click', () => bewaarServer());
+$('#exporteer').addEventListener('click', exporteer);
+window.addEventListener('beforeunload', () => {
+  bewaarLokaal();
+  // The server copy wins the merge on load, so a debounced save still pending here
+  // would let a changed verdict revert. sendBeacon survives the unload.
+  navigator.sendBeacon?.(
+    '/api/oordelen',
+    new Blob([JSON.stringify({ oordelen: verdicts })], { type: 'application/json' }),
+  );
+});
+
+start();
+</script>
+</body>
+</html>
