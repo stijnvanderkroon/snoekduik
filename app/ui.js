@@ -18,8 +18,10 @@ export function attributie(foto) {
   if (!foto) return '';
   const wie = foto.fotograaf ? esc(foto.fotograaf) : 'onbekende fotograaf';
   const bron = foto.bron === 'commons' ? 'Wikimedia Commons' : 'iNaturalist';
+  // De code laat iemand in het feedbackformulier aangeven om welke foto het gaat.
+  const code = foto.code ? ` · <span class="fotocode">${esc(foto.code)}</span>` : '';
   return `${wie} · ${esc(foto.licentie ?? 'licentie onbekend')} · ` +
-    `<a href="${esc(foto.bronUrl)}" target="_blank" rel="noopener">${bron}</a>`;
+    `<a href="${esc(foto.bronUrl)}" target="_blank" rel="noopener">${bron}</a>${code}`;
 }
 
 /** Waarschuwing bij foto's die nog niemand als echte onderwateropname heeft goedgekeurd. */

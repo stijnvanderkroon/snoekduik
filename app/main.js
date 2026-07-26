@@ -7,6 +7,7 @@ import { $, toon } from './ui.js';
 import { toonStart, toonSessie } from './views-leren.js';
 import { toonModules, toonSoorten, toonSoort } from './views-naslag.js';
 import { toonLevenslijst, toonIk, toonGemaakt } from './views-ik.js';
+import { toonFeedback } from './views-feedback.js';
 
 const TABS = [
   ['/', 'Start', '◈'],
@@ -48,6 +49,7 @@ async function begin() {
   route('/levenslijst', metTabs(toonLevenslijst));
   route('/ik', metTabs(toonIk));
   route('/gemaakt', metTabs(toonGemaakt));
+  route('/feedback', metTabs(toonFeedback));
 
   start();
 
