@@ -5,10 +5,11 @@
  * niet iets dat je één keer wegklikt en daarna nooit meer kunt terugvinden.
  */
 
-import { esc, $, toon } from './ui.js';
+import { esc, $, toon, alineas } from './ui.js';
 import { ga } from './router.js';
 import { statistiek, streefFotos } from './data.js';
 import { zetInstelling } from './store.js';
+import { OVER_MIJ, OVER_MIJ_KOP } from './over-mij.js';
 
 export function toonWelkom() {
   document.body.classList.remove('quiz');
@@ -29,6 +30,11 @@ export function toonWelkom() {
       Bijna al het beeld van Nederlandse zoetwatervis komt uit de hengelsport, maar een vis op een
       meetlat leert je niet wat je onder water ziet.</p>
     </div>
+
+    ${alineas(OVER_MIJ) ? `<div class="kaart">
+      <div class="blokkop">${esc(OVER_MIJ_KOP)}</div>
+      ${alineas(OVER_MIJ)}
+    </div>` : ''}
 
     <div class="melding">
       <strong>Deze app is met AI gemaakt.</strong> Het ontwerp, de code en alle soortteksten zijn door
