@@ -1,6 +1,7 @@
 /** Levenslijst, instellingen en de verantwoordingspagina. */
 
 import { esc, $, toon, datumNL, bevestig } from './ui.js';
+import { OVER_MIJ, OVER_MIJ_KOP } from './over-mij.js';
 import { ga } from './router.js';
 import { soorten, soortOpId, streefFotos, statistiek } from './data.js';
 import { aantalBeheerst } from './leitner.js';
@@ -90,6 +91,7 @@ export function toonIk() {
       <input type="file" id="bestand" accept="application/json" hidden>
     </div>
 
+    <a class="knop stil" href="#/welkom">Uitleg en waarschuwing opnieuw lezen</a>
     <a class="knop stil" href="#/gemaakt">Hoe dit gemaakt is</a>
     <button class="knop stil" id="wis" style="color:var(--bijna)">Alles wissen</button>
   `);
@@ -124,6 +126,24 @@ export function toonIk() {
 }
 
 // ---- hoe dit gemaakt is -----------------------------------------------------
+
+/**
+ * De tekst uit over-mij.js, als alinea's. Lege regels scheiden alinea's, en de
+ * inhoud wordt ontsmet zodat een losse < of & niets sloopt.
+ */
+function overMijBlok() {
+  const tekst = (OVER_MIJ ?? '').trim();
+  if (!tekst) return '';
+  // Een lege regel scheidt alinea's. Losse regelafbrekingen binnen een alinea
+  // zijn opmaak van het bronbestand, geen bedoelde afbreking, dus die worden spaties.
+  const alineas = tekst.split(/\n\s*\n/)
+    .map((a) => `<p style="margin:.2rem 0">${esc(a.trim().replace(/\s*\n\s*/g, ' '))}</p>`)
+    .join('');
+  return `<div class="kaart">
+      <div class="blokkop">${esc(OVER_MIJ_KOP)}</div>
+      ${alineas}
+    </div>`;
+}
 
 export function toonGemaakt() {
   document.body.classList.remove('quiz');
@@ -179,6 +199,8 @@ export function toonGemaakt() {
       geen notificaties. Alles wat je doet blijft op je eigen telefoon. Deze app probeert niet je
       gewoonte te worden.</p>
     </div>
+
+    ${overMijBlok()}
 
     <div class="kaart">
       <div class="blokkop">Fotografen en licenties</div>
