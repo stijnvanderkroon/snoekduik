@@ -12,6 +12,9 @@ import { standVan, zetStand } from './store.js';
 export const INTERVALLEN = { 1: 0, 2: 1, 3: 3, 4: 7, 5: 21 };
 export const MAX_BOX = 5;
 
+/** Aantal goede antwoorden in vrije oefening dat evenveel waard is als één goed antwoord in een echte sessie. */
+export const EXTRA_DREMPEL = 3;
+
 const DAG = 24 * 60 * 60 * 1000;
 
 export function isToe(soortId, nu = Date.now()) {
@@ -31,32 +34,50 @@ export function achterstand(soortId, nu = Date.now()) {
 }
 
 /**
- * Verwerkt een antwoord. Bij vrij oefenen (`extra`) telt een goed antwoord niet
- * mee voor het schema: anders kun je in één middag alles naar boekje 5 tikken en
- * is de spreiding weg. Een fout antwoord telt altijd, want dat is echte
- * informatie over wat je nog niet kent.
+ * Verwerkt een antwoord. Bij vrij oefenen of een toets (`extra`) is een goed
+ * antwoord maar een fractie van een echte promotie waard: pas na
+ * `EXTRA_DREMPEL` goede antwoorden op rij op dezelfde soort gaat het boekje
+ * omhoog, net als anders in één keer. Zo blijft doorspelen zinvol zonder dat
+ * je alles in één zitting naar boekje 5 kan tikken. Een fout antwoord telt
+ * altijd meteen, want dat is echte informatie over wat je nog niet kent, en
+ * zet de teller terug.
  */
 export function verwerkAntwoord(soortId, goed, { nu = Date.now(), extra = false } = {}) {
   const vorige = standVan(soortId);
 
-  if (extra && goed) {
-    zetStand(soortId, { ...vorige, gezien: vorige.gezien + 1 });
-    return { vorigeBox: vorige.box, nieuweBox: vorige.box, omhoog: false };
+  if (!goed) {
+    zetStand(soortId, {
+      box: 1,
+      gezien: vorige.gezien + 1,
+      fout: vorige.fout + 1,
+      extraGoed: 0,
+      laatsteReview: nu,
+      volgendeReview: nu + INTERVALLEN[1] * DAG,
+    });
+    // Bij een fout op een nog ongeziene soort gaat boekje 0 naar 1, en dat is
+    // geen promotie maar een start.
+    return { vorigeBox: vorige.box, nieuweBox: 1, omhoog: false };
   }
 
-  const box = goed ? Math.min(MAX_BOX, Math.max(1, vorige.box) + 1) : 1;
+  if (extra) {
+    const teller = (vorige.extraGoed ?? 0) + 1;
+    if (teller < EXTRA_DREMPEL) {
+      zetStand(soortId, { ...vorige, gezien: vorige.gezien + 1, extraGoed: teller });
+      return { vorigeBox: vorige.box, nieuweBox: vorige.box, omhoog: false };
+    }
+    // Drempel gehaald: telt vanaf hier als een gewone promotie.
+  }
 
-  const nieuw = {
+  const box = Math.min(MAX_BOX, Math.max(1, vorige.box) + 1);
+  zetStand(soortId, {
     box,
     gezien: vorige.gezien + 1,
-    fout: vorige.fout + (goed ? 0 : 1),
+    fout: vorige.fout,
+    extraGoed: 0,
     laatsteReview: nu,
     volgendeReview: nu + INTERVALLEN[box] * DAG,
-  };
-  zetStand(soortId, nieuw);
-  // Alleen een goed antwoord is vooruitgang. Bij een fout op een nog ongeziene
-  // soort gaat boekje 0 naar 1, en dat is geen promotie maar een start.
-  return { vorigeBox: vorige.box, nieuweBox: box, omhoog: goed && box > vorige.box };
+  });
+  return { vorigeBox: vorige.box, nieuweBox: box, omhoog: box > vorige.box };
 }
 
 /** Zet een soort op boekje 1 zodra de leerkaart is gezien, nog zonder toetsing. */

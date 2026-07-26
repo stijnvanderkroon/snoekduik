@@ -288,7 +288,7 @@ while (toetsStappen < 40) {
 }
 ok("toets bevat geen leerkaarten", leerkaartenInToets === 0);
 ok("toets eindigt op een uitslag met score", /Uitslag/.test(tekst()) && /van de/.test(tekst()));
-ok("een toets verzet het herhaalschema niet bij goede antwoorden",
+ok("één toets zet nog niemand door (drempel voor promotie in vrij oefenen/toets is 3 op rij)",
   Object.values(store.alleStanden()).every((s) => s.box <= 1));
 
 console.log("== modulefilter in de soortenlijst ==");
