@@ -210,8 +210,12 @@ ok("zegt dat het niet persoonlijk is", /niet persoonlijk/i.test(ft));
 ok("legt de rechten bij bijdragen uit", /geen vergoeding/i.test(ft));
 ok("noemt de fotocode", /F-[A-Z0-9]{6}/.test(ft));
 ok("heeft een uitklapper met gewilde soorten", window.document.querySelector("details.gewild, details.uitklap") !== null);
-ok("lege formulierlinks worden uitgeschakeld",
-  [...window.document.querySelectorAll(".kaart .knop")].every((k) => k.tagName === "BUTTON" ? k.disabled : true));
+const formKnoppen = [...window.document.querySelectorAll(".kaart .knop")];
+ok("drie formulierknoppen", formKnoppen.length === 3, `(${formKnoppen.length})`);
+ok("elke knop is een echte link of netjes uitgeschakeld", formKnoppen.every((k) =>
+  k.tagName === "A" ? /^https:\/\// .test(k.getAttribute("href")) : k.disabled));
+ok("links openen veilig in een nieuw tabblad", formKnoppen.filter((k) => k.tagName === "A")
+  .every((a) => a.getAttribute("target") === "_blank" && /noopener/.test(a.getAttribute("rel"))));
 
 console.log("== fotocodes ==");
 naslag.toonSoort({ id: "snoek" });
