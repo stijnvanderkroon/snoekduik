@@ -5,16 +5,7 @@ import { ga } from './router.js';
 import { soorten, soortOpId } from './data.js';
 import { bouwSessie, watStaatKlaar, quizFotos, leerFoto, heeftQuizFoto, LABELS } from './sessie.js';
 import { verwerkAntwoord, markeerGezien } from './leitner.js';
-import { instellingen, noteerPaar, bewaarSessie, lopendeSessie, wisSessie, standVan } from './store.js';
-
-/** Zichtniveau 0 tot 3. Automatisch volgt het boekje, zodat het moeilijker wordt naarmate je het beter kent. */
-function zichtNiveau(box) {
-  const gekozen = instellingen().zichtniveau;
-  if (gekozen !== 'auto') return Number(gekozen);
-  return { 1: 0, 2: 0, 3: 1, 4: 2, 5: 3 }[box] ?? 0;
-}
-
-const ZICHT_NAAM = ['helder', 'groenzweem', 'troebel', 'nachtduik'];
+import { noteerPaar, bewaarSessie, lopendeSessie, wisSessie, standVan } from './store.js';
 
 // ---- start ------------------------------------------------------------------
 
@@ -133,21 +124,19 @@ function tekenLeerkaart(item) {
   });
 }
 
-function fotoBlok(vraag, niveau) {
+function fotoBlok(vraag) {
   const uit = vraag.uitsnede;
   const stijl = uit
     ? `--uschaal:${uit.schaal};--ux:${uit.x}%;--uy:${uit.y}%`
     : '';
   return `
-    <div class="qbeeld zicht zicht-${niveau} ${uit ? 'uitsnede' : ''}" style="${stijl}">
+    <div class="qbeeld ${uit ? 'uitsnede' : ''}" style="${stijl}">
       <img src="${esc(vraag.foto.groot)}" alt="" referrerpolicy="no-referrer">
-      ${niveau > 0 ? `<span class="zichtlabel">zicht: ${ZICHT_NAAM[niveau]}</span>` : ''}
     </div>`;
 }
 
 function tekenVraag(vraag) {
   const s = soortOpId(vraag.soortId);
-  const niveau = zichtNiveau(standVan(vraag.soortId).box || 1);
 
   const opties = vraag.type === 'naamFoto'
     ? `<div class="qopties tweekolom">${vraag.opties.map((o) => `
@@ -160,7 +149,7 @@ function tekenVraag(vraag) {
   toon(`
     ${voortgangsbalk()}
     <div class="qvraag">${esc(vraag.vraag)}</div>
-    ${vraag.type === 'naamFoto' ? '' : fotoBlok(vraag, niveau)}
+    ${vraag.type === 'naamFoto' ? '' : fotoBlok(vraag)}
     ${vraag.type === 'naamFoto' ? '' : `<div class="qattrib">${attributie(vraag.foto)} ${ongekeurdLabel(vraag.foto)}</div>`}
     ${vraag.hint ? `<p class="qattrib">${esc(vraag.hint)}</p>` : ''}
     ${opties}
@@ -219,6 +208,7 @@ function toonFeedback(vraag, gekozenId, goed, doel, gekozenSoort) {
     ? 'Goed'
     : gekozenSoort ? `Bijna. Dit was een ${doel.naamNL.toLowerCase()}.` : 'Net niet.';
 
+  document.body.classList.add('feedback-open');
   document.body.appendChild(el(`
     <div class="fb ${goed ? '' : 'mis'}">
       <h2>${esc(kop)}</h2>
@@ -231,6 +221,7 @@ function toonFeedback(vraag, gekozenId, goed, doel, gekozenSoort) {
 
   $('#verder').addEventListener('click', () => {
     $('.fb')?.remove();
+    document.body.classList.remove('feedback-open');
     // Fout materiaal komt later in dezelfde sessie eenmaal terug, zodat je niet
     // weggaat met de fout als laatste indruk. Hooguit een keer: anders raakt wie
     // veel mist nooit aan het einde van de sessie.

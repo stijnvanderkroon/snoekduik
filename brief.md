@@ -28,10 +28,16 @@ te leren benoemen, maar het is niet wat een duiker ziet. Een duiker ziet een vis
 van opzij in groen licht, half achter een tak, meestal wegzwemmend, op drie
 meter zicht.
 
-Daarom de tweedeling in fotoTiers (zie `CLAUDE.md`). En daarom is
-**zichtsimulatie** de moeilijkheidsknop in plaats van zeldzamere soorten: de
-realistische uitdaging is niet "welke obscure soort is dit", maar "is die vage
-zilveren vorm een blankvoorn of een kolblei".
+Daarom de tweedeling in fotoTiers (zie `CLAUDE.md`). En daarom draait de
+moeilijkheid om verwarparen in plaats van om zeldzamere soorten: de realistische
+uitdaging is niet "welke obscure soort is dit", maar "is die vage zilveren vorm
+een blankvoorn of een kolblei". Dat loopt via het vraagtype, dat oploopt met het
+Leitner-boekje.
+
+Er is ook een zichtsimulatie overwogen, een filter over de quizfoto dat groen
+zicht of een nachtduik nabootst. Die is gebouwd en daarna geschrapt: te veel
+onderhoud voor wat het toevoegt, en op foto's die zelf al troebel zijn werkt het
+averechts.
 
 Verder betekent het dat gedrag telt. Een snoek blijft roerloos hangen tot je te
 dichtbij komt, brasem draait als school weg, baars komt nieuwsgierig terug. Dat
@@ -95,7 +101,7 @@ Schets:
 snoekduik.progress.v1
   schemaVersion
   soorten: { <id>: { box, gezien, fout, laatsteReview, volgendeReview } }
-  instellingen: { zichtniveau }
+  instellingen: {}
 
 snoekduik.levenslijst.v1
   waarnemingen: [ { soortId, datum, notitie } ]
@@ -128,7 +134,7 @@ opvraagt, niet als score om vol te maken.
 4. Leerkaart + quiz met twee vraagtypes (foto→naam, A of B)
 5. Leitner-engine en localStorage met export/import
 6. PWA: manifest, service worker, install-prompt
-7. Zichtsimulatie en resterende vraagtypes
+7. Resterende vraagtypes
 8. Levenslijst
 9. Resterende modules
 10. Later: zoutwater
@@ -148,5 +154,4 @@ opvraagt, niet als score om vol te maken.
 - Licentiekeuze voor de repo zelf, en apart voor de soortdata
 - Of CC-BY-NC foto's meemogen (app is niet-commercieel, dus waarschijnlijk wel —
   maar leg de keuze vast)
-- Hoe de zichtsimulatie er precies uitziet: één CSS-filter of per-foto
-  ingesteld, omdat sommige foto's al troebel zijn
+

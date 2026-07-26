@@ -82,16 +82,6 @@ export function toonIk() {
     </div>
 
     <div class="kaart">
-      <div class="blokkop">Zicht in de quiz</div>
-      <select id="zicht">
-        ${[['auto', 'Automatisch, volgt je niveau'], ['0', 'Altijd helder'], ['1', 'Groenzweem'],
-           ['2', 'Troebel'], ['3', 'Nachtduik met lamp']]
-          .map(([v, l]) => `<option value="${v}" ${inst.zichtniveau === v ? 'selected' : ''}>${esc(l)}</option>`).join('')}
-      </select>
-      <p class="mini" style="margin:.4rem 0 0">Slechter zicht is de moeilijkheidsknop, niet zeldzamere soorten.</p>
-    </div>
-
-    <div class="kaart">
       <div class="blokkop">Je voortgang bewaren</div>
       <p class="mini" style="margin:.2rem 0 .5rem">
         Alles staat alleen op dit apparaat. Safari wist opslag na zeven dagen zonder bezoek,
@@ -117,7 +107,6 @@ export function toonIk() {
     <button class="knop stil" id="wis" style="color:var(--bijna)">Alles wissen</button>
   `);
 
-  $('#zicht').addEventListener('change', (e) => zetInstelling('zichtniveau', e.target.value));
   $('#ongekeurd').addEventListener('change', (e) => {
     zetInstelling('ongekeurdToestaan', e.target.checked);
     toonIk();

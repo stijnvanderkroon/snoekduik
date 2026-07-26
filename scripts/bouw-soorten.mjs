@@ -47,6 +47,30 @@ function schoonFotograaf(ruw) {
   return (m ? m[1] : ruw).trim() || null;
 }
 
+/**
+ * Kort, stabiel kenmerk per foto, zodat iemand in een formulier kan aangeven om
+ * welke foto het gaat. Afgeleid van de bron-URL, dus hij verandert niet als de
+ * data opnieuw wordt gebouwd of de volgorde wijzigt.
+ *
+ * Alfabet zonder I, L, O, U en 0/1: die worden verkeerd overgetypt.
+ */
+const ALFABET = '23456789ABCDEFGHJKMNPQRSTVWXYZ';
+
+function fotoCode(bronUrl) {
+  // FNV-1a, 32 bits. Geen cryptografie nodig, alleen een stabiel kort kenmerk.
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < bronUrl.length; i += 1) {
+    hash ^= bronUrl.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  let code = '';
+  for (let i = 0; i < 6; i += 1) {
+    code += ALFABET[hash % ALFABET.length];
+    hash = Math.floor(hash / ALFABET.length);
+  }
+  return `F-${code}`;
+}
+
 const groterUrl = (thumb, bron) =>
   !thumb ? thumb
     : bron === 'commons' ? thumb.replace(/\/\d+px-/, '/1280px-')
@@ -73,6 +97,7 @@ async function main() {
     const fotos = rauw.map((f) => {
       const oordeel = perFoto.get(`${s.id}|${f.bronUrl}`);
       return {
+        code: fotoCode(f.bronUrl),
         thumb: f.thumb,
         groot: groterUrl(f.thumb, f.bron === 'commons' ? 'commons' : 'inat'),
         // Alleen een goedgekeurde foto telt als echte onderwateropname.
@@ -173,6 +198,18 @@ async function main() {
       else if (!opId.get(ander).verwardMet.includes(s.id)) {
         klachten.push(`${s.id} noemt ${ander} als verwarsoort, maar niet andersom`);
       }
+    }
+  }
+
+  // Een fotocode moet uniek zijn: mensen gebruiken hem om aan te geven welke
+  // foto ze bedoelen, dus een botsing wijst naar de verkeerde opname.
+  const codes = new Map();
+  for (const s of soorten) {
+    for (const f of s.fotos) {
+      if (codes.has(f.code) && codes.get(f.code) !== f.bronUrl) {
+        klachten.push(`fotocode ${f.code} wordt door twee verschillende foto's gebruikt`);
+      }
+      codes.set(f.code, f.bronUrl);
     }
   }
 

@@ -171,22 +171,6 @@ body.quiz #scherm{max-width:560px;padding-bottom:1rem}
 .optie img{border-radius:8px;height:96px;width:100%;object-fit:cover}
 .optie.foto{padding:.3rem}
 
-/* zichtsimulatie: filter plus een laag die het licht wegneemt */
-.zicht{position:relative}
-.zicht::after{content:"";position:absolute;inset:0;pointer-events:none}
-.zicht-1{filter:saturate(.8) contrast(.9)}
-.zicht-1::after{background:#2E7D6B;mix-blend-mode:multiply;opacity:.22}
-.zicht-2{filter:saturate(.62) contrast(.78) brightness(.9)}
-.zicht-2::after{background:#20604f;mix-blend-mode:multiply;opacity:.42}
-.zicht-3{filter:saturate(.45) contrast(.72) brightness(.72)}
-.zicht-3::after{
-  background:radial-gradient(circle at 50% 45%, #0000 12%, #000a 46%, #000e 78%);
-  opacity:.95;
-}
-.zichtlabel{
-  position:absolute; left:.5rem; bottom:.5rem; z-index:2;
-  background:#000a; color:#cfe; font-size:.66rem; padding:.15rem .45rem; border-radius:999px;
-}
 
 /* uitsnede: inzoomen op een deel van de foto */
 .uitsnede{overflow:hidden}
@@ -236,3 +220,40 @@ select,input[type=text],input[type=date],textarea{
   border-radius:8px; background:var(--vlak); color:inherit; width:100%;
 }
 textarea{min-height:70px;resize:vertical}
+
+/* ---- feedbackknop ---- */
+
+/* Altijd in beeld. Op gewone schermen net boven de tabbalk, in de quiz
+   rechtsboven, omdat daar de antwoordknoppen en het feedbackpaneel zitten. */
+.feedbackknop{
+  position:fixed; right:.8rem; bottom:calc(var(--tabhoogte) + .7rem + env(safe-area-inset-bottom));
+  z-index:25; display:flex; align-items:center; gap:.35rem;
+  background:var(--vlak); color:var(--diep); border:1px solid var(--lijn);
+  border-radius:999px; padding:.45rem .8rem; font-size:.8rem; font-weight:600;
+  text-decoration:none; box-shadow:0 2px 10px #0003; cursor:pointer;
+}
+.feedbackknop:hover{background:var(--teal-licht)}
+.feedbackknop i{font-style:normal}
+body.quiz .feedbackknop{
+  top:.6rem; bottom:auto; right:.6rem;
+  background:#ffffff1a; color:#dfeee9; border-color:#ffffff33; box-shadow:none;
+  padding:.25rem .55rem; font-size:.72rem;
+}
+/* Het feedbackpaneel na een antwoord schuift over de onderkant heen. */
+body.feedback-open .feedbackknop{display:none}
+
+@media(min-width:900px){
+  .feedbackknop{bottom:1rem; right:1rem}
+}
+
+/* ---- feedbackscherm ---- */
+
+.uitklap{border:1px solid var(--lijn);border-radius:10px;padding:.5rem .7rem;margin:.6rem 0}
+.uitklap summary{cursor:pointer;font-weight:600;font-size:.88rem}
+table.gewild{width:100%;border-collapse:collapse;font-size:.85rem}
+table.gewild td{padding:.35rem .2rem;border-bottom:1px solid var(--lijn);vertical-align:top}
+table.gewild td.nodig{text-align:right;white-space:nowrap;color:var(--bijna);font-weight:600}
+.fotocode{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.66rem;
+  background:var(--teal-licht); color:var(--diep); padding:.02rem .3rem; border-radius:4px;
+}
