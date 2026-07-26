@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# De app heeft geen afhankelijkheden. jsdom wordt tijdelijk geinstalleerd voor
+# de rendertest en hoort niet in de repo.
+node_modules/
+package-lock.json
+package.json
+
+# Gegenereerd contactblad voor de fototriage: groot en altijd opnieuw te maken
+# met scripts/probe-fotos.mjs.
+data/fotoProbe-contactblad.html
+
+# Tijdelijke bestanden van de triageserver
+data/*.tmp

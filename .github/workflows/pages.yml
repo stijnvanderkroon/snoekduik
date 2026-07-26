@@ -1,0 +1,69 @@
+name: Publiceer op GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Eén publicatie tegelijk; een nieuwe push mag een lopende niet afbreken.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  bouwen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Soortgegevens opnieuw genereren
+        # data/soorten.json staat in de repo, maar wordt hier opnieuw gebouwd
+        # zodat een vergeten herbouw na een tekstwijziging niet live komt.
+        run: node scripts/bouw-soorten.mjs
+
+      - name: Logicatests
+        run: node tools/test/logica.mjs
+
+      - name: Site samenstellen
+        # Alleen wat de site nodig heeft. scripts/ en tools/ zijn ontwikkelhulp
+        # en horen niet gepubliceerd te worden.
+        run: |
+          mkdir -p _site
+          cp index.html manifest.webmanifest sw.js _site/
+          cp -r app logos _site/
+          mkdir -p _site/data
+          cp data/soorten.json _site/data/
+          # Voorkomt dat GitHub Pages de bestanden door Jekyll haalt.
+          touch _site/.nojekyll
+
+      - name: Controleer dat er geen ontwikkelbestanden meegaan
+        run: |
+          if [ -d _site/tools ] || [ -d _site/scripts ]; then
+            echo "tools/ of scripts/ zit in de publicatie"; exit 1
+          fi
+          test -f _site/index.html
+          test -f _site/data/soorten.json
+          echo "Publicatie bevat $(find _site -type f | wc -l) bestanden"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publiceren:
+    needs: bouwen
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
