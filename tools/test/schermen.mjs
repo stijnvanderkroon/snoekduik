@@ -96,11 +96,12 @@ ok('detail toont attributie', /iNaturalist|Commons/.test(tekst()));
 ok('detail toont verwarpaar', /Wordt verward met/.test(tekst()));
 ok('detail waarschuwt over ongecontroleerde tekst', /niet door een duiker nagekeken/.test(tekst()));
 
-naslag.toonSoort({ id: 'pos' });
-ok('soort zonder tekst toont "nog niet ingevuld"', /Nog niet ingevuld/.test(tekst()));
+naslag.toonSoort({ id: 'winde' }); // heeft wel herkenning maar geen gedragstekst
+ok('ontbrekend veld toont "nog niet ingevuld"', /Nog niet ingevuld/.test(tekst()));
 
 ik.toonGemaakt();
-ok('verantwoording noemt de misgelopen soortnamen', /plantengeslacht/.test(tekst()));
+ok('verantwoording begint bij de AI-herkomst', /volledig met AI gemaakt/i.test(tekst()));
+ok('verantwoording legt de fotoherkomst uit', /iNaturalist/.test(tekst()) && /met de hand/.test(tekst()));
 ok('verantwoording toont fotografenlijst', /fotografen/.test(tekst()));
 
 console.log('== hele sessie doorklikken ==');
