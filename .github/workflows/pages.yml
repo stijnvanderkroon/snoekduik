@@ -3,6 +3,10 @@ name: Publiceer op GitHub Pages
 on:
   push:
     branches: [main]
+  # Ook op pull requests, zodat de tests draaien voordat er iets naar main kan.
+  # Alleen de bouwstap; publiceren gebeurt uitsluitend vanaf main.
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -12,7 +16,7 @@ permissions:
 
 # Eén publicatie tegelijk; een nieuwe push mag een lopende niet afbreken.
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -33,6 +37,11 @@ jobs:
       - name: Logicatests
         run: node tools/test/logica.mjs
 
+      - name: Schermtests
+        run: |
+          npm install --no-save --silent jsdom
+          node tools/test/schermen.mjs
+
       - name: Site samenstellen
         # Alleen wat de site nodig heeft. scripts/ en tools/ zijn ontwikkelhulp
         # en horen niet gepubliceerd te worden.
@@ -47,19 +56,27 @@ jobs:
 
       - name: Controleer dat er geen ontwikkelbestanden meegaan
         run: |
-          if [ -d _site/tools ] || [ -d _site/scripts ]; then
-            echo "tools/ of scripts/ zit in de publicatie"; exit 1
-          fi
+          for pad in tools scripts CLAUDE.md brief.md ontwerp.md soorten.seed.json \
+                     data/fotoProbe.json data/fotoOordelen.json; do
+            if [ -e "_site/$pad" ]; then
+              echo "FOUT: $pad zit in de publicatie"; exit 1
+            fi
+          done
           test -f _site/index.html
           test -f _site/data/soorten.json
           echo "Publicatie bevat $(find _site -type f | wc -l) bestanden"
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Artefact klaarzetten
+        # Alleen nodig als er ook echt gepubliceerd wordt.
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
   publiceren:
     needs: bouwen
+    # Nooit publiceren vanaf een pull request, ook niet vanaf een fork.
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
