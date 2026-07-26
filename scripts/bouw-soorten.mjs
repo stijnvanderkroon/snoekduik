@@ -120,7 +120,14 @@ async function main() {
       gedragBijDuiker: tekst.gedragBijDuiker ?? null,
       seizoen: tekst.seizoen ?? null,
       weetje: tekst.weetje ?? null,
-      onderscheid: tekst.onderscheid ?? null,
+      // Alleen onderscheidtekst voor soorten die ook echt in verwardMet staan.
+      // De rest zou nooit getoond worden; hij blijft in soortteksten.mjs staan
+      // en gaat vanzelf meedoen zodra het paar aan de seed wordt toegevoegd.
+      onderscheid: tekst.onderscheid
+        ? Object.fromEntries(
+          Object.entries(tekst.onderscheid).filter(([ander]) => s.verwardMet.includes(ander)),
+        )
+        : null,
       meldenBij: s.meldenBij ?? tekst.meldenBij ?? null,
       /** false zolang een duiker de tekst niet heeft nagekeken. */
       tekstGecontroleerd: Boolean(tekst.gecontroleerd),
@@ -156,9 +163,9 @@ async function main() {
   const opId = new Map(soorten.map((s) => [s.id, s]));
   const klachten = [];
   for (const s of soorten) {
-    for (const ander of Object.keys(s.onderscheid ?? {})) {
+    for (const ander of Object.keys(TEKSTEN[s.id]?.onderscheid ?? {})) {
       if (!s.verwardMet.includes(ander)) {
-        klachten.push(`${s.id}: onderscheidtekst voor "${ander}" wordt nooit getoond, want die staat niet in verwardMet`);
+        klachten.push(`${s.id}: onderscheidtekst voor "${ander}" is weggelaten, want die staat niet in verwardMet`);
       }
     }
     for (const ander of s.verwardMet) {
