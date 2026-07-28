@@ -13,6 +13,16 @@ export function el(html) {
 export const $ = (sel, wortel = document) => wortel.querySelector(sel);
 export const $$ = (sel, wortel = document) => [...wortel.querySelectorAll(sel)];
 
+/**
+ * Route een foto-URL via de wsrv.nl-proxy: die haalt 'm op, schaalt naar de
+ * opgegeven breedte, zet 'm om naar webp en cachet het resultaat op een CDN.
+ * Dat scheelt vooral op de eerste keer laden, wanneer onze eigen serviceworker
+ * de foto nog niet heeft. Werkt bovendien om hotlink-referer-checks heen omdat
+ * wsrv.nl de foto server-side ophaalt.
+ */
+export const wsrv = (url, breedte) =>
+  url ? `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${breedte}&output=webp&q=82&we=1` : url;
+
 /** Bronvermelding onder een foto. Verplicht bij elke foto in de app. */
 export function attributie(foto) {
   if (!foto) return '';

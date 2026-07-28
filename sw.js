@@ -2,11 +2,11 @@
  * Service worker. Twee strategieen:
  *  - de app zelf: cache-first met achtergrondvernieuwing, zodat starten zonder
  *    bereik werkt aan de waterkant
- *  - foto's van iNaturalist en Commons: cache-first met een limiet, want die
- *    veranderen nooit en zijn het zwaarste onderdeel
+ *  - foto's, geserveerd via de wsrv.nl-proxy (zie app/ui.js): cache-first met
+ *    een limiet, want die veranderen nooit en zijn het zwaarste onderdeel
  */
 
-const VERSIE = 'snoekduik-v5';
+const VERSIE = 'snoekduik-v6';
 const SCHIL = `${VERSIE}-schil`;
 const FOTOS = `${VERSIE}-fotos`;
 const MAX_FOTOS = 400;
@@ -51,7 +51,7 @@ self.addEventListener('fetch', (e) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-  const isFoto = /inaturalist|wikimedia|wikipedia/.test(url.hostname);
+  const isFoto = /inaturalist|wikimedia|wikipedia|wsrv\.nl/.test(url.hostname);
 
   if (isFoto) {
     e.respondWith((async () => {

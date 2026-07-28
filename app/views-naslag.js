@@ -1,7 +1,7 @@
 /** Modules, soortenlijst en soortdetail. Werken zonder leervoortgang: dit is het
  *  deel dat je na een duik gebruikt om op te zoeken wat je gezien hebt. */
 
-import { esc, $, $$, toon, attributie, ongekeurdLabel, ringStijl } from './ui.js';
+import { esc, $, $$, toon, attributie, ongekeurdLabel, ringStijl, wsrv } from './ui.js';
 import { ga } from './router.js';
 import { soorten, soortOpId, modules, streefFotos } from './data.js';
 import { LABELS, heeftQuizFoto, quizFotos } from './sessie.js';
@@ -116,7 +116,7 @@ function tekenLijst() {
       const f = s.fotos[0];
       const box = standVan(s.id).box;
       return `<a class="lijstitem" href="#/soort/${esc(s.id)}">
-        ${f ? `<img src="${esc(f.thumb)}" alt="" referrerpolicy="no-referrer">`
+        ${f ? `<img src="${esc(wsrv(f.thumb, 120))}" alt="" referrerpolicy="no-referrer">`
              : '<div style="width:58px;height:44px;border-radius:8px;background:var(--lijn)"></div>'}
         <div style="flex:1;min-width:0">
           <div class="naam">${esc(s.naamNL)}</div>
@@ -141,7 +141,7 @@ export function toonSoort({ id }) {
   const carrousel = teTonen.length ? `
     <div class="carrousel">
       ${teTonen.map((f) => `<figure>
-        <img src="${esc(f.groot)}" alt="" referrerpolicy="no-referrer" loading="lazy">
+        <img src="${esc(wsrv(f.groot, 480))}" alt="" referrerpolicy="no-referrer" loading="lazy">
         <figcaption class="attrib">${attributie(f)} ${ongekeurdLabel(f)}</figcaption>
       </figure>`).join('')}
     </div>` : '<div class="leeg">Nog geen foto\'s voor deze soort.</div>';
@@ -192,7 +192,7 @@ export function toonSoort({ id }) {
         const regel = s.onderscheid?.[v.id] ?? v.onderscheid?.[s.id] ?? null;
         const f = v.fotos[0];
         return `<a class="lijstitem" href="#/soort/${esc(v.id)}">
-          ${f ? `<img src="${esc(f.thumb)}" alt="" referrerpolicy="no-referrer">` : ''}
+          ${f ? `<img src="${esc(wsrv(f.thumb, 120))}" alt="" referrerpolicy="no-referrer">` : ''}
           <div style="flex:1;min-width:0">
             <div class="naam">${esc(v.naamNL)}</div>
             ${regel ? `<div class="mini">${esc(regel)}</div>` : ''}
