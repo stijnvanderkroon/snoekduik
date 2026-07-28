@@ -39,7 +39,10 @@ button{font:inherit;color:inherit}
 
 #scherm{
   max-width:720px; margin:0 auto;
-  padding:0 1rem calc(var(--tabhoogte) + 1.5rem);
+  /* De tabbalk is zelf --tabhoogte + env(safe-area-inset-bottom) hoog (zie
+     nav.tabs); die extra inset moet hier ook meetellen, anders valt de
+     laatste knop van het scherm er half achter. */
+  padding:0 1rem calc(var(--tabhoogte) + 1.5rem + env(safe-area-inset-bottom));
   /* dvh volgt de echte zichtbare hoogte; vh blijft staan als fallback voor
      browsers zonder dvh-ondersteuning, want een ongeldige waarde wordt genegeerd. */
   min-height:100vh;
@@ -151,7 +154,7 @@ nav.tabs a.aan{color:var(--teal);font-weight:700}
 /* ---- quiz ---- */
 
 body.quiz{background:#0e2420}
-body.quiz #scherm{max-width:560px;padding-bottom:1rem}
+body.quiz #scherm{max-width:560px;padding-bottom:calc(var(--tabhoogte) + 1rem + env(safe-area-inset-bottom))}
 .qbalk{height:5px;background:#ffffff1f;border-radius:3px;margin:.6rem 0;overflow:hidden}
 .qbalk i{display:block;height:100%;background:var(--amber);transition:width .25s}
 .qvraag{color:#dfeee9;font-weight:650;font-size:1.05rem;margin:.4rem 0 .7rem}
