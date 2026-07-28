@@ -1,6 +1,6 @@
 /** Levenslijst, instellingen en de verantwoordingspagina. */
 
-import { esc, $, toon, datumNL, bevestig, alineas } from './ui.js';
+import { esc, $, toon, datumNL, bevestig, alineas, wsrv } from './ui.js';
 import { OVER_MIJ, OVER_MIJ_KOP } from './over-mij.js';
 import { ga } from './router.js';
 import { soorten, soortOpId, streefFotos, statistiek } from './data.js';
@@ -39,7 +39,7 @@ export function toonLevenslijst() {
           const s = soortOpId(w.soortId);
           const f = s?.fotos[0];
           return `<div class="lijstitem">
-            ${f ? `<img src="${esc(f.thumb)}" alt="" referrerpolicy="no-referrer">` : ''}
+            ${f ? `<img src="${esc(wsrv(f.thumb, 120))}" alt="" referrerpolicy="no-referrer">` : ''}
             <div style="flex:1;min-width:0">
               <div class="naam">${esc(s?.naamNL ?? w.soortId)}</div>
               <div class="mini">${esc(w.datum)}${w.notitie ? ` · ${esc(w.notitie)}` : ''}</div>

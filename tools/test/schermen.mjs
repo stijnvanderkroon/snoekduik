@@ -314,9 +314,15 @@ console.log("== feedbackfotos komen uit de vraag ==");
 {
   // Zelfde opname, ander formaat: de vraag toont large of 1280px, het
   // feedbackscherm medium of 330px. Vergelijk dus op identiteit, niet op URL.
-  const zelfdeFoto = (src) => String(src)
-    .replace(/\/(medium|large|original|square|small)\.(jpe?g|png)/i, "/X")
-    .replace(/\/\d+px-/, "/Xpx-");
+  // De src wijst via de wsrv.nl-proxy naar de bron-URL (?url=...); die pak je
+  // eerst uit, anders vergelijk je proxyparameters (breedte) in plaats van foto's.
+  const zelfdeFoto = (src) => {
+    const bronMatch = /[?&]url=([^&]+)/.exec(String(src));
+    const bron = bronMatch ? decodeURIComponent(bronMatch[1]) : String(src);
+    return bron
+      .replace(/\/(medium|large|original|square|small)\.(jpe?g|png)/i, "/X")
+      .replace(/\/\d+px-/, "/Xpx-");
+  };
   const zichtbaar = () => new Set([...window.document.querySelectorAll("#scherm img")]
     .map((i) => zelfdeFoto(i.getAttribute("src"))));
 

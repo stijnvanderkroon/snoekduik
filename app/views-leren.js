@@ -1,6 +1,6 @@
 /** Startscherm, de sessie zelf en de afsluiting. */
 
-import { esc, el, $, toon, attributie, ongekeurdLabel } from './ui.js';
+import { esc, el, $, toon, attributie, ongekeurdLabel, wsrv } from './ui.js';
 import { ga } from './router.js';
 import { soorten, soortOpId } from './data.js';
 import { bouwSessie, bouwToets, watStaatKlaar, quizFotos, leerFoto, heeftQuizFoto, LABELS } from './sessie.js';
@@ -147,7 +147,7 @@ function tekenLeerkaart(item) {
   toon(`
     ${voortgangsbalk()}
     <div class="qvraag">Nieuwe soort</div>
-    <div class="qbeeld">${foto ? `<img src="${esc(foto.groot)}" alt="" referrerpolicy="no-referrer">` : ''}</div>
+    <div class="qbeeld">${foto ? `<img src="${esc(wsrv(foto.groot, 480))}" alt="" referrerpolicy="no-referrer">` : ''}</div>
     <div class="qattrib">${attributie(foto)} ${ongekeurdLabel(foto)}</div>
 
     <div class="kaart">
@@ -185,7 +185,7 @@ function fotoBlok(vraag) {
     : '';
   return `
     <div class="qbeeld ${uit ? 'uitsnede' : ''}" style="${stijl}">
-      <img src="${esc(vraag.foto.groot)}" alt="" referrerpolicy="no-referrer">
+      <img src="${esc(wsrv(vraag.foto.groot, 480))}" alt="" referrerpolicy="no-referrer">
     </div>`;
 }
 
@@ -195,7 +195,7 @@ function tekenVraag(vraag) {
   const opties = vraag.type === 'naamFoto'
     ? `<div class="qopties tweekolom">${vraag.opties.map((o) => `
         <button class="optie foto" data-id="${esc(o.id)}">
-          <img src="${esc(o.foto.thumb)}" alt="" referrerpolicy="no-referrer"></button>`).join('')}</div>`
+          <img src="${esc(wsrv(o.foto.thumb, 400))}" alt="" referrerpolicy="no-referrer"></button>`).join('')}</div>`
     : `<div class="qopties ${vraag.opties.length === 2 ? 'tweekolom' : ''}">
         ${vraag.opties.map((o) => `<button class="optie" data-id="${esc(o.id)}">${esc(o.label)}</button>`).join('')}
        </div>`;
@@ -257,9 +257,9 @@ function toonFeedback(vraag, gekozenId, goed, doel, gekozenSoort) {
 
   const vergelijking = !goed && gekozenSoort && foutFoto && !zelfdeFoto
     ? `<div class="verg">
-         <figure><img src="${esc(foutFoto.thumb)}" alt="" referrerpolicy="no-referrer">
+         <figure><img src="${esc(wsrv(foutFoto.thumb, 260))}" alt="" referrerpolicy="no-referrer">
            <figcaption class="jouw">Jij koos: ${esc(gekozenSoort.naamNL.toLowerCase())}</figcaption></figure>
-         <figure><img src="${esc(doelFoto.thumb)}" alt="" referrerpolicy="no-referrer">
+         <figure><img src="${esc(wsrv(doelFoto.thumb, 260))}" alt="" referrerpolicy="no-referrer">
            <figcaption class="juist">Juist: ${esc(doel.naamNL.toLowerCase())}</figcaption></figure>
        </div>`
     : '';
@@ -315,7 +315,7 @@ function toonKlaar() {
         const s = soortOpId(id);
         const f = s.fotos[0];
         return `<a class="lijstitem" href="#/soort/${esc(id)}">
-          ${f ? `<img src="${esc(f.thumb)}" alt="" referrerpolicy="no-referrer">` : ''}
+          ${f ? `<img src="${esc(wsrv(f.thumb, 120))}" alt="" referrerpolicy="no-referrer">` : ''}
           <div style="flex:1"><div class="naam">${esc(s.naamNL)}</div></div>
           <span class="chip">boekje ${standVan(id).box}</span></a>`;
       }).join('')}
