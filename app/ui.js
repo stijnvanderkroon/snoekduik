@@ -19,9 +19,17 @@ export const $$ = (sel, wortel = document) => [...wortel.querySelectorAll(sel)];
  * Dat scheelt vooral op de eerste keer laden, wanneer onze eigen serviceworker
  * de foto nog niet heeft. Werkt bovendien om hotlink-referer-checks heen omdat
  * wsrv.nl de foto server-side ophaalt.
+ *
+ * Wikimedia beantwoordt verzoeken van wsrv.nl zelf regelmatig met 429 (te
+ * veel verzoeken vanaf wsrv.nl's adressen), wat wsrv.nl aan ons doorgeeft als
+ * een 404. iNaturalist heeft dat probleem niet. Wikimedia-foto's dus
+ * rechtstreeks laten lopen, alleen iNaturalist via de proxy.
  */
-export const wsrv = (url, breedte) =>
-  url ? `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${breedte}&output=webp&q=82&we=1` : url;
+export const wsrv = (url, breedte) => {
+  if (!url) return url;
+  if (/wikimedia|wikipedia/.test(url)) return url;
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${breedte}&output=webp&q=82&we=1`;
+};
 
 /** Bronvermelding onder een foto. Verplicht bij elke foto in de app. */
 export function attributie(foto) {
